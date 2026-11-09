@@ -1,60 +1,205 @@
 # Nusa UI
 
-Nusa UI is a reusable, mobile-first component layer built on Tailwind CSS 3. It is intended as a starting design system for Laravel Blade, PHP, and frontend projects.
+A reusable, responsive and customizable UI component framework built with Tailwind CSS 3.
+
+Nusa UI provides semantic component classes for building modern websites, dashboards, e-commerce applications and SaaS products.
+
+## Features
+
+- Mobile-first responsive design
+- Reusable semantic CSS classes
+- Tailwind CSS 3.4
+- Customizable design tokens
+- Light and dark theme foundation
+- Responsive navigation and layouts
+- Form components
+- Dashboard components
+- Website sections
+- Interactive documentation
+- Component preview and source code examples
+- Copy code functionality
 
 ## Requirements
+
 - Node.js 18+
 - npm
 - Tailwind CSS 3.4
 
 ## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/meigiyanto/nusa-ui.git
+cd nusa-ui
+```
+
+Install dependencies:
+
 ```bash
 npm install
-npm run build
 ```
-The compiled stylesheet is generated at `dist/nusa-ui.css`.
 
-For development:
+## Development
+
+Start Tailwind CSS development mode:
+
 ```bash
 npm run dev
 ```
 
-Include the compiled stylesheet and optional interaction helpers:
+Build production CSS:
+
+```bash
+npm run build
+```
+
+The compiled stylesheet is generated at:
+
+```text
+dist/nusa-ui.css
+```
+
+## Documentation
+
+Nusa UI includes interactive component documentation.
+
+Open:
+
+```text
+docs/index.html
+```
+
+The documentation includes:
+
+- Component navigation
+- Component search
+- Live component previews
+- HTML source examples
+- Copy code functionality
+- Responsive documentation layout
+
+For local development, serve the project directory using a local web server.
+
+## Basic Usage
+
+Include the compiled stylesheet:
+
 ```html
 <link rel="stylesheet" href="/dist/nusa-ui.css">
+```
+
+Include JavaScript helpers when needed:
+
+```html
 <script src="/src/js/nusa-ui.js" defer></script>
 ```
 
-## Laravel integration
-1. Copy `src/css`, `src/js`, `tailwind.config.js`, and PostCSS configuration into your Laravel project, or install this package as a local dependency.
-2. Add Blade paths to `content` in `tailwind.config.js`, for example `./resources/views/**/*.blade.php`.
-3. Import `src/css/app.css` into your Vite entry point and run `npm run build` through your Laravel/Vite workflow.
-4. Keep the `@tailwind` directives before component imports. Do not load a second prebuilt copy of the stylesheet if Vite already compiles it.
+Example:
 
-## Naming conventions
-- Buttons: `btn`, `btn-primary`, `btn-outline`, `btn-sm`, `btn-lg`
-- Layout: `container`, `section`, `content-grid`, `sidebar-layout`
-- Navigation: `site-header`, `navbar`, `nav-link`, `site-footer`
-- Forms: `form-group`, `form-label`, `form-input`, `form-select`, `form-textarea`
-- Feedback: `alert`, `badge`, `progress`
-- Data: `card`, `stat-card`, `table-wrap`, `table`, `pagination`
-- Sections: `hero`, `feature-grid`, `pricing-grid`, `testimonial`, `cta`
-
-## Dark mode
-Dark mode uses Tailwind's `class` strategy. Add `dark` to the root `<html>` element:
 ```html
-<html class="dark">
+<button class="btn btn-primary">
+  Get Started
+</button>
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="heading-5">Card Title</h3>
+  </div>
+  <div class="card-body">
+    <p>Card content.</p>
+  </div>
+</div>
 ```
-The framework's token-based surfaces and text colors adapt automatically. Some status colors and utility examples are intentionally light-themed and can be extended for a project's visual identity.
 
-## Responsive breakpoints
-Tailwind defaults: `sm` 640px, `md` 768px, `lg` 1024px, `xl` 1280px, `2xl` 1536px.
+## Laravel Integration
 
-## Accessibility notes
-Use real buttons for actions, links for navigation, labels connected to inputs, and ARIA attributes for custom controls. The included JavaScript is intentionally small; production applications should add focus trapping and focus restoration to modal dialogs and implement full keyboard patterns for complex widgets.
+1. Install or copy the Nusa UI source files into your Laravel project.
+2. Configure Tailwind content paths to include Blade templates.
+3. Import the Nusa UI stylesheet into your Vite entry point.
+4. Compile the assets using Laravel Vite.
+5. Use Nusa UI semantic classes in Blade templates.
 
-## Customization
-Edit the CSS variables in `src/css/foundation.css` to change brand colors, surfaces, text, borders, radius and shadow. Extend Tailwind theme tokens in `tailwind.config.js` for project-specific utilities.
+Example content path:
 
-## Current scope
-This starter includes foundational typography, layout, navigation, buttons, cards, forms, feedback, tables, badges, pagination, modal styling, tabs, accordion styling, landing-page sections, and a small set of interaction helpers. It is a foundation to evolve—not a replacement for a full accessibility-tested component library.
+```js
+content: [
+  "./resources/**/*.blade.php",
+  "./resources/**/*.js"
+]
+```
+
+## Responsive Breakpoints
+
+| Breakpoint | Minimum width |
+|---|---:|
+| sm | 640px |
+| md | 768px |
+| lg | 1024px |
+| xl | 1280px |
+| 2xl | 1536px |
+
+## Component Categories
+
+### Foundation
+- Typography
+- Layout
+- Containers
+- Grid
+- Surfaces
+
+### Components
+- Buttons
+- Cards
+- Badges
+- Alerts
+- Avatars
+- Progress
+- Tables
+- Pagination
+- Breadcrumbs
+- Skeleton
+- Empty states
+
+### Forms
+- Inputs
+- Selects
+- Textareas
+- Checkboxes
+- Radio buttons
+- Switch styling
+- File inputs
+- Input groups
+
+### Navigation
+- Header
+- Navbar
+- Sidebar
+- Footer
+- Dropdown styling
+
+### Website Sections
+- Hero
+- Features
+- Pricing
+- Testimonials
+- Call to action
+
+### Advanced
+- Modal styling
+- Tabs styling
+- Accordion styling
+- Authentication layouts
+
+## Roadmap
+
+- [x] v1.0 - Initial component foundation
+- [ ] v1.1 - Interactive documentation
+- [ ] v1.2 - Complete dark mode and theme customization
+- [ ] v1.3 - Advanced interactive components
+- [ ] v1.4 - Dashboard, e-commerce and SaaS components
+- [ ] v2.0 - Official documentation website and portfolio showcase
+
+## License
+
+MIT License
