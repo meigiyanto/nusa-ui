@@ -1,7 +1,7 @@
 /**
- * Nusa UI JavaScript
- * Version: 1.1.0
- */
+* Nusa UI JavaScript
+* Version: 1.1.0
+*/
 
 document.addEventListener("DOMContentLoaded", () => {
     /* Mobile Navigation */
@@ -82,31 +82,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.querySelector("#docs-menu-toggle");
     const sidebar = document.querySelector("#docs-sidebar");
     const overlay = document.querySelector("#docs-overlay");
+    const desktopBreakpoint = window.matchMedia("(min-width: 1024px)");
 
     const closeSidebar = () => {
         sidebar?.classList.remove("open");
-
         if (overlay) overlay.hidden = true;
-
         menuButton?.setAttribute("aria-expanded", "false");
+    };
+
+    const openSidebar = () => {
+        if (!sidebar || desktopBreakpoint.matches) return;
+
+        sidebar.classList.add("open");
+        if (overlay) overlay.hidden = false;
+        menuButton?.setAttribute("aria-expanded", "true");
     };
 
     if (menuButton && sidebar) {
         menuButton.addEventListener("click", () => {
-            const expanded = sidebar.classList.toggle("open");
-
-            menuButton.setAttribute("aria-expanded", String(expanded));
-
-            if (overlay) overlay.hidden = !expanded;
+            const isOpen = sidebar.classList.contains("open");
+            if (isOpen) closeSidebar();
+            else openSidebar();
         });
+
+        overlay?.addEventListener("click",
+            closeSidebar);
+
+        sidebar.querySelectorAll(".docs-nav-link").forEach((link) => {
+            link.addEventListener("click", closeSidebar);
+        });
+
+        document.addEventListener("keydown",
+            (event) => {
+                if (event.key === "Escape" && sidebar.classList.contains("open")) {
+                    closeSidebar();
+                    menuButton.focus();
+                }
+            });
+
+        desktopBreakpoint.addEventListener("change",
+            (event) => {
+                if (event.matches) closeSidebar();
+            });
     }
-
-    overlay?.addEventListener("click",
-        closeSidebar);
-
-    sidebar?.querySelectorAll(".docs-nav-link").forEach((link) => {
-        link.addEventListener("click", closeSidebar);
-    });
 
     /* Documentation: Search */
     const searchInput = document.querySelector("#docs-search");

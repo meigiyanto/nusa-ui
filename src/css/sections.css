@@ -1,21 +1,93 @@
 @layer components {
-  .hero { @apply relative overflow-hidden py-16 sm:py-20 lg:py-28; }
-  .hero-inner { @apply mx-auto max-w-4xl text-center; }
-  .hero-actions { @apply mt-8 flex flex-col justify-center gap-3 sm:flex-row; }
-  .feature-grid { @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3; }
-  .feature-card { @apply card p-6 transition hover:-translate-y-1 hover:shadow-lg; }
-  .feature-icon { @apply mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-xl text-blue-700; }
-  .testimonial { @apply card p-6 sm:p-8; }
-  .pricing-grid { @apply grid grid-cols-1 gap-6 lg:grid-cols-3; }
-  .pricing-card { @apply card flex flex-col p-6 sm:p-8; }
-  .pricing-card-featured { @apply border-2 border-blue-600 shadow-lg; }
-  .pricing-price { @apply my-5 text-4xl font-bold tracking-tight; color: rgb(var(--ui-heading)); }
-  .cta { @apply rounded-2xl bg-blue-700 px-6 py-12 text-center text-white sm:px-12 sm:py-16; }
-  .cta-title { @apply text-3xl font-bold tracking-tight sm:text-4xl; }
-  .cta-description { @apply mx-auto mt-4 max-w-2xl text-blue-100; }
-  .media-frame { @apply overflow-hidden rounded-xl bg-slate-100; }
-  .media-cover { @apply h-full w-full object-cover; }
-  .figure-caption { @apply mt-2 text-center text-sm; color: rgb(var(--ui-subtle)); }
-  .auth-layout { @apply flex min-h-screen items-center justify-center px-4 py-12; }
-  .auth-card { @apply card w-full max-w-md p-6 sm:p-8; }
+    .hero {
+        @apply relative overflow-hidden py-16;
+    }
+    .hero-inner {
+        @apply mx-auto max-w-4xl text-center;
+    }
+    .hero-actions {
+        @apply mt-8 flex flex-col justify-center gap-3;
+    }
+    .feature-grid {
+        @apply grid grid-cols-1 gap-6;
+    }
+    .feature-card {
+        @apply card p-6 transition hover: -translate-y-1 hover: shadow-lg;
+    }
+    .feature-icon {
+        @apply mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-xl text-blue-700;
+    }
+    .testimonial {
+        @apply card p-6;
+    }
+    .pricing-grid {
+        @apply grid grid-cols-1 gap-6;
+    }
+    .pricing-card {
+        @apply card flex flex-col p-6;
+    }
+    .pricing-card-featured {
+        @apply border-2 border-blue-600 shadow-lg;
+    }
+    .pricing-price {
+        @apply my-5 text-4xl font-bold tracking-tight;
+        color: rgb(var(--ui-heading));
+    }
+    .cta {
+        @apply rounded-2xl bg-blue-700 px-6 py-12 text-center text-white;
+    }
+    .cta-title {
+        @apply text-3xl font-bold tracking-tight;
+    }
+    .cta-description {
+        @apply mx-auto mt-4 max-w-2xl text-blue-100;
+    }
+    .media-frame {
+        @apply overflow-hidden rounded-xl bg-slate-100;
+    }
+    .media-cover {
+        @apply h-full w-full object-cover;
+    }
+    .figure-caption {
+        @apply mt-2 text-center text-sm;
+        color: rgb(var(--ui-subtle));
+    }
+    .auth-layout {
+        @apply flex min-h-screen items-center justify-center px-4 py-12;
+    }
+    .auth-card {
+        @apply card w-full max-w-md p-6;
+    }
+}
+
+@media (min-width: 640px) {
+    .hero {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    .hero-actions {
+        flex-direction: row;
+    }
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .testimonial, .pricing-card, .auth-card {
+        padding: 2rem;
+    }
+    .cta {
+        padding: 4rem 3rem;
+    }
+    .cta-title {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+    .feature-grid, .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }

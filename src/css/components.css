@@ -1,67 +1,220 @@
 @layer components {
-  .btn { @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition duration-150 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50; }
-  .btn-primary { @apply bg-blue-600 text-white shadow-sm hover:bg-blue-700 focus-visible:ring-blue-500; }
-  .btn-secondary { @apply bg-slate-100 text-slate-800 hover:bg-slate-200 focus-visible:ring-slate-400; }
-  .btn-outline { @apply border bg-transparent hover:bg-slate-50 focus-visible:ring-blue-500; border-color: rgb(var(--ui-border)); color: rgb(var(--ui-heading)); }
-  .btn-ghost { @apply bg-transparent text-slate-700 hover:bg-slate-100 focus-visible:ring-slate-400; }
-  .btn-danger { @apply bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500; }
-  .btn-success { @apply bg-green-600 text-white hover:bg-green-700 focus-visible:ring-green-500; }
-  .btn-link { @apply min-h-0 p-0 text-blue-600 underline-offset-4 hover:underline; }
-  .btn-sm { @apply min-h-8 rounded-md px-3 py-1.5 text-xs; }
-  .btn-lg { @apply min-h-12 rounded-xl px-6 py-3 text-base; }
-  .btn-icon { @apply h-10 w-10 rounded-lg p-0; }
-  .btn-block { @apply flex w-full; }
-  .card { @apply overflow-hidden rounded-xl border shadow-sm; background: rgb(var(--ui-surface)); border-color: rgb(var(--ui-border)); }
-  .card-header { @apply flex items-center justify-between gap-4 border-b px-5 py-4 sm:px-6; border-color: rgb(var(--ui-border)); }
-  .card-body { @apply p-5 sm:p-6; }
-  .card-footer { @apply border-t px-5 py-4 sm:px-6; border-color: rgb(var(--ui-border)); }
-  .card-hover { @apply transition duration-200 hover:-translate-y-1 hover:shadow-lg; }
-  .badge { @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold; }
-  .badge-primary { @apply bg-blue-100 text-blue-800; }
-  .badge-secondary { @apply bg-slate-100 text-slate-700; }
-  .badge-success { @apply bg-green-100 text-green-800; }
-  .badge-warning { @apply bg-amber-100 text-amber-800; }
-  .badge-danger { @apply bg-red-100 text-red-800; }
-  .badge-info { @apply bg-sky-100 text-sky-800; }
-  .alert { @apply flex gap-3 rounded-xl border p-4 text-sm; }
-  .alert-info { @apply border-sky-200 bg-sky-50 text-sky-900; }
-  .alert-success { @apply border-green-200 bg-green-50 text-green-900; }
-  .alert-warning { @apply border-amber-200 bg-amber-50 text-amber-900; }
-  .alert-danger { @apply border-red-200 bg-red-50 text-red-900; }
-  .avatar { @apply inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-200 font-semibold text-slate-700; }
-  .avatar-sm { @apply h-8 w-8 text-xs; }
-  .avatar-lg { @apply h-14 w-14 text-lg; }
-  .stat-card { @apply card p-5; }
-  .stat-label { @apply text-sm font-medium; color: rgb(var(--ui-subtle)); }
-  .stat-value { @apply mt-2 text-3xl font-bold tracking-tight; color: rgb(var(--ui-heading)); }
-  .progress { @apply h-2 w-full overflow-hidden rounded-full bg-slate-200; }
-  .progress-bar { @apply h-full rounded-full bg-blue-600 transition-all duration-300; }
-  .skeleton { @apply animate-pulse rounded bg-slate-200; }
-  .empty-state { @apply flex flex-col items-center justify-center px-6 py-12 text-center; }
-  .empty-state-title { @apply mt-4 text-lg font-semibold; color: rgb(var(--ui-heading)); }
-  .table-wrap { @apply w-full overflow-x-auto rounded-xl border; border-color: rgb(var(--ui-border)); }
-  .table { @apply w-full min-w-[640px] border-collapse text-left text-sm; }
-  .table thead { @apply bg-slate-50 text-xs uppercase tracking-wide text-slate-500; }
-  .table th { @apply px-4 py-3 font-semibold; }
-  .table td { @apply border-t px-4 py-3; border-color: rgb(var(--ui-border)); }
-  .table tbody tr { @apply transition-colors hover:bg-slate-50; }
-  .pagination { @apply flex flex-wrap items-center gap-1; }
-  .page-link { @apply inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-3 text-sm hover:bg-slate-100; }
-  .page-link.active { @apply bg-blue-600 font-semibold text-white hover:bg-blue-700; }
-  .breadcrumb { @apply flex flex-wrap items-center gap-2 text-sm; color: rgb(var(--ui-subtle)); }
-  .breadcrumb a { @apply hover:text-blue-600; }
-  .breadcrumb-current { @apply font-medium; color: rgb(var(--ui-heading)); }
-  .dropdown-menu { @apply z-50 min-w-48 rounded-xl border p-1 shadow-lg; background: rgb(var(--ui-surface)); border-color: rgb(var(--ui-border)); }
-  .dropdown-item { @apply block rounded-lg px-3 py-2 text-sm hover:bg-slate-100; color: rgb(var(--ui-text)); }
-  .modal-backdrop { @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4; }
-  .modal-panel { @apply max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl shadow-2xl; background: rgb(var(--ui-surface)); }
-  .modal-header { @apply flex items-center justify-between border-b px-5 py-4; border-color: rgb(var(--ui-border)); }
-  .modal-body { @apply p-5; }
-  .modal-footer { @apply flex flex-col-reverse justify-end gap-2 border-t px-5 py-4 sm:flex-row; border-color: rgb(var(--ui-border)); }
-  .tabs { @apply flex flex-wrap gap-1 border-b; border-color: rgb(var(--ui-border)); }
-  .tab { @apply border-b-2 border-transparent px-4 py-3 text-sm font-medium text-slate-500 hover:text-slate-800; }
-  .tab.active { @apply border-blue-600 text-blue-600; }
-  .accordion-item { @apply border-b; border-color: rgb(var(--ui-border)); }
-  .accordion-trigger { @apply flex w-full items-center justify-between py-4 text-left font-medium; color: rgb(var(--ui-heading)); }
-  .accordion-panel { @apply pb-4 text-sm leading-6; color: rgb(var(--ui-subtle)); }
+    .btn {
+        @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition duration-150 ease-in-out focus-visible: outline-none focus-visible: ring-2 focus-visible: ring-offset-2 disabled: pointer-events-none disabled: opacity-50;
+    }
+    .btn-primary {
+        @apply bg-blue-600 text-white shadow-sm hover: bg-blue-700 focus-visible: ring-blue-500;
+    }
+    .btn-secondary {
+        @apply bg-slate-100 text-slate-800 hover: bg-slate-200 focus-visible: ring-slate-400;
+    }
+    .btn-outline {
+        @apply border bg-transparent hover: bg-slate-50 focus-visible: ring-blue-500;
+        border-color: rgb(var(--ui-border));
+        color: rgb(var(--ui-heading));
+    }
+    .btn-ghost {
+        @apply bg-transparent text-slate-700 hover: bg-slate-100 focus-visible: ring-slate-400;
+    }
+    .btn-danger {
+        @apply bg-red-600 text-white hover: bg-red-700 focus-visible: ring-red-500;
+    }
+    .btn-success {
+        @apply bg-green-600 text-white hover: bg-green-700 focus-visible: ring-green-500;
+    }
+    .btn-link {
+        @apply min-h-0 p-0 text-blue-600 underline-offset-4 hover: underline;
+    }
+    .btn-sm {
+        @apply min-h-8 rounded-md px-3 py-1.5 text-xs;
+    }
+    .btn-lg {
+        @apply min-h-12 rounded-xl px-6 py-3 text-base;
+    }
+    .btn-icon {
+        @apply h-10 w-10 rounded-lg p-0;
+    }
+    .btn-block {
+        @apply flex w-full;
+    }
+    .card {
+        @apply overflow-hidden rounded-xl border shadow-sm;
+        background: rgb(var(--ui-surface));
+        border-color: rgb(var(--ui-border));
+    }
+
+    @media (min-width: 640px) {
+        .card-header, .card-footer {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .modal-footer {
+            flex-direction: row;
+        }
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
+    }
+    .badge-primary {
+        @apply bg-blue-100 text-blue-800;
+    }
+    .badge-secondary {
+        @apply bg-slate-100 text-slate-700;
+    }
+    .badge-success {
+        @apply bg-green-100 text-green-800;
+    }
+    .badge-warning {
+        @apply bg-amber-100 text-amber-800;
+    }
+    .badge-danger {
+        @apply bg-red-100 text-red-800;
+    }
+    .badge-info {
+        @apply bg-sky-100 text-sky-800;
+    }
+    .alert {
+        @apply flex gap-3 rounded-xl border p-4 text-sm;
+    }
+    .alert-info {
+        @apply border-sky-200 bg-sky-50 text-sky-900;
+    }
+    .alert-success {
+        @apply border-green-200 bg-green-50 text-green-900;
+    }
+    .alert-warning {
+        @apply border-amber-200 bg-amber-50 text-amber-900;
+    }
+    .alert-danger {
+        @apply border-red-200 bg-red-50 text-red-900;
+    }
+    .avatar {
+        @apply inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-200 font-semibold text-slate-700;
+    }
+    .avatar-sm {
+        @apply h-8 w-8 text-xs;
+    }
+    .avatar-lg {
+        @apply h-14 w-14 text-lg;
+    }
+    .stat-card {
+        @apply card p-5;
+    }
+    .stat-label {
+        @apply text-sm font-medium;
+        color: rgb(var(--ui-subtle));
+    }
+    .stat-value {
+        @apply mt-2 text-3xl font-bold tracking-tight;
+        color: rgb(var(--ui-heading));
+    }
+    .progress {
+        @apply h-2 w-full overflow-hidden rounded-full bg-slate-200;
+    }
+    .progress-bar {
+        @apply h-full rounded-full bg-blue-600 transition-all duration-300;
+    }
+    .skeleton {
+        @apply animate-pulse rounded bg-slate-200;
+    }
+    .empty-state {
+        @apply flex flex-col items-center justify-center px-6 py-12 text-center;
+    }
+    .empty-state-title {
+        @apply mt-4 text-lg font-semibold;
+        color: rgb(var(--ui-heading));
+    }
+    .table-wrap {
+        @apply w-full overflow-x-auto rounded-xl border;
+        border-color: rgb(var(--ui-border));
+    }
+    .table {
+        @apply w-full min-w-[640px] border-collapse text-left text-sm;
+    }
+    .table thead {
+        @apply bg-slate-50 text-xs uppercase tracking-wide text-slate-500;
+    }
+    .table th {
+        @apply px-4 py-3 font-semibold;
+    }
+    .table td {
+        @apply border-t px-4 py-3;
+        border-color: rgb(var(--ui-border));
+    }
+    .table tbody tr {
+        @apply transition-colors hover: bg-slate-50;
+    }
+    .pagination {
+        @apply flex flex-wrap items-center gap-1;
+    }
+    .page-link {
+        @apply inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-3 text-sm hover: bg-slate-100;
+    }
+    .page-link.active {
+        @apply bg-blue-600 font-semibold text-white hover: bg-blue-700;
+    }
+    .breadcrumb {
+        @apply flex flex-wrap items-center gap-2 text-sm;
+        color: rgb(var(--ui-subtle));
+    }
+    .breadcrumb a {
+        @apply hover: text-blue-600;
+    }
+    .breadcrumb-current {
+        @apply font-medium;
+        color: rgb(var(--ui-heading));
+    }
+    .dropdown-menu {
+        @apply z-50 min-w-48 rounded-xl border p-1 shadow-lg;
+        background: rgb(var(--ui-surface));
+        border-color: rgb(var(--ui-border));
+    }
+    .dropdown-item {
+        @apply block rounded-lg px-3 py-2 text-sm hover: bg-slate-100;
+        color: rgb(var(--ui-text));
+    }
+    .modal-backdrop {
+        @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4;
+    }
+    .modal-panel {
+        @apply max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl shadow-2xl;
+        background: rgb(var(--ui-surface));
+    }
+    .modal-header {
+        @apply flex items-center justify-between border-b px-5 py-4;
+        border-color: rgb(var(--ui-border));
+    }
+    .modal-body {
+        @apply p-5;
+    }
+    .modal-footer {
+        @apply flex flex-col-reverse justify-end gap-2 border-t px-5 py-4 sm: flex-row;
+        border-color: rgb(var(--ui-border));
+    }
+    .tabs {
+        @apply flex flex-wrap gap-1 border-b;
+        border-color: rgb(var(--ui-border));
+    }
+    .tab {
+        @apply border-b-2 border-transparent px-4 py-3 text-sm font-medium text-slate-500 hover: text-slate-800;
+    }
+    .tab.active {
+        @apply border-blue-600 text-blue-600;
+    }
+    .accordion-item {
+        @apply border-b;
+        border-color: rgb(var(--ui-border));
+    }
+    .accordion-trigger {
+        @apply flex w-full items-center justify-between py-4 text-left font-medium;
+        color: rgb(var(--ui-heading));
+    }
+    .accordion-panel {
+        @apply pb-4 text-sm leading-6;
+        color: rgb(var(--ui-subtle));
+    }
 }
