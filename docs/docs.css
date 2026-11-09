@@ -1,163 +1,200 @@
 @layer components {
-    .docs-layout {
-        @apply min-h-screen;
-    }
+  .docs-layout {
+    @apply min-h-screen;
+  }
 
-    .docs-header {
-        @apply sticky top-0 z-40 flex h-16 items-center justify-between border-b px-4 backdrop-blur sm: px-6;
-        background: rgb(var(--ui-surface) / .95);
-        border-color: rgb(var(--ui-border));
-    }
+  .docs-header {
+    @apply sticky top-0 z-40 flex h-16 items-center justify-between border-b px-4 backdrop-blur sm:px-6;
+    background: rgb(var(--ui-surface) / .95);
+    border-color: rgb(var(--ui-border));
+  }
 
-    .docs-brand {
-        @apply text-xl font-bold tracking-tight;
-        color: rgb(var(--ui-heading));
-    }
+  .docs-brand {
+    @apply text-xl font-bold tracking-tight;
+    color: rgb(var(--ui-heading));
+  }
 
-    .docs-sidebar {
-        @apply fixed bottom-0 left-0 top-16 z-30 w-72 -translate-x-full overflow-y-auto border-r p-5 transition-transform duration-200 lg: sticky lg: top-16 lg: h-[calc(100vh-4rem)] lg: translate-x-0;
-        background: rgb(var(--ui-surface));
-        border-color: rgb(var(--ui-border));
-    }
+  .docs-sidebar {
+    @apply fixed bottom-0 left-0 top-16 z-30 w-72 -translate-x-full overflow-y-auto border-r p-5 transition-transform duration-200;
+    background: rgb(var(--ui-surface));
+    border-color: rgb(var(--ui-border));
+  }
 
-    .docs-sidebar.open {
-        @apply translate-x-0;
-    }
+  .docs-sidebar.open {
+    @apply translate-x-0;
+  }
 
-    .docs-nav-group {
-        @apply mb-7;
-    }
+  .docs-nav-group {
+    @apply mb-7;
+  }
 
-    .docs-nav-title {
-        @apply mb-2 px-3 text-xs font-bold uppercase tracking-wider;
-        color: rgb(var(--ui-subtle));
-    }
+  .docs-nav-title {
+    @apply mb-2 px-3 text-xs font-bold uppercase tracking-wider;
+    color: rgb(var(--ui-subtle));
+  }
 
-    .docs-nav-link {
-        @apply block rounded-lg px-3 py-2 text-sm font-medium transition;
-        color: rgb(var(--ui-subtle));
-    }
+  .docs-nav-link {
+    @apply block rounded-lg px-3 py-2 text-sm font-medium transition;
+    color: rgb(var(--ui-subtle));
+  }
 
-    .docs-nav-link:hover,
-    .docs-nav-link.active {
-        @apply bg-blue-50 text-blue-700;
-    }
+  .docs-nav-link:hover,
+  .docs-nav-link.active {
+    @apply bg-blue-50 text-blue-700;
+  }
 
-    .docs-main {
-        @apply min-w-0 flex-1 px-4 py-8 sm: px-6 lg: px-10 lg: py-12;
-    }
+  .docs-main {
+    @apply min-w-0 flex-1 px-4 py-8 lg:py-12;
+  }
 
-    .docs-content {
-        @apply mx-auto max-w-5xl;
-    }
+  .docs-content {
+    @apply mx-auto max-w-5xl;
+  }
 
-    .docs-section {
-        @apply mb-16 scroll-mt-24;
-    }
+  .docs-section {
+    @apply mb-16 scroll-mt-24;
+  }
 
-    .docs-section-header {
-        @apply mb-7 border-b pb-5;
-        border-color: rgb(var(--ui-border));
-    }
+  .docs-section-header {
+    @apply mb-7 border-b pb-5;
+    border-color: rgb(var(--ui-border));
+  }
 
-    .docs-section-title {
-        @apply text-2xl font-bold tracking-tight sm: text-3xl;
-        color: rgb(var(--ui-heading));
-    }
+  .docs-section-title {
+    @apply text-2xl font-bold tracking-tight;
+    color: rgb(var(--ui-heading));
+  }
 
-    .docs-section-description {
-        @apply mt-2 text-sm leading-6;
-        color: rgb(var(--ui-subtle));
-    }
+  .docs-section-description {
+    @apply mt-2 text-sm leading-6;
+    color: rgb(var(--ui-subtle));
+  }
 
-    .docs-example {
-        @apply mb-7 overflow-hidden rounded-xl border;
-        background: rgb(var(--ui-surface));
-        border-color: rgb(var(--ui-border));
-    }
+  .docs-example {
+    @apply mb-7 overflow-hidden rounded-xl border;
+    background: rgb(var(--ui-surface));
+    border-color: rgb(var(--ui-border));
+  }
 
-    .docs-example-header {
-        @apply flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3;
-        border-color: rgb(var(--ui-border));
-    }
+  .docs-example-header {
+    @apply flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3;
+    border-color: rgb(var(--ui-border));
+  }
 
-    .docs-example-title {
-        @apply text-sm font-semibold;
-        color: rgb(var(--ui-heading));
-    }
+  .docs-example-title {
+    @apply text-sm font-semibold;
+    color: rgb(var(--ui-heading));
+  }
 
-    .docs-example-preview {
-        @apply flex min-h-32 flex-wrap items-center gap-4 p-5 sm: p-7;
-    }
+  .docs-example-preview {
+    @apply flex min-h-32 flex-wrap items-center gap-4 p-5;
+  }
 
-    .docs-example-preview.stacked {
-        @apply flex-col items-stretch;
-    }
+  .docs-example-preview.stacked {
+    @apply flex-col items-stretch;
+  }
 
-    .docs-example-actions {
-        @apply flex items-center gap-2;
-    }
+  .docs-example-actions {
+    @apply flex items-center gap-2;
+  }
 
-    .docs-code {
-        @apply relative border-t bg-slate-950;
-        border-color: rgb(var(--ui-border));
-    }
+  .docs-code {
+    @apply relative border-t bg-slate-950;
+    border-color: rgb(var(--ui-border));
+  }
 
-    .docs-code pre {
-        @apply overflow-x-auto p-5 text-xs leading-6 text-slate-100 sm: text-sm;
-    }
+  .docs-code pre {
+    @apply overflow-x-auto p-5 text-xs leading-6 text-slate-100;
+  }
 
-    .docs-copy-button {
-        @apply rounded-md border px-3 py-1.5 text-xs font-medium transition;
-        border-color: rgb(var(--ui-border));
-        color: rgb(var(--ui-subtle));
-    }
+  .docs-copy-button {
+    @apply rounded-md border px-3 py-1.5 text-xs font-medium transition;
+    border-color: rgb(var(--ui-border));
+    color: rgb(var(--ui-subtle));
+  }
 
-    .docs-copy-button:hover {
-        @apply bg-slate-100 text-slate-900;
-    }
+  .docs-copy-button:hover {
+    @apply bg-slate-100 text-slate-900;
+  }
 
-    .docs-search {
-        @apply w-full rounded-lg border px-3 py-2 text-sm outline-none focus: border-blue-500 focus: ring-2 focus: ring-blue-500/20;
-        background: rgb(var(--ui-surface));
-        border-color: rgb(var(--ui-border));
-        color: rgb(var(--ui-text));
-    }
+  .docs-search {
+    @apply w-full rounded-lg border px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20;
+    background: rgb(var(--ui-surface));
+    border-color: rgb(var(--ui-border));
+    color: rgb(var(--ui-text));
+  }
 
-    .docs-search::placeholder {
-        color: rgb(var(--ui-subtle));
-    }
+  .docs-search::placeholder {
+    color: rgb(var(--ui-subtle));
+  }
 
-    .docs-search-result {
-        @apply hidden;
-    }
+  .docs-search-result {
+    @apply hidden;
+  }
 
-    .docs-search-result.visible {
-        @apply block;
-    }
+  .docs-search-result.visible {
+    @apply block;
+  }
 
-    .docs-overlay {
-        @apply fixed inset-0 z-20 bg-slate-950/50 lg: hidden;
-    }
+  .docs-overlay {
+    @apply fixed inset-0 z-20 bg-slate-950/50;
+  }
 
-    .docs-code[hidden] {
-        display: none;
-    }
+  .docs-code[hidden] {
+    display: none;
+  }
 
-    .docs-empty {
-        @apply hidden rounded-xl border border-dashed p-10 text-center text-sm;
-        border-color: rgb(var(--ui-border));
-        color: rgb(var(--ui-subtle));
-    }
+  .docs-empty {
+    @apply hidden rounded-xl border border-dashed p-10 text-center text-sm;
+    border-color: rgb(var(--ui-border));
+    color: rgb(var(--ui-subtle));
+  }
 
-    @media (min-width: 1024px) {
-        .docs-layout {
-            @apply flex items-start;
-        }
-    }
+  .docs-menu-button {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100;
+  }
+}
 
-    .docs-menu-button {
-        @apply inline-flex h-10 w-10 items-center justify-center rounded-lg hover: bg-slate-100 lg: hidden;
-    }
+@media (min-width: 640px) {
+  .docs-header {
+    @apply px-6;
+  }
 
+  .docs-main {
+    @apply px-6;
+  }
+
+  .docs-section-title {
+    @apply text-3xl;
+  }
+
+  .docs-example-preview {
+    @apply p-7;
+  }
+
+  .docs-code pre {
+    @apply text-sm;
+  }
+}
+
+@media (min-width: 1024px) {
+  .docs-layout {
+    @apply flex items-start;
+  }
+
+  .docs-sidebar {
+    @apply sticky top-16 h-[calc(100vh-4rem)] translate-x-0;
+  }
+
+  .docs-main {
+    @apply py-12;
+  }
+
+  .docs-menu-button {
+    @apply hidden;
+  }
+
+  .docs-overlay {
+    @apply hidden;
+  }
 }
