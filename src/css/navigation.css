@@ -1,0 +1,22 @@
+@layer components {
+  .site-header { @apply sticky top-0 z-40 border-b backdrop-blur; background: rgb(var(--ui-surface) / .95); border-color: rgb(var(--ui-border)); }
+  .navbar { @apply flex min-h-16 items-center justify-between gap-4; }
+  .navbar-brand { @apply shrink-0 text-xl font-bold tracking-tight; color: rgb(var(--ui-heading)); }
+  .navbar-menu { @apply hidden items-center gap-1 md:flex; }
+  .nav-link { @apply rounded-lg px-3 py-2 text-sm font-medium; color: rgb(var(--ui-subtle)); }
+  .nav-link:hover, .nav-link.active { @apply bg-blue-50 text-blue-700; }
+  .navbar-actions { @apply flex items-center gap-2; }
+  .mobile-menu-button { @apply inline-flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100 md:hidden; }
+  .mobile-menu { @apply border-t px-4 py-3 md:hidden; border-color: rgb(var(--ui-border)); }
+  .mobile-menu .nav-link { @apply block; }
+  .sidebar { @apply flex flex-col gap-1; }
+  .sidebar-link { @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium; color: rgb(var(--ui-subtle)); }
+  .sidebar-link:hover, .sidebar-link.active { @apply bg-blue-50 text-blue-700; }
+  .site-footer { @apply border-t; background: rgb(var(--ui-surface)); border-color: rgb(var(--ui-border)); }
+  .footer-grid { @apply grid grid-cols-1 gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4; }
+  .footer-title { @apply mb-4 text-sm font-semibold uppercase tracking-wide; color: rgb(var(--ui-heading)); }
+  .footer-link { @apply block py-1.5 text-sm hover:text-blue-600; color: rgb(var(--ui-subtle)); }
+  .footer-bottom { @apply flex flex-col gap-3 border-t py-6 text-sm sm:flex-row sm:items-center sm:justify-between; border-color: rgb(var(--ui-border)); color: rgb(var(--ui-subtle)); }
+  .social-links { @apply flex items-center gap-3; }
+  .social-link { @apply inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-blue-100 hover:text-blue-700; }
+}
