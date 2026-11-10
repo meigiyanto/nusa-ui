@@ -78,52 +78,84 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* Documentation: Mobile Sidebar */
+    /* Documentation: Responsive Sidebar */
     const menuButton = document.querySelector("#docs-menu-toggle");
     const sidebar = document.querySelector("#docs-sidebar");
     const overlay = document.querySelector("#docs-overlay");
     const desktopBreakpoint = window.matchMedia("(min-width: 1024px)");
 
-    const closeSidebar = () => {
-        sidebar?.classList.remove("open");
-        if (overlay) overlay.hidden = true;
-        menuButton?.setAttribute("aria-expanded", "false");
-    };
+    if (menuButton && sidebar && overlay) {
+        const navLinks = sidebar.querySelectorAll(".docs-nav-link");
 
-    const openSidebar = () => {
-        if (!sidebar || desktopBreakpoint.matches) return;
+        const setSidebarState = (open, restoreFocus = false) => {
+            const desktop = desktopBreakpoint.matches;
 
-        sidebar.classList.add("open");
-        if (overlay) overlay.hidden = false;
-        menuButton?.setAttribute("aria-expanded", "true");
-    };
+            if (desktop) open = false;
 
-    if (menuButton && sidebar) {
+            sidebar.classList.toggle("open", open);
+            overlay.hidden = !open;
+            menuButton.setAttribute("aria-expanded", String(open));
+            sidebar.setAttribute("aria-hidden", String(!desktop && !open));
+
+            document.body.style.overflow = open ? "hidden": "";
+
+            if (restoreFocus && !desktop) {
+                menuButton.focus();
+            }
+        };
+
+        const openSidebar = () => {
+            if (desktopBreakpoint.matches) return;
+
+            setSidebarState(true);
+            sidebar.querySelector(".docs-nav-link")?.focus();
+        };
+
+        const closeSidebar = (restoreFocus = false) => {
+            const wasOpen = sidebar.classList.contains("open");
+
+            setSidebarState(false, restoreFocus && wasOpen);
+        };
+
         menuButton.addEventListener("click", () => {
             const isOpen = sidebar.classList.contains("open");
-            if (isOpen) closeSidebar();
-            else openSidebar();
+
+            if (isOpen) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
         });
 
-        overlay?.addEventListener("click",
-            closeSidebar);
+        overlay.addEventListener("click",
+            () => {
+                closeSidebar(true);
+            });
 
-        sidebar.querySelectorAll(".docs-nav-link").forEach((link) => {
-            link.addEventListener("click", closeSidebar);
+        navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                closeSidebar();
+            });
         });
 
         document.addEventListener("keydown",
             (event) => {
                 if (event.key === "Escape" && sidebar.classList.contains("open")) {
-                    closeSidebar();
-                    menuButton.focus();
+                    closeSidebar(true);
                 }
             });
 
         desktopBreakpoint.addEventListener("change",
             (event) => {
-                if (event.matches) closeSidebar();
+                if (event.matches) {
+                    closeSidebar();
+                    sidebar.setAttribute("aria-hidden", "false");
+                } else {
+                    sidebar.setAttribute("aria-hidden", "true");
+                }
             });
+
+        setSidebarState(false);
     }
 
     /* Documentation: Search */
@@ -170,6 +202,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* Documentation: Code Preview */
+    const normalizeCode = (value) => {
+        const lines = value.replace(/\r\n?/g, "\n").split("\n");
+
+        while (lines.length && !lines[0].trim()) lines.shift();
+        while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+
+        if (!lines.length) return "";
+
+        const followingLines = lines.slice(1).filter((line) => line.trim());
+        const indentation = followingLines.length
+        ? Math.min(...followingLines.map((line) => line.match(/^[\t ]*/)[0].length)): 0;
+
+        return lines.map((line, index) => {
+            if (!line.trim()) return "";
+            if (index === 0) return line.trimStart();
+            return line.slice(indentation);
+        }).join("\n");
+    };
+
+    document.querySelectorAll(".docs-code pre code").forEach((code) => {
+        code.textContent = normalizeCode(code.textContent);
+    });
+
     /* Documentation: Copy Code */
     const copyText = async (text) => {
         if (navigator.clipboard && window.isSecureContext) {
@@ -212,7 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1800);
         });
     });
-
     /* Documentation: Active Navigation */
     const navLinks = [...document.querySelectorAll(".docs-nav-link")];
 
@@ -233,4 +288,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         searchSections.forEach((section) => observer.observe(section));
     }
+
+    function dedentCode(element) {
+        const lines = element.textContent.replace(/^\n|\n\s*$/g, '').split('\n');
+        const indent = Math.min(...lines.filter(line => line.trim()).map(line => line.match(/^\s*/)[0].length));
+        element.textContent = lines.map(line => line.slice(indent)).join('\n');
+    }
+
+    document.querySelectorAll('pre code').forEach(dedentCode);
 });

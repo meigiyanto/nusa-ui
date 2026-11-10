@@ -1,10 +1,15 @@
+@tailwind components;
+@tailwind utilities;
+
 @layer components {
     .docs-layout {
         @apply min-h-screen;
     }
 
     .docs-header {
-        @apply sticky top-0 z-40 flex h-16 items-center justify-between border-b px-4 backdrop-blur sm: px-6;
+        @apply sticky top-0 z-40 flex h-16 items-center justify-between border-b px-4 backdrop-blur;
+        padding-left: 1rem;
+        padding-right: 1rem;
         background: rgb(var(--ui-surface) / .95);
         border-color: rgb(var(--ui-border));
     }
@@ -14,8 +19,12 @@
         color: rgb(var(--ui-heading));
     }
 
+    .docs-workspace {
+        @apply flex min-w-0;
+    }
+
     .docs-sidebar {
-        @apply fixed bottom-0 left-0 top-16 z-30 w-72 -translate-x-full overflow-y-auto border-r p-5 transition-transform duration-200 lg: sticky lg: top-16 lg: h-[calc(100vh-4rem)] lg: translate-x-0;
+        @apply fixed bottom-0 left-0 top-16 z-30 w-72 -translate-x-full overflow-y-auto border-r p-5 transition-transform duration-200;
         background: rgb(var(--ui-surface));
         border-color: rgb(var(--ui-border));
     }
@@ -44,7 +53,7 @@
     }
 
     .docs-main {
-        @apply min-w-0 flex-1 px-4 py-8 sm: px-6 lg: px-10 lg: py-12;
+        @apply min-w-0 flex-1 px-4 py-8;
     }
 
     .docs-content {
@@ -61,7 +70,7 @@
     }
 
     .docs-section-title {
-        @apply text-2xl font-bold tracking-tight sm: text-3xl;
+        @apply text-2xl font-bold tracking-tight;
         color: rgb(var(--ui-heading));
     }
 
@@ -87,7 +96,7 @@
     }
 
     .docs-example-preview {
-        @apply flex min-h-32 flex-wrap items-center gap-4 p-5 sm: p-7;
+        @apply flex min-h-32 flex-wrap items-center gap-4 p-5;
     }
 
     .docs-example-preview.stacked {
@@ -99,14 +108,29 @@
     }
 
     .docs-code {
-        @apply relative border-t bg-slate-950;
+        @apply relative min-w-0 max-w-full border-t bg-slate-950;
         border-color: rgb(var(--ui-border));
     }
 
     .docs-code pre {
-        @apply overflow-x-auto p-5 text-xs leading-6 text-slate-100 sm: text-sm;
+        @apply max-w-full overflow-x-auto p-5 text-xs leading-6 text-slate-100;
+        margin: 0;
+        white-space: pre;
+        tab-size: 4;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
     }
 
+    .docs-code pre code {
+        display: block;
+        width: max-content;
+        min-width: 100%;
+        max-width: none;
+        white-space: pre;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+    
     .docs-copy-button {
         @apply rounded-md border px-3 py-1.5 text-xs font-medium transition;
         border-color: rgb(var(--ui-border));
@@ -118,7 +142,8 @@
     }
 
     .docs-search {
-        @apply w-full rounded-lg border px-3 py-2 text-sm outline-none focus: border-blue-500 focus: ring-2 focus: ring-blue-500/20;
+        @apply w-full rounded-lg border px-3 py-2 text-sm outline-none;
+        @apply focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20;
         background: rgb(var(--ui-surface));
         border-color: rgb(var(--ui-border));
         color: rgb(var(--ui-text));
@@ -137,11 +162,15 @@
     }
 
     .docs-overlay {
-        @apply fixed inset-0 z-20 bg-slate-950/50 lg: hidden;
+        @apply fixed inset-0 z-20 bg-slate-950/50;
+    }
+
+    .docs-overlay[hidden] {
+        display: none !important;
     }
 
     .docs-code[hidden] {
-        display: none;
+        display: none !important;
     }
 
     .docs-empty {
@@ -150,13 +179,69 @@
         color: rgb(var(--ui-subtle));
     }
 
-    @media (min-width: 1024px) {
-        .docs-layout {
-            @apply flex items-start;
-        }
+    .docs-menu-button {
+        @apply inline-flex h-10 w-10 items-center justify-center rounded-lg;
+    }
+}
+
+@media (max-width: 639px) {
+    .docs-code pre {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (min-width: 640px) {
+    .docs-header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .docs-main {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .docs-section-title {
+        font-size: 1.875rem;
+    }
+
+    .docs-example-preview {
+        padding: 1.75rem;
+    }
+
+    .docs-code pre {
+        font-size: .875rem;
+    }
+    
+    .docs-code pre {
+        font-size: 0.875rem;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .docs-workspace {
+        align-items: stretch;
+    }
+
+    .docs-sidebar {
+        position: sticky;
+        top: 4rem;
+        height: calc(100vh - 4rem);
+        flex: 0 0 18rem;
+        transform: none;
+    }
+
+    .docs-main {
+        padding: 3rem 2.5rem;
     }
 
     .docs-menu-button {
-        @apply inline-flex h-10 w-10 items-center justify-center rounded-lg hover: bg-slate-100 lg: hidden;
+        display: none;
+    }
+
+    .docs-overlay {
+        display: none !important;
     }
 }

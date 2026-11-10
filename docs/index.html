@@ -6,13 +6,14 @@
     <meta name="description" content="Nusa UI documentation - Responsive Tailwind CSS 3 component framework.">
     <title>Documentation - Nusa UI</title>
     <link rel="stylesheet" href="../dist/nusa-ui.css">
+    <link rel="stylesheet" href="./assets/docs.css">
     <script src="../src/js/nusa-ui.js" defer></script>
 </head>
 <body class="docs-layout">
 
     <header class="docs-header">
         <div class="flex items-center gap-3">
-            <button class="docs-menu-button" id="docs-menu-toggle" aria-label="Open documentation navigation" aria-expanded="false">☰</button>
+            <button class="docs-menu-button" id="docs-menu-toggle" aria-label="Open documentation navigation" aria-controls="docs-sidebar" aria-expanded="false">☰</button>
             <a href="./index.html" class="docs-brand">Nusa UI</a>
             <span class="badge badge-primary">v1.1</span>
         </div>
@@ -24,7 +25,7 @@
 
     <div class="docs-overlay" id="docs-overlay" hidden></div>
 
-    <div class="flex min-w-0 flex-1">
+    <div class="docs-workspace">
         <aside class="docs-sidebar" id="docs-sidebar">
             <div class="mb-6">
                 <label class="form-label" for="docs-search">Search documentation</label>
@@ -224,11 +225,11 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="typography-code">&lt;h1 class="heading-1"&gt;Heading One&lt;/h1&gt;
-                                &lt;h2 class="heading-2"&gt;Heading Two&lt;/h2&gt;
-                                &lt;h3 class="heading-3"&gt;Heading Three&lt;/h3&gt;
-                                &lt;p class="text-lead"&gt;Lead paragraph&lt;/p&gt;
-                                &lt;p class="text-muted"&gt;Muted text&lt;/p&gt;
-                                &lt;p class="text-small"&gt;Small text&lt;/p&gt;</code></pre>
+&lt;h2 class="heading-2"&gt;Heading Two&lt;/h2&gt;
+&lt;h3 class="heading-3"&gt;Heading Three&lt;/h3&gt;
+&lt;p class="text-lead"&gt;Lead paragraph&lt;/p&gt;
+&lt;p class="text-muted"&gt;Muted text&lt;/p&gt;
+&lt;p class="text-small"&gt;Small text&lt;/p&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -259,16 +260,15 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="layout-code">&lt;section class="section"&gt;
-                                &lt;div class="container"&gt;
-                                &lt;div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"&gt;
-                                &lt;div class="surface p-5"&gt;Column 1&lt;/div&gt;
-                                &lt;div class="surface p-5"&gt;Column 2&lt;/div&gt;
-                                &lt;div class="surface p-5"&gt;Column 3&lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;/section&gt;</code></pre>
+    &lt;div class="container"&gt;
+        &lt;div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"&gt;
+            &lt;div class="surface p-5"&gt;Column 1&lt;/div&gt;
+            &lt;div class="surface p-5"&gt;Column 2&lt;/div&gt;
+            &lt;div class="surface p-5"&gt;Column 3&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
                         </div>
-
 
                         <div class="container-narrow">
                             <h2 class="heading-3">Narrow Container</h2>
@@ -341,11 +341,11 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="buttons-code">&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
-                                &lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
-                                &lt;button class="btn btn-outline"&gt;Outline&lt;/button&gt;
-                                &lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
-                                &lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;
-                                &lt;button class="btn btn-success"&gt;Success&lt;/button&gt;</code></pre>
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-outline"&gt;Outline&lt;/button&gt;
+&lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Success&lt;/button&gt;</code></pre>
                         </div>
                     </div>
                     <div class="docs-example">
@@ -359,9 +359,9 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="button-sizes-code">&lt;button class="btn btn-primary btn-sm"&gt;Small&lt;/button&gt;
-                                &lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
-                                &lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
-                                &lt;button class="btn btn-primary btn-block"&gt;Full Width&lt;/button&gt;</code></pre>
+&lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="btn btn-primary btn-lg"&gt;Large&lt;/button&gt;
+&lt;button class="btn btn-primary btn-block"&gt;Full Width&lt;/button&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -394,17 +394,17 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="cards-code">&lt;div class="card"&gt;
-                                &lt;div class="card-header"&gt;
-                                &lt;h3 class="heading-5"&gt;Card Title&lt;/h3&gt;
-                                &lt;span class="badge badge-primary"&gt;New&lt;/span&gt;
-                                &lt;/div&gt;
-                                &lt;div class="card-body"&gt;
-                                &lt;p&gt;Card content goes here.&lt;/p&gt;
-                                &lt;/div&gt;
-                                &lt;div class="card-footer"&gt;
-                                &lt;button class="btn btn-primary btn-sm"&gt;Read More&lt;/button&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;</code></pre>
+    &lt;div class="card-header"&gt;
+        &lt;h3 class="heading-5"&gt;Card Title&lt;/h3&gt;
+        &lt;span class="badge badge-primary"&gt;New&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;p&gt;Card content goes here.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;button class="btn btn-primary btn-sm"&gt;Read More&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -426,11 +426,11 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="badges-code">&lt;span class="badge badge-primary"&gt;Primary&lt;/span&gt;
-                                &lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
-                                &lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
-                                &lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
-                                &lt;span class="badge badge-danger"&gt;Danger&lt;/span&gt;
-                                &lt;span class="badge badge-info"&gt;Info&lt;/span&gt;</code></pre>
+&lt;span class="badge badge-secondary"&gt;Secondary&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge badge-danger"&gt;Danger&lt;/span&gt;
+&lt;span class="badge badge-info"&gt;Info&lt;/span&gt;</code></pre>
                         </div>
                     </div>
                 </section>

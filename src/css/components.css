@@ -1,29 +1,35 @@
 @layer components {
     .btn {
-        @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition duration-150 ease-in-out focus-visible: outline-none focus-visible: ring-2 focus-visible: ring-offset-2 disabled: pointer-events-none disabled: opacity-50;
+        @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition duration-150 ease-in-out;
+        @apply disabled:pointer-events-none disabled:opacity-50;
+    }
+    .btn:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgb(59 130 246), 0 0 0 4px white;
     }
     .btn-primary {
-        @apply bg-blue-600 text-white shadow-sm hover: bg-blue-700 focus-visible: ring-blue-500;
+        @apply bg-blue-600 text-white shadow-sm hover:bg-blue-700;
     }
     .btn-secondary {
-        @apply bg-slate-100 text-slate-800 hover: bg-slate-200 focus-visible: ring-slate-400;
+        @apply bg-slate-100 text-slate-800 hover:bg-slate-200;
     }
     .btn-outline {
-        @apply border bg-transparent hover: bg-slate-50 focus-visible: ring-blue-500;
+        @apply border bg-transparent hover:bg-slate-50;
         border-color: rgb(var(--ui-border));
         color: rgb(var(--ui-heading));
     }
     .btn-ghost {
-        @apply bg-transparent text-slate-700 hover: bg-slate-100 focus-visible: ring-slate-400;
+        @apply bg-transparent text-slate-700 hover:bg-slate-100;
     }
     .btn-danger {
-        @apply bg-red-600 text-white hover: bg-red-700 focus-visible: ring-red-500;
+        @apply bg-red-600 text-white hover:bg-red-700;
     }
+
     .btn-success {
-        @apply bg-green-600 text-white hover: bg-green-700 focus-visible: ring-green-500;
+        @apply bg-green-600 text-white hover:bg-green-700;
     }
     .btn-link {
-        @apply min-h-0 p-0 text-blue-600 underline-offset-4 hover: underline;
+        @apply min-h-0 p-0 text-blue-600 underline-offset-4 hover:underline;
     }
     .btn-sm {
         @apply min-h-8 rounded-md px-3 py-1.5 text-xs;
@@ -146,23 +152,24 @@
         border-color: rgb(var(--ui-border));
     }
     .table tbody tr {
-        @apply transition-colors hover: bg-slate-50;
+        @apply transition-colors hover:bg-slate-50;
     }
     .pagination {
         @apply flex flex-wrap items-center gap-1;
     }
     .page-link {
-        @apply inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-3 text-sm hover: bg-slate-100;
+        @apply inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-3 text-sm hover:bg-slate-100;
     }
     .page-link.active {
-        @apply bg-blue-600 font-semibold text-white hover: bg-blue-700;
+        @apply bg-blue-600 font-semibold text-white hover:bg-blue-700;
     }
     .breadcrumb {
         @apply flex flex-wrap items-center gap-2 text-sm;
         color: rgb(var(--ui-subtle));
     }
+
     .breadcrumb a {
-        @apply hover: text-blue-600;
+        @apply hover:text-blue-600;
     }
     .breadcrumb-current {
         @apply font-medium;
@@ -173,10 +180,12 @@
         background: rgb(var(--ui-surface));
         border-color: rgb(var(--ui-border));
     }
+
     .dropdown-item {
-        @apply block rounded-lg px-3 py-2 text-sm hover: bg-slate-100;
+        @apply block rounded-lg px-3 py-2 text-sm hover:bg-slate-100;
         color: rgb(var(--ui-text));
     }
+
     .modal-backdrop {
         @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4;
     }
@@ -191,8 +200,9 @@
     .modal-body {
         @apply p-5;
     }
+
     .modal-footer {
-        @apply flex flex-col-reverse justify-end gap-2 border-t px-5 py-4 sm: flex-row;
+        @apply flex flex-col-reverse justify-end gap-2 border-t px-5 py-4;
         border-color: rgb(var(--ui-border));
     }
     .tabs {
@@ -200,7 +210,7 @@
         border-color: rgb(var(--ui-border));
     }
     .tab {
-        @apply border-b-2 border-transparent px-4 py-3 text-sm font-medium text-slate-500 hover: text-slate-800;
+        @apply border-b-2 border-transparent px-4 py-3 text-sm font-medium text-slate-500 hover:text-slate-800;
     }
     .tab.active {
         @apply border-blue-600 text-blue-600;
