@@ -628,19 +628,27 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="tables-code">&lt;div class="table-wrap"&gt;
-                                &lt;table class="table"&gt;
-                                &lt;thead&gt;
-                                &lt;tr&gt;&lt;th&gt;Product&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;
-                                &lt;/thead&gt;
-                                &lt;tbody&gt;
-                                &lt;tr&gt;&lt;td&gt;Product Alpha&lt;/td&gt;&lt;td&gt;Active&lt;/td&gt;&lt;td&gt;$120&lt;/td&gt;&lt;/tr&gt;
-                                &lt;/tbody&gt;
-                                &lt;/table&gt;
-                                &lt;/div&gt;</code></pre>
+    &lt;table class="table"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Product&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;&lt;
+                th&gt;Price&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;&lt;
+                td&gt;Product Alpha&lt;/td&gt;
+                &lt;td&gt;Active&lt;/td&gt;
+                &lt;td&gt;$120&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
-
+                
                 <section id="pagination" class="docs-section" data-doc-section>
                     <div class="docs-section-header">
                         <h2 class="docs-section-title">Pagination</h2><p class="docs-section-description">
@@ -649,25 +657,30 @@
                     </div>
                     <div class="docs-example">
                         <div class="docs-example-header">
-                            <span class="docs-example-title">Pagination Links</span><button class="docs-copy-button" data-copy-target="pagination-code">Copy Code</button>
+                            <span class="docs-example-title">Pagination Links</span>
+                            <button class="docs-copy-button" data-copy-target="pagination-code">Copy Code</button>
                         </div>
                         <div class="docs-example-preview">
                             <nav class="pagination" aria-label="Pagination">
-                                <a href="#" class="page-link">Previous</a><a href="#" class="page-link active" aria-current="page">1</a>
-                                <a href="#" class="page-link">2</a><a href="#" class="page-link">3</a><a href="#" class="page-link">Next</a>
+                                <a class="page-link" href="?page=1" aria-label="Previous page">‹</a>
+                                <a class="page-link" href="?page=1">1</a>
+                                <a class="page-link active" href="?page=2" aria-current="page">2</a>
+                                <a class="page-link" href="?page=3">3</a>
+                                <a class="page-link" href="?page=3" aria-label="Next page">›</a>
                             </nav>
                         </div>
                         <div class="docs-code">
                             <pre><code id="pagination-code">&lt;nav class="pagination" aria-label="Pagination"&gt;
-                                &lt;a href="#" class="page-link"&gt;Previous&lt;/a&gt;
-                                &lt;a href="#" class="page-link active" aria-current="page"&gt;1&lt;/a&gt;
-                                &lt;a href="#" class="page-link"&gt;2&lt;/a&gt;
-                                &lt;a href="#" class="page-link"&gt;Next&lt;/a&gt;
-                                &lt;/nav&gt;</code></pre>
+    &lt;a class="page-link" href="?page=1" aria-label="Previous page"&gt;‹&lt;/a&gt;
+    &lt;a class="page-link" href="?page=1"&gt;1&lt;/a&gt;
+    &lt;a class="page-link active" href="?page=2" aria-current="page"&gt;2&lt;/a&gt;
+    &lt;a class="page-link" href="?page=3"&gt;3&lt;/a&gt;
+    &lt;a class="page-link" href="?page=3" aria-label="Next page"&gt;›&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
                         </div>
                     </div>
                 </section>
-
+                
                 <section id="breadcrumb" class="docs-section" data-doc-section>
                     <div class="docs-section-header">
                         <h2 class="docs-section-title">Breadcrumb</h2><p class="docs-section-description">
@@ -679,18 +692,26 @@
                             <span class="docs-example-title">Breadcrumb Navigation</span><button class="docs-copy-button" data-copy-target="breadcrumb-code">Copy Code</button>
                         </div>
                         <div class="docs-example-preview">
-                            <nav class="breadcrumb" aria-label="Breadcrumb">
-                                <a href="#">Home</a><span>/</span><a href="#">Components</a><span>/</span><span class="breadcrumb-current" aria-current="page">Breadcrumb</span>
+                            <nav aria-label="Breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li><a href="/">Home</a></li>
+                                    <li class="breadcrumb-separator" aria-hidden="true">/</li>
+                                    <li><a href="/products">Products</a></li>
+                                    <li class="breadcrumb-separator" aria-hidden="true">/</li>
+                                    <li class="breadcrumb-current" aria-current="page">Detail</li>
+                                </ol>
                             </nav>
                         </div>
                         <div class="docs-code">
-                            <pre><code id="breadcrumb-code">&lt;nav class="breadcrumb" aria-label="Breadcrumb"&gt;
-                                &lt;a href="/"&gt;Home&lt;/a&gt;
-                                &lt;span&gt;/&lt;/span&gt;
-                                &lt;a href="/components"&gt;Components&lt;/a&gt;
-                                &lt;span&gt;/&lt;/span&gt;
-                                &lt;span class="breadcrumb-current" aria-current="page"&gt;Current Page&lt;/span&gt;
-                                &lt;/nav&gt;</code></pre>
+                            <pre><code id="breadcrumb-code">&lt;nav aria-label="Breadcrumb"&gt;
+    &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-separator" aria-hidden="true"&gt;/&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="breadcrumb-separator" aria-hidden="true"&gt;/&lt;/li&gt;
+        &lt;li class="breadcrumb-current" aria-current="page"&gt;Detail&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -718,15 +739,15 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="navbar-code">&lt;header class="site-header"&gt;
-                                &lt;div class="container navbar"&gt;
-                                &lt;a href="/" class="navbar-brand"&gt;Brand&lt;/a&gt;
-                                &lt;nav class="navbar-menu" aria-label="Main navigation"&gt;
-                                &lt;a href="/" class="nav-link active"&gt;Home&lt;/a&gt;
-                                &lt;a href="/about" class="nav-link"&gt;About&lt;/a&gt;
-                                &lt;/nav&gt;
-                                &lt;a href="/login" class="btn btn-primary"&gt;Sign In&lt;/a&gt;
-                                &lt;/div&gt;
-                                &lt;/header&gt;</code></pre>
+    &lt;div class="container navbar"&gt;
+        &lt;a href="/" class="navbar-brand"&gt;Brand&lt;/a&gt;
+        &lt;nav class="navbar-menu" aria-label="Main navigation"&gt;
+            &lt;a href="/" class="nav-link active"&gt;Home&lt;/a&gt;
+            &lt;a href="/about" class="nav-link"&gt;About&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;a href="/login" class="btn btn-primary"&gt;Sign In&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -762,18 +783,18 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="footer-code">&lt;footer class="site-footer"&gt;
-                                &lt;div class="container"&gt;
-                                &lt;div class="footer-grid"&gt;
-                                &lt;div&gt;
-                                &lt;h3 class="footer-title"&gt;Resources&lt;/h3&gt;
-                                &lt;a href="#" class="footer-link"&gt;Documentation&lt;/a&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;div class="footer-bottom"&gt;
-                                © 2026 Nusa UI. All rights reserved.
-                                &lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;/footer&gt;</code></pre>
+    &lt;div class="container"&gt;
+        &lt;div class="footer-grid"&gt;
+            &lt;div&gt;
+                &lt;h3 class="footer-title"&gt;Resources&lt;/h3&gt;
+                &lt;a href="#" class="footer-link"&gt;Documentation&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer-bottom"&gt;
+            © 2026 Nusa UI. All rights reserved.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -1066,6 +1087,17 @@
                             <button class="docs-copy-button" data-copy-target="dropdown-code">Copy Code</button>
                         </div>
                         <div class="docs-example-preview">
+                            <div class="dropdown" data-dropdown>
+                                <button class="btn btn-outline" type="button" data-dropdown-trigger
+                                    aria-expanded="false" aria-haspopup="true">
+                                    Actions
+                                </button>
+                                <div class="dropdown-menu" data-dropdown-menu role="menu" hidden>
+                                    <a class="dropdown-item" href="/edit" role="menuitem" tabindex="-1">Edit</a>
+                                    <button class="dropdown-item" type="button" role="menuitem" tabindex="-1">Duplicate</button>
+                                    <button class="dropdown-item" type="button" role="menuitem" tabindex="-1">Delete</button>
+                                </div>
+                            </div>
                             <div class="dropdown-menu">
                                 <a href="#" class="dropdown-item">View Profile</a>
                                 <a href="#" class="dropdown-item">Settings</a>
@@ -1074,12 +1106,23 @@
                             </div>
                         </div>
                         <div class="docs-code">
-                            <pre><code id="dropdown-code">&lt;div class="dropdown-menu"&gt;
-                                &lt;a href="#" class="dropdown-item"&gt;View Profile&lt;/a&gt;
-                                &lt;a href="#" class="dropdown-item"&gt;Settings&lt;/a&gt;
-                                &lt;div class="divider my-1"&gt;&lt;/div&gt;
-                                &lt;a href="#" class="dropdown-item"&gt;Sign Out&lt;/a&gt;
-                                &lt;/div&gt;</code></pre>
+                            <pre><code id="dropdown-code">                            &lt;div class="dropdown" data-dropdown&gt;
+    &lt;button class="btn btn-outline" type="button" data-dropdown-trigger
+        aria-expanded="false" aria-haspopup="true"&gt;
+        Actions
+    &lt;/button&gt;
+    &lt;div class="dropdown-menu" data-dropdown-menu role="menu" hidden&gt;
+        &lt;a class="dropdown-item" href="/edit" role="menuitem" tabindex="-1"&gt;Edit&lt;/a&gt;
+        &lt;button class="dropdown-item" type="button" role="menuitem" tabindex="-1"&gt;Duplicate&lt;/button&gt;
+        &lt;button class="dropdown-item" type="button" role="menuitem" tabindex="-1"&gt;Delete&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="dropdown-menu"&gt;
+    &lt;a href="#" class="dropdown-item"&gt;View Profile&lt;/a&gt;
+    &lt;a href="#" class="dropdown-item"&gt;Settings&lt;/a&gt;
+    &lt;div class="divider my-1"&gt;&lt;/div&gt;
+    &lt;a href="#" class="dropdown-item text-red-600"&gt;Sign Out&lt;/a&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
 
@@ -1130,15 +1173,15 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="auth-code">&lt;div class="auth-layout"&gt;
-                                &lt;div class="auth-card"&gt;
-                                &lt;h2 class="heading-4"&gt;Welcome Back&lt;/h2&gt;
-                                &lt;div class="form-group mt-5"&gt;
-                                &lt;label class="form-label"&gt;Email&lt;/label&gt;
-                                &lt;input class="form-input" type="email"&gt;
-                                &lt;/div&gt;
-                                &lt;button class="btn btn-primary btn-block"&gt;Sign In&lt;/button&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;</code></pre>
+    &lt;div class="auth-card"&gt;
+        &lt;h2 class="heading-4"&gt;Welcome Back&lt;/h2&gt;
+        &lt;div class="form-group mt-5"&gt;
+            &lt;label class="form-label"&gt;Email&lt;/label&gt;
+            &lt;input class="form-input" type="email"&gt;
+        &lt;/div&gt;
+        &lt;button class="btn btn-primary btn-block"&gt;Sign In&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -1154,19 +1197,47 @@
                             <span class="docs-example-title">Tab Appearance</span><button class="docs-copy-button" data-copy-target="tabs-code">Copy Code</button>
                         </div>
                         <div class="docs-example-preview stacked">
-                            <div class="tabs w-full">
-                                <button class="tab active" type="button">Overview</button><button class="tab" type="button">Details</button><button class="tab" type="button">Settings</button>
+                            <div data-tabs>
+                                <div class="tabs" role="tablist" aria-label="Product information">
+                                    <button class="tab active" id="tab-overview" type="button" role="tab"
+                                        aria-selected="true" aria-controls="panel-overview">Overview</button>
+                                    <button class="tab" id="tab-details" type="button" role="tab"
+                                        aria-selected="false" aria-controls="panel-details" tabindex="-1">Details</button>
+                                    <button class="tab" id="tab-settings" type="button" role="tab"
+                                        aria-selected="false" aria-controls="panel-settings" tabindex="-1">Settings</button>
+                                </div>
+                                <section id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+                                    Overview content
+                                </section>
+                                <section id="panel-details" role="tabpanel" aria-labelledby="tab-details" tabindex="0" hidden>
+                                    Details content
+                                </section>
+                                <section id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
+                                    Settings content
+                                </section>
                             </div>
-                            <p class="text-muted text-sm">
-                                Tab panel content appears here.
-                            </p>
+                            
                         </div>
                         <div class="docs-code">
-                            <pre><code id="tabs-code">&lt;div class="tabs"&gt;
-                                &lt;button class="tab active" type="button"&gt;Overview&lt;/button&gt;
-                                &lt;button class="tab" type="button"&gt;Details&lt;/button&gt;
-                                &lt;button class="tab" type="button"&gt;Settings&lt;/button&gt;
-                                &lt;/div&gt;</code></pre>
+                            <pre><code id="tabs-code">&lt;div data-tabs&gt;
+    &lt;div class="tabs" role="tablist" aria-label="Product information"&gt;
+        &lt;button class="tab active" id="tab-overview" type="button" role="tab"
+            aria-selected="true" aria-controls="panel-overview"&gt;Overview&lt;/button&gt;
+        &lt;button class="tab" id="tab-details" type="button" role="tab"
+            aria-selected="false" aria-controls="panel-details" tabindex="-1"&gt;Details&lt;/button&gt;
+        &lt;button class="tab" id="tab-settings" type="button" role="tab"
+            aria-selected="false" aria-controls="panel-settings" tabindex="-1"&gt;Settings&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;section id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0"&gt;
+        Overview content
+    &lt;/section&gt;
+    &lt;section id="panel-details" role="tabpanel" aria-labelledby="tab-details" tabindex="0" hidden&gt;
+        Details content
+    &lt;/section&gt;
+    &lt;section id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden&gt;
+        Settings content
+    &lt;/section&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -1182,28 +1253,68 @@
                             <span class="docs-example-title">Accordion Appearance</span><button class="docs-copy-button" data-copy-target="accordion-code">Copy Code</button>
                         </div>
                         <div class="docs-example-preview stacked">
-                            <div class="w-full">
+                            <div data-accordion data-accordion-single>
                                 <div class="accordion-item">
-                                    <button class="accordion-trigger" type="button">What is Nusa UI?<span>+</span></button><div class="accordion-panel">
+                                    <h3>
+                                        <button class="accordion-trigger" id="accordion-trigger-1"
+                                            type="button" data-accordion-trigger aria-expanded="true"
+                                            aria-controls="accordion-panel-1">
+                                            What is Nusa UI?
+                                            <span aria-hidden="true">−</span>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion-panel" id="accordion-panel-1"
+                                        role="region" aria-labelledby="accordion-trigger-1">
                                         A reusable Tailwind CSS component framework.
                                     </div>
                                 </div>
                                 <div class="accordion-item">
-                                    <button class="accordion-trigger" type="button">Is it responsive?<span>+</span></button><div class="accordion-panel">
+                                    <h3>
+                                        <button class="accordion-trigger" id="accordion-trigger-2"
+                                            type="button" data-accordion-trigger aria-expanded="false"
+                                            aria-controls="accordion-panel-2">
+                                            Is it responsive?
+                                            <span aria-hidden="true">+</span>
+                                        </button>
+                                    </h3>
+                                    <div class="accordion-panel" id="accordion-panel-2"
+                                        role="region" aria-labelledby="accordion-trigger-2" hidden>
                                         Yes, it follows a mobile-first approach.
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="docs-code">
-                            <pre><code id="accordion-code">&lt;div class="accordion-item"&gt;
-                                &lt;button class="accordion-trigger" type="button"&gt;
-                                What is Nusa UI?
-                                &lt;/button&gt;
-                                &lt;div class="accordion-panel"&gt;
-                                A reusable Tailwind CSS component framework.
-                                &lt;/div&gt;
-                                &lt;/div&gt;</code></pre>
+                            <pre><code id="accordion-code">&lt;div data-accordion data-accordion-single&gt;
+    &lt;div class="accordion-item"&gt;
+        &lt;h3&gt;
+            &lt;button class="accordion-trigger" id="accordion-trigger-1"
+                type="button" data-accordion-trigger aria-expanded="true"
+                aria-controls="accordion-panel-1"&gt;
+                What is Nusa UI?
+                &lt;span aria-hidden="true"&gt;−&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/h3&gt;
+        &lt;div class="accordion-panel" id="accordion-panel-1"
+            role="region" aria-labelledby="accordion-trigger-1"&gt;
+            A reusable Tailwind CSS component framework.
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="accordion-item"&gt;
+        &lt;h3&gt;
+            &lt;button class="accordion-trigger" id="accordion-trigger-2"
+                type="button" data-accordion-trigger aria-expanded="false"
+                aria-controls="accordion-panel-2"&gt;
+                Is it responsive?
+                &lt;span aria-hidden="true"&gt;+&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/h3&gt;
+        &lt;div class="accordion-panel" id="accordion-panel-2"
+            role="region" aria-labelledby="accordion-trigger-2" hidden&gt;
+            Yes, it follows a mobile-first approach.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -1219,36 +1330,53 @@
                             <span class="docs-example-title">Modal Appearance</span><button class="docs-copy-button" data-copy-target="modal-code">Copy Code</button>
                         </div>
                         <div class="docs-example-preview stacked">
-                            <div class="modal-panel relative border">
-                                <div class="modal-header">
-                                    <h3 class="heading-5">Confirm Action</h3><button class="btn btn-ghost btn-sm" type="button" aria-label="Close">✕</button>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="text-muted">
+                            <button class="btn btn-primary" type="button" data-modal-open="#confirm-modal">
+                                Open Modal
+                            </button>
+                            
+                            <div class="modal-backdrop" id="confirm-modal" data-modal
+                                data-modal-backdrop-close hidden>
+                                <section class="modal-panel" role="dialog" aria-modal="true"
+                                    aria-labelledby="confirm-title">
+                                    <header class="modal-header">
+                                        <h2 id="confirm-title" class="heading-5">Confirm Action</h2>
+                                        <button class="btn btn-ghost btn-sm" type="button"
+                                            data-modal-close aria-label="Close">✕</button>
+                                    </header>
+                                    <div class="modal-body">
                                         Are you sure you want to continue?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-outline">Cancel</button><button class="btn btn-primary">Confirm</button>
-                                </div>
+                                    </div>
+                                    <footer class="modal-footer">
+                                        <button class="btn btn-outline" type="button" data-modal-close>Cancel</button>
+                                        <button class="btn btn-primary" type="button" data-modal-close>Confirm</button>
+                                    </footer>
+                                </section>
                             </div>
+                            
                         </div>
                         <div class="docs-code">
-                            <pre><code id="modal-code">&lt;div class="modal-backdrop"&gt;
-                                &lt;div class="modal-panel" role="dialog" aria-modal="true"&gt;
-                                &lt;div class="modal-header"&gt;
-                                &lt;h2 class="heading-5"&gt;Confirm Action&lt;/h2&gt;
-                                &lt;/div&gt;
-                                &lt;div class="modal-body"&gt;Modal content&lt;/div&gt;
-                                &lt;div class="modal-footer"&gt;
-                                &lt;button class="btn btn-outline"&gt;Cancel&lt;/button&gt;
-                                &lt;button class="btn btn-primary"&gt;Confirm&lt;/button&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;</code></pre>
+                            <pre><code id="modal-code">&lt;div class="modal-backdrop" id="confirm-modal" data-modal
+data-modal-backdrop-close hidden&gt;
+&lt;section class="modal-panel" role="dialog" aria-modal="true"
+    aria-labelledby="confirm-title"&gt;
+    &lt;header class="modal-header"&gt;
+        &lt;h2 id="confirm-title" class="heading-5"&gt;Confirm Action&lt;/h2&gt;
+        &lt;button class="btn btn-ghost btn-sm" type="button"
+            data-modal-close aria-label="Close"&gt;✕&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;div class="modal-body"&gt;
+        Are you sure you want to continue?
+    &lt;/div&gt;
+    &lt;footer class="modal-footer"&gt;
+        &lt;button class="btn btn-outline" type="button" data-modal-close&gt;Cancel&lt;/button&gt;
+        &lt;button class="btn btn-primary" type="button" data-modal-close&gt;Confirm&lt;/button&gt;
+    &lt;/footer&gt;
+&lt;/section&gt;
+    &lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
+                
 
                 <section class="docs-section" data-doc-section>
                     <div class="cta">

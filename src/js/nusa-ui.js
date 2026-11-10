@@ -16,65 +16,269 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    /* Tabs - basic existing behavior */
+    /* Dropdown */
+    document.querySelectorAll("[data-dropdown]").forEach((root) => {
+        const trigger = root.querySelector("[data-dropdown-trigger]");
+        const menu = root.querySelector("[data-dropdown-menu]");
+        if (!trigger || !menu) return;
+
+        const items = () => [...menu.querySelectorAll(
+            "a[href], button:not(:disabled):not([aria-disabled='true'])"
+        )].filter((item) => !item.hidden);
+
+        const setOpen = (open, focus = false) => {
+            trigger.setAttribute("aria-expanded", String(open));
+            menu.hidden = !open;
+            if (open && focus) items()[0]?.focus();
+        };
+
+        trigger.addEventListener("click", () => {
+            setOpen(menu.hidden);
+        });
+
+        trigger.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                setOpen(true, true);
+            }
+            if (event.key === "ArrowUp") {
+                event.preventDefault();
+                setOpen(true);
+                items().at(-1)?.focus();
+            }
+        });
+
+        menu.addEventListener("keydown", (event) => {
+            const list = items();
+            const index = list.indexOf(document.activeElement);
+            let next = null;
+
+            if (event.key === "ArrowDown") next = (index + 1) % list.length;
+            if (event.key === "ArrowUp") next = (index - 1 + list.length) % list.length;
+            if (event.key === "Home") next = 0;
+            if (event.key === "End") next = list.length - 1;
+
+            if (next !== null && list.length) {
+                event.preventDefault();
+                list[next].focus();
+            }
+            if (event.key === "Escape") {
+                event.preventDefault();
+                setOpen(false);
+                trigger.focus();
+            }
+            if (event.key === "Tab") setOpen(false);
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!root.contains(event.target)) setOpen(false);
+        });
+
+        menu.addEventListener("click", (event) => {
+            if (event.target.closest("a, button")) setOpen(false);
+        });
+
+        setOpen(false);
+    });
+
+    /* Tabs: automatic activation with arrow-key navigation */
     document.querySelectorAll("[data-tabs]").forEach((root) => {
-        const tabs = [...root.querySelectorAll("[role=tab]")];
-        const panels = [...root.querySelectorAll("[role=tabpanel]")];
+        const tabs = [...root.querySelectorAll('[role="tab"]')];
+        const panels = [...root.querySelectorAll('[role="tabpanel"]')];
+        if (!tabs.length || !panels.length) return;
+
+        const activate = (index, moveFocus = false) => {
+            const tab = tabs[index];
+            if (!tab || tab.disabled || tab.getAttribute("aria-disabled") === "true") return;
+
+            tabs.forEach((item, i) => {
+                const active = i === index;
+                item.setAttribute("aria-selected", String(active));
+                item.tabIndex = active ? 0 : -1;
+                item.classList.toggle("active", active);
+            });
+
+            panels.forEach((panel, i) => {
+                panel.hidden = i !== index;
+            });
+
+            if (moveFocus) tab.focus();
+        };
 
         tabs.forEach((tab, index) => {
-            tab.addEventListener("click", () => {
-                tabs.forEach((item, i) => {
-                    const active = i === index;
-                    item.setAttribute("aria-selected", String(active));
-                    item.classList.toggle("active", active);
-                });
+            tab.addEventListener("click", () => activate(index));
 
-                panels.forEach((panel, i) => {
-                    panel.hidden = i !== index;
-                });
+            tab.addEventListener("keydown", (event) => {
+                const vertical = root.getAttribute("aria-orientation") === "vertical";
+                const previous = vertical ? "ArrowUp" : "ArrowLeft";
+                const next = vertical ? "ArrowDown" : "ArrowRight";
+                let target = null;
+
+                if (event.key === next) target = (index + 1) % tabs.length;
+                if (event.key === previous) target = (index - 1 + tabs.length) % tabs.length;
+                if (event.key === "Home") target = 0;
+                if (event.key === "End") target = tabs.length - 1;
+
+                if (target !== null) {
+                    event.preventDefault();
+                    let candidate = target;
+                    for (let i = 0; i < tabs.length; i++) {
+                        if (!tabs[candidate].disabled &&
+                            tabs[candidate].getAttribute("aria-disabled") !== "true") {
+                            activate(candidate, true);
+                            break;
+                        }
+                        candidate = (candidate + (event.key === previous ? -1 : 1) + tabs.length) % tabs.length;
+                    }
+                }
             });
         });
+
+        const selected = tabs.findIndex((tab) => tab.getAttribute("aria-selected") === "true");
+        activate(selected >= 0 ? selected : 0);
     });
 
-    /* Accordion - basic existing behavior */
+    /* Accordion: supports optional single-open mode */
     document.querySelectorAll("[data-accordion]").forEach((root) => {
-        root.querySelectorAll("[data-accordion-trigger]").forEach((button) => {
-            button.addEventListener("click", () => {
-                const panel = button.nextElementSibling;
-                const expanded = button.getAttribute("aria-expanded") === "true";
+        const triggers = [...root.querySelectorAll("[data-accordion-trigger]")];
 
-                button.setAttribute("aria-expanded", String(!expanded));
+        const setExpanded = (trigger, expanded) => {
+            const panelId = trigger.getAttribute("aria-controls");
+            const panel = panelId
+                ? document.getElementById(panelId)
+                : trigger.nextElementSibling;
 
-                if (panel) panel.hidden = expanded;
+            if (!panel) return;
+
+            if (expanded && root.hasAttribute("data-accordion-single")) {
+                triggers.filter((item) => item !== trigger).forEach((item) => {
+                    const otherId = item.getAttribute("aria-controls");
+                    const otherPanel = otherId
+                        ? document.getElementById(otherId)
+                        : item.nextElementSibling;
+                    item.setAttribute("aria-expanded", "false");
+                    if (otherPanel) otherPanel.hidden = true;
+                });
+            }
+
+            trigger.setAttribute("aria-expanded", String(expanded));
+            panel.hidden = !expanded;
+        };
+
+        triggers.forEach((trigger, index) => {
+            const expanded = trigger.getAttribute("aria-expanded") === "true";
+            setExpanded(trigger, expanded);
+
+            trigger.addEventListener("click", () => {
+                setExpanded(trigger, trigger.getAttribute("aria-expanded") !== "true");
+            });
+
+            trigger.addEventListener("keydown", (event) => {
+                let target = null;
+                if (event.key === "ArrowDown") target = (index + 1) % triggers.length;
+                if (event.key === "ArrowUp") target = (index - 1 + triggers.length) % triggers.length;
+                if (event.key === "Home") target = 0;
+                if (event.key === "End") target = triggers.length - 1;
+
+                if (target !== null) {
+                    event.preventDefault();
+                    triggers[target].focus();
+                }
             });
         });
     });
 
-    /* Modal - basic existing behavior */
+    /* Modal: focus trap, Escape, backdrop click and focus restoration */
+    const modalOpeners = new WeakMap();
+
+    const getModalFocusables = (modal) => [...modal.querySelectorAll(
+        'a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])'
+    )].filter((element) => !element.hidden && element.getAttribute("aria-hidden") !== "true");
+
+    const openModal = (modal, opener) => {
+        if (!modal || !modal.hidden) return;
+
+        modalOpeners.set(modal, opener || document.activeElement);
+        modal.hidden = false;
+        modal.setAttribute("aria-hidden", "false");
+        document.body.dataset.modalOpen = "true";
+
+        const initialFocus = modal.querySelector("[data-modal-autofocus], [data-modal-close]") ||
+            getModalFocusables(modal)[0] ||
+            modal.querySelector("[role='dialog']");
+
+        if (initialFocus) {
+            if (!initialFocus.hasAttribute("tabindex") && initialFocus.matches("[role='dialog']")) {
+                initialFocus.setAttribute("tabindex", "-1");
+            }
+            initialFocus.focus();
+        }
+    };
+
+    const closeModal = (modal) => {
+        if (!modal || modal.hidden) return;
+
+        modal.hidden = true;
+        modal.setAttribute("aria-hidden", "true");
+
+        const remaining = [...document.querySelectorAll("[data-modal]")].some((item) => !item.hidden);
+        if (!remaining) delete document.body.dataset.modalOpen;
+
+        const opener = modalOpeners.get(modal);
+        if (opener?.isConnected) opener.focus();
+    };
+
     document.querySelectorAll("[data-modal-open]").forEach((button) => {
         button.addEventListener("click", () => {
-            const modal = document.querySelector(button.getAttribute("data-modal-open"));
-
-            if (modal) {
-                modal.hidden = false;
-                modal.querySelector("[data-modal-close]")?.focus();
-            }
+            openModal(document.querySelector(button.getAttribute("data-modal-open")), button);
         });
     });
 
     document.querySelectorAll("[data-modal-close]").forEach((button) => {
-        button.addEventListener("click",
-            () => {
-                const modal = button.closest("[data-modal]");
-                if (modal) modal.hidden = true;
-            });
+        button.addEventListener("click", () => closeModal(button.closest("[data-modal]")));
+    });
+
+    document.querySelectorAll("[data-modal]").forEach((modal) => {
+        modal.setAttribute("aria-hidden", String(modal.hidden));
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal && modal.hasAttribute("data-modal-backdrop-close")) {
+                closeModal(modal);
+            }
+        });
+
+        modal.addEventListener("keydown", (event) => {
+            if (event.key !== "Tab") return;
+
+            const focusables = getModalFocusables(modal);
+            if (!focusables.length) {
+                event.preventDefault();
+                modal.querySelector("[role='dialog']")?.focus();
+                return;
+            }
+
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
     });
 
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-            document.querySelectorAll("[data-modal]:not([hidden])").forEach((modal) => {
-                modal.hidden = true;
-            });
+        if (event.key !== "Escape") return;
+
+        const openModals = [...document.querySelectorAll("[data-modal]:not([hidden])")];
+        const modal = openModals.at(-1);
+
+        if (modal) {
+            event.preventDefault();
+            closeModal(modal);
         }
     });
 
