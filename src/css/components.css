@@ -1,4 +1,7 @@
 @layer components {
+    /**
+     * Button
+     */
     .btn {
         @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition duration-150 ease-in-out;
         @apply disabled:pointer-events-none disabled:opacity-50;
@@ -24,7 +27,6 @@
     .btn-danger {
         @apply bg-red-600 text-white hover:bg-red-700;
     }
-
     .btn-success {
         @apply bg-green-600 text-white hover:bg-green-700;
     }
@@ -43,25 +45,50 @@
     .btn-block {
         @apply flex w-full;
     }
+    
+    /**
+     * Card
+     */
     .card {
-        @apply overflow-hidden rounded-xl border shadow-sm;
+        @apply flex flex-col overflow-hidden rounded-xl border shadow-sm;
         background: rgb(var(--ui-surface));
+        border-color: rgb(var(--ui-border));
+    }
+    .card-header {
+        @apply flex flex-wrap items-center justify-between gap-3 border-b px-4 py-4;
+        border-color: rgb(var(--ui-border));
+    }
+
+    .card-header > * {
+        @apply min-w-0;
+    }
+
+    .card-body {
+        @apply flex-1 p-4;
+    }
+
+    .card-footer {
+        @apply flex flex-wrap items-center justify-end gap-3 border-t px-4 py-4;
         border-color: rgb(var(--ui-border));
     }
 
     @media (min-width: 640px) {
-        .card-header, .card-footer {
+        .card-header,
+        .card-body,
+        .card-footer {
             padding-left: 1.5rem;
             padding-right: 1.5rem;
         }
+
         .card-body {
-            padding: 1.5rem;
-        }
-        .modal-footer {
-            flex-direction: row;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
         }
     }
-
+    
+    /**
+     * Badge
+     */
     .badge {
         @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold;
     }
@@ -83,6 +110,10 @@
     .badge-info {
         @apply bg-sky-100 text-sky-800;
     }
+    
+    /**
+     * Alert
+     */
     .alert {
         @apply flex gap-3 rounded-xl border p-4 text-sm;
     }
@@ -98,6 +129,10 @@
     .alert-danger {
         @apply border-red-200 bg-red-50 text-red-900;
     }
+    
+    /**
+     * Avatar
+     */
     .avatar {
         @apply inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-200 font-semibold text-slate-700;
     }
@@ -107,6 +142,10 @@
     .avatar-lg {
         @apply h-14 w-14 text-lg;
     }
+    
+    /**
+     * Stat
+     */
     .stat-card {
         @apply card p-5;
     }
@@ -118,12 +157,20 @@
         @apply mt-2 text-3xl font-bold tracking-tight;
         color: rgb(var(--ui-heading));
     }
+    
+    /**
+     * Progress
+     */
     .progress {
         @apply h-2 w-full overflow-hidden rounded-full bg-slate-200;
     }
     .progress-bar {
         @apply h-full rounded-full bg-blue-600 transition-all duration-300;
     }
+    
+    /**
+     * Skeleton
+     */
     .skeleton {
         @apply animate-pulse rounded bg-slate-200;
     }
@@ -134,6 +181,10 @@
         @apply mt-4 text-lg font-semibold;
         color: rgb(var(--ui-heading));
     }
+    
+    /**
+     * Table
+     */
     .table-wrap {
         @apply w-full overflow-x-auto rounded-xl border;
         border-color: rgb(var(--ui-border));
@@ -154,6 +205,10 @@
     .table tbody tr {
         @apply transition-colors hover:bg-slate-50;
     }
+    
+    /**
+     * Pagination
+     */
     .pagination {
         @apply flex flex-wrap items-center gap-1;
     }
@@ -163,6 +218,10 @@
     .page-link.active {
         @apply bg-blue-600 font-semibold text-white hover:bg-blue-700;
     }
+    
+    /**
+     * Breadcrumb
+     */
     .breadcrumb {
         @apply flex flex-wrap items-center gap-2 text-sm;
         color: rgb(var(--ui-subtle));
@@ -175,6 +234,10 @@
         @apply font-medium;
         color: rgb(var(--ui-heading));
     }
+    
+    /**
+     * Dropdown
+     */
     .dropdown-menu {
         @apply z-50 min-w-48 rounded-xl border p-1 shadow-lg;
         background: rgb(var(--ui-surface));
@@ -186,6 +249,9 @@
         color: rgb(var(--ui-text));
     }
 
+    /**
+     * Modal
+     */
     .modal-backdrop {
         @apply fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 p-4;
     }
@@ -200,11 +266,19 @@
     .modal-body {
         @apply p-5;
     }
-
     .modal-footer {
         @apply flex flex-col-reverse justify-end gap-2 border-t px-5 py-4;
         border-color: rgb(var(--ui-border));
     }
+    @media (min-width: 640px) {
+        .modal-footer {
+            flex-direction: row;
+        }
+    }
+    
+    /**
+     * Tabs
+     */
     .tabs {
         @apply flex flex-wrap gap-1 border-b;
         border-color: rgb(var(--ui-border));
@@ -215,6 +289,10 @@
     .tab.active {
         @apply border-blue-600 text-blue-600;
     }
+
+    /**
+     * Accordion
+     */
     .accordion-item {
         @apply border-b;
         border-color: rgb(var(--ui-border));
