@@ -6,7 +6,7 @@
         min-height: 100vh;
         overflow-x: clip;
         color: rgb(var(--ui-text));
-        background: rgb(var(--ui-background));
+        background: rgb(var(--ui-muted));
     }
     
     .docs-header > * {

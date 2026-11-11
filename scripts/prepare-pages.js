@@ -125,9 +125,6 @@ function prepareDocumentation() {
             '<a class="page-link active" href="#pagination"', "pagination page 2"],
         ['<a class="page-link" href="?page=3"',
             '<a class="page-link" href="#pagination"', "pagination page 3"],
-        ['<a class="footer-link" href="#">Documentation</a>',
-            '<a class="footer-link" href="../index.html">Documentation</a>',
-            "demo documentation"],
     ], file);
 
     html = normalizeCodeSamples(html);
