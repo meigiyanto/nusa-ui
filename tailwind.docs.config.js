@@ -4,6 +4,7 @@ module.exports = {
     ...libraryConfig,
     content: [
         "./docs/**/*.{html,js}",
-        "./src/**/*.{html,js}"
+        "./src/**/*.{html,js}",
+        "./demo/**/*.{html,js}"
     ]
 };
