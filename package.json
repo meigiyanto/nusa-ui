@@ -8,10 +8,12 @@
         "dev:docs": "tailwindcss -c ./tailwind.docs.config.js -i ./docs/src/docs.css -o ./docs/assets/docs.css --watch",
         "build:library": "tailwindcss -i ./src/css/app.css -o ./dist/nusa-ui.css --minify",
         "build:docs": "tailwindcss -c ./tailwind.docs.config.js -i ./docs/src/docs.css -o ./docs/assets/docs.css --minify",
-        "build": "npm run build:library && npm run build:docs"
+        "prepare:pages": "node scripts/prepare-pages.js",
+        "build": "npm run build:library && npm run prepare:pages && npm run build:docs"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.20",
+        "caniuse-lite": "^1.0.30001823",
         "postcss": "^8.4.49",
         "postcss-import": "^16.1.0",
         "tailwindcss": "^3.4.17"
