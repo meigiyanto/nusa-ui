@@ -7,8 +7,9 @@
     <title>Documentation - Nusa UI</title>
     <link rel="stylesheet" href="./assets/nusa-ui.css">
     <link rel="stylesheet" href="./assets/docs.css">
-    <script src="./assets/nusa-ui.js" defer></script></head>
-<body class="docs-layout">
+    <script src="./assets/nusa-ui.js" defer></script>
+</head>
+<body id="docs-root" class="docs-layout">
 
     <header class="docs-header">
         <div class="flex items-center gap-3">
@@ -164,10 +165,10 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="install-code">npm install
-                                npm run dev
+npm run dev
 
-                                # Production build
-                                npm run build</code></pre>
+# Production build
+npm run build</code></pre>
                         </div>
                     </div>
                     <p class="text-sm text-muted">
@@ -189,7 +190,7 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="usage-code">&lt;link rel="stylesheet" href="/dist/nusa-ui.css"&gt;
-                                &lt;script src="/src/js/nusa-ui.js" defer&gt;&lt;/script&gt;</code></pre>
+&lt;script src="/src/js/nusa-ui.js" defer&gt;&lt;/script&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -460,9 +461,9 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="alerts-code">&lt;div class="alert alert-info"&gt;Information message.&lt;/div&gt;
-                                &lt;div class="alert alert-success"&gt;Success message.&lt;/div&gt;
-                                &lt;div class="alert alert-warning"&gt;Warning message.&lt;/div&gt;
-                                &lt;div class="alert alert-danger"&gt;Error message.&lt;/div&gt;</code></pre>
+&lt;div class="alert alert-success"&gt;Success message.&lt;/div&gt;
+&lt;div class="alert alert-warning"&gt;Warning message.&lt;/div&gt;
+&lt;div class="alert alert-danger"&gt;Error message.&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -490,8 +491,8 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="avatars-code">&lt;div class="avatar avatar-sm"&gt;NU&lt;/div&gt;
-                                &lt;div class="avatar"&gt;NU&lt;/div&gt;
-                                &lt;div class="avatar avatar-lg"&gt;NU&lt;/div&gt;</code></pre>
+&lt;div class="avatar"&gt;NU&lt;/div&gt;
+&lt;div class="avatar avatar-lg"&gt;NU&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -518,8 +519,8 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="progress-code">&lt;div class="progress"&gt;
-                                &lt;div class="progress-bar" style="width:75%"&gt;&lt;/div&gt;
-                                &lt;/div&gt;</code></pre>
+&lt;div class="progress-bar" style="width:75%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -552,16 +553,16 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="inputs-code">&lt;div class="form-group"&gt;
-                                &lt;label class="form-label" for="name"&gt;Name&lt;/label&gt;
-                                &lt;input id="name" class="form-input" placeholder="Your name"&gt;
-                                &lt;/div&gt;
-                                &lt;div class="form-group"&gt;
-                                &lt;label class="form-label" for="category"&gt;Category&lt;/label&gt;
-                                &lt;select id="category" class="form-select"&gt;
-                                &lt;option&gt;Select category&lt;/option&gt;
-                                &lt;/select&gt;
-                                &lt;/div&gt;
-                                &lt;textarea class="form-textarea"&gt;&lt;/textarea&gt;</code></pre>
+&lt;label class="form-label" for="name"&gt;Name&lt;/label&gt;
+&lt;input id="name" class="form-input" placeholder="Your name"&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+&lt;label class="form-label" for="category"&gt;Category&lt;/label&gt;
+&lt;select id="category" class="form-select"&gt;
+&lt;option&gt;Select category&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+&lt;textarea class="form-textarea"&gt;&lt;/textarea&gt;</code></pre>
                         </div>
                     </div>
 
@@ -590,14 +591,14 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="controls-code">&lt;label class="flex items-center"&gt;
-                                &lt;input type="checkbox" class="form-check"&gt;
-                                &lt;span class="form-check-label"&gt;Accept terms&lt;/span&gt;
-                                &lt;/label&gt;
-                                &lt;label class="flex items-center"&gt;
-                                &lt;input type="radio" name="choice" class="form-radio"&gt;
-                                &lt;span class="form-check-label"&gt;Option one&lt;/span&gt;
-                                &lt;/label&gt;
-                                &lt;input type="file" class="form-file"&gt;</code></pre>
+&lt;input type="checkbox" class="form-check"&gt;
+&lt;span class="form-check-label"&gt;Accept terms&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="flex items-center"&gt;
+&lt;input type="radio" name="choice" class="form-radio"&gt;
+&lt;span class="form-check-label"&gt;Option one&lt;/span&gt;
+&lt;/label&gt;
+&lt;input type="file" class="form-file"&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -631,13 +632,13 @@
         &lt;thead&gt;
             &lt;tr&gt;
                 &lt;th&gt;Product&lt;/th&gt;
-                &lt;th&gt;Status&lt;/th&gt;&lt;
-                th&gt;Price&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th&gt;Price&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
-            &lt;tr&gt;&lt;
-                td&gt;Product Alpha&lt;/td&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Product Alpha&lt;/td&gt;
                 &lt;td&gt;Active&lt;/td&gt;
                 &lt;td&gt;$120&lt;/td&gt;
             &lt;/tr&gt;
@@ -661,11 +662,11 @@
                         </div>
                         <div class="docs-example-preview">
                             <nav class="pagination" aria-label="Pagination">
-                                <a class="page-link" href="?page=1" aria-label="Previous page">‹</a>
-                                <a class="page-link" href="?page=1">1</a>
-                                <a class="page-link active" href="?page=2" aria-current="page">2</a>
-                                <a class="page-link" href="?page=3">3</a>
-                                <a class="page-link" href="?page=3" aria-label="Next page">›</a>
+                                <a class="page-link" href="#pagination" aria-label="Previous page">‹</a>
+                                <a class="page-link" href="#pagination">1</a>
+                                <a class="page-link active" href="#pagination" aria-current="page">2</a>
+                                <a class="page-link" href="#pagination">3</a>
+                                <a class="page-link" href="#pagination" aria-label="Next page">›</a>
                             </nav>
                         </div>
                         <div class="docs-code">
@@ -693,9 +694,9 @@
                         <div class="docs-example-preview">
                             <nav aria-label="Breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li><a href="/">Home</a></li>
+                                    <li><a href="#introduction">Home</a></li>
                                     <li class="breadcrumb-separator" aria-hidden="true">/</li>
-                                    <li><a href="/products">Products</a></li>
+                                    <li><a href="#cards">Products</a></li>
                                     <li class="breadcrumb-separator" aria-hidden="true">/</li>
                                     <li class="breadcrumb-current" aria-current="page">Detail</li>
                                 </ol>
@@ -728,11 +729,11 @@
                         <div class="docs-example-preview stacked">
                             <header class="site-header relative w-full rounded-lg border">
                                 <div class="navbar px-3">
-                                    <a href="#" class="navbar-brand">Brand</a>
+                                    <a href="#introduction" class="navbar-brand">Brand</a>
                                     <nav class="navbar-menu">
-                                        <a href="#" class="nav-link active">Home</a><a href="#" class="nav-link">About</a>
+                                        <a href="#introduction" class="nav-link active">Home</a><a href="#features" class="nav-link">About</a>
                                     </nav>
-                                    <a href="#" class="btn btn-primary btn-sm">Sign In</a>
+                                    <a href="#form-inputs" class="btn btn-primary btn-sm">Sign In</a>
                                 </div>
                             </header>
                         </div>
@@ -770,12 +771,12 @@
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="footer-title">Resources</h4><a href="#" class="footer-link">Documentation</a><a href="#" class="footer-link">Support</a>
+                                        <h4 class="footer-title">Resources</h4><a href="#introduction" class="footer-link">Documentation</a><a href="https://github.com/meigiyanto/nusa-ui/issues" class="footer-link" target="_blank" rel="noopener noreferrer">Support</a>
                                     </div>
                                 </div>
                                 <div class="footer-bottom">
                                     <span>© 2026 Nusa UI</span><div class="social-links">
-                                        <a href="#" class="social-link" aria-label="GitHub">GH</a>
+                                        <a href="https://github.com/meigiyanto/nusa-ui" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
                                     </div>
                                 </div>
                             </footer>
@@ -815,23 +816,23 @@
                                         A responsive hero section for your website.
                                     </p>
                                     <div class="hero-actions">
-                                        <a href="#" class="btn btn-primary">Get Started</a><a href="#" class="btn btn-outline">Learn More</a>
+                                        <a href="#installation" class="btn btn-primary">Get Started</a><a href="#usage" class="btn btn-outline">Learn More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="docs-code">
                             <pre><code id="hero-code">&lt;section class="hero"&gt;
-                                &lt;div class="container hero-inner"&gt;
-                                &lt;span class="badge badge-primary"&gt;Welcome&lt;/span&gt;
-                                &lt;h1 class="heading-1 mt-4"&gt;Build Something Great&lt;/h1&gt;
-                                &lt;p class="text-lead mt-4"&gt;Your description goes here.&lt;/p&gt;
-                                &lt;div class="hero-actions"&gt;
-                                &lt;a href="#" class="btn btn-primary"&gt;Get Started&lt;/a&gt;
-                                &lt;a href="#" class="btn btn-outline"&gt;Learn More&lt;/a&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;/section&gt;</code></pre>
+&lt;div class="container hero-inner"&gt;
+&lt;span class="badge badge-primary"&gt;Welcome&lt;/span&gt;
+&lt;h1 class="heading-1 mt-4"&gt;Build Something Great&lt;/h1&gt;
+&lt;p class="text-lead mt-4"&gt;Your description goes here.&lt;/p&gt;
+&lt;div class="hero-actions"&gt;
+&lt;a href="#" class="btn btn-primary"&gt;Get Started&lt;/a&gt;
+&lt;a href="#" class="btn btn-outline"&gt;Learn More&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -876,12 +877,12 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="features-code">&lt;div class="feature-grid"&gt;
-                                &lt;article class="feature-card"&gt;
-                                &lt;div class="feature-icon"&gt;✦&lt;/div&gt;
-                                &lt;h3 class="heading-5"&gt;Feature Title&lt;/h3&gt;
-                                &lt;p&gt;Feature description.&lt;/p&gt;
-                                &lt;/article&gt;
-                                &lt;/div&gt;</code></pre>
+&lt;article class="feature-card"&gt;
+&lt;div class="feature-icon"&gt;✦&lt;/div&gt;
+&lt;h3 class="heading-5"&gt;Feature Title&lt;/h3&gt;
+&lt;p&gt;Feature description.&lt;/p&gt;
+&lt;/article&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -912,14 +913,14 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="pricing-code">&lt;article class="pricing-card"&gt;
-                                &lt;h3 class="heading-5"&gt;Starter&lt;/h3&gt;
-                                &lt;p class="pricing-price"&gt;$9 / month&lt;/p&gt;
-                                &lt;ul&gt;
-                                &lt;li&gt;Basic components&lt;/li&gt;
-                                &lt;li&gt;Documentation&lt;/li&gt;
-                                &lt;/ul&gt;
-                                &lt;button class="btn btn-primary btn-block"&gt;Choose Plan&lt;/button&gt;
-                                &lt;/article&gt;</code></pre>
+&lt;h3 class="heading-5"&gt;Starter&lt;/h3&gt;
+&lt;p class="pricing-price"&gt;$9 / month&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic components&lt;/li&gt;
+&lt;li&gt;Documentation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;button class="btn btn-primary btn-block"&gt;Choose Plan&lt;/button&gt;
+&lt;/article&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -951,15 +952,15 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="testimonial-code">&lt;blockquote class="testimonial"&gt;
-                                &lt;p&gt;Customer testimonial goes here.&lt;/p&gt;
-                                &lt;div class="mt-5 flex items-center gap-3"&gt;
-                                &lt;div class="avatar"&gt;JD&lt;/div&gt;
-                                &lt;div&gt;
-                                &lt;strong&gt;Jane Doe&lt;/strong&gt;
-                                &lt;span class="text-small"&gt;Product Designer&lt;/span&gt;
-                                &lt;/div&gt;
-                                &lt;/div&gt;
-                                &lt;/blockquote&gt;</code></pre>
+&lt;p&gt;Customer testimonial goes here.&lt;/p&gt;
+&lt;div class="mt-5 flex items-center gap-3"&gt;
+&lt;div class="avatar"&gt;JD&lt;/div&gt;
+&lt;div&gt;
+&lt;strong&gt;Jane Doe&lt;/strong&gt;
+&lt;span class="text-small"&gt;Product Designer&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -979,15 +980,15 @@
                                 <h2 class="cta-title">Ready to get started?</h2><p class="cta-description">
                                     Build your next project with Nusa UI.
                                 </p>
-                                <a href="#" class="btn btn-secondary mt-7">Get Started</a>
+                                <a href="#installation" class="btn btn-secondary mt-7">Get Started</a>
                             </section>
                         </div>
                         <div class="docs-code">
                             <pre><code id="cta-code">&lt;section class="cta"&gt;
-                                &lt;h2 class="cta-title"&gt;Ready to get started?&lt;/h2&gt;
-                                &lt;p class="cta-description"&gt;Your description here.&lt;/p&gt;
-                                &lt;a href="#" class="btn btn-secondary mt-7"&gt;Get Started&lt;/a&gt;
-                                &lt;/section&gt;</code></pre>
+&lt;h2 class="cta-title"&gt;Ready to get started?&lt;/h2&gt;
+&lt;p class="cta-description"&gt;Your description here.&lt;/p&gt;
+&lt;a href="#" class="btn btn-secondary mt-7"&gt;Get Started&lt;/a&gt;
+&lt;/section&gt;</code></pre>
                         </div>
                     </div>
                 </section>
@@ -1018,10 +1019,10 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="stat-code">&lt;div class="stat-card"&gt;
-                                &lt;p class="stat-label"&gt;Total Orders&lt;/p&gt;
-                                &lt;p class="stat-value"&gt;1,284&lt;/p&gt;
-                                &lt;span class="badge badge-success mt-2"&gt;+12.5%&lt;/span&gt;
-                                &lt;/div&gt;</code></pre>
+&lt;p class="stat-label"&gt;Total Orders&lt;/p&gt;
+&lt;p class="stat-value"&gt;1,284&lt;/p&gt;
+&lt;span class="badge badge-success mt-2"&gt;+12.5%&lt;/span&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
 
@@ -1049,13 +1050,13 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="empty-code">&lt;div class="skeleton h-5 w-1/3"&gt;&lt;/div&gt;
-                                &lt;div class="skeleton h-4 w-full"&gt;&lt;/div&gt;
+&lt;div class="skeleton h-4 w-full"&gt;&lt;/div&gt;
 
-                                &lt;div class="empty-state"&gt;
-                                &lt;h3 class="empty-state-title"&gt;No data found&lt;/h3&gt;
-                                &lt;p&gt;There is nothing to display yet.&lt;/p&gt;
-                                &lt;button class="btn btn-primary"&gt;Add New&lt;/button&gt;
-                                &lt;/div&gt;</code></pre>
+&lt;div class="empty-state"&gt;
+&lt;h3 class="empty-state-title"&gt;No data found&lt;/h3&gt;
+&lt;p&gt;There is nothing to display yet.&lt;/p&gt;
+&lt;button class="btn btn-primary"&gt;Add New&lt;/button&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
 
@@ -1073,10 +1074,10 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="input-group-code">&lt;div class="input-group"&gt;
-                                &lt;span class="input-addon"&gt;$&lt;/span&gt;
-                                &lt;input class="form-input" type="number" placeholder="Amount"&gt;
-                                &lt;span class="input-addon"&gt;USD&lt;/span&gt;
-                                &lt;/div&gt;</code></pre>
+&lt;span class="input-addon"&gt;$&lt;/span&gt;
+&lt;input class="form-input" type="number" placeholder="Amount"&gt;
+&lt;span class="input-addon"&gt;USD&lt;/span&gt;
+&lt;/div&gt;</code></pre>
                         </div>
                     </div>
 
@@ -1092,16 +1093,16 @@
                                     Actions
                                 </button>
                                 <div class="dropdown-menu" data-dropdown-menu role="menu" hidden>
-                                    <a class="dropdown-item" href="/edit" role="menuitem" tabindex="-1">Edit</a>
+                                    <a class="dropdown-item" href="#cards" role="menuitem" tabindex="-1">Edit</a>
                                     <button class="dropdown-item" type="button" role="menuitem" tabindex="-1">Duplicate</button>
                                     <button class="dropdown-item" type="button" role="menuitem" tabindex="-1">Delete</button>
                                 </div>
                             </div>
                             <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item">View Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a>
+                                <a href="#avatars" class="dropdown-item">View Profile</a>
+                                <a href="#utilities" class="dropdown-item">Settings</a>
                                 <div class="divider my-1"></div>
-                                <a href="#" class="dropdown-item text-red-600">Sign Out</a>
+                                <a href="#introduction" class="dropdown-item text-red-600">Sign Out</a>
                             </div>
                         </div>
                         <div class="docs-code">
@@ -1142,13 +1143,13 @@
                         </div>
                         <div class="docs-code">
                             <pre><code id="media-code">&lt;figure&gt;
-                                &lt;div class="media-frame aspect-video"&gt;
-                                &lt;img src="image.jpg" class="media-cover" alt="Description"&gt;
-                                &lt;/div&gt;
-                                &lt;figcaption class="figure-caption"&gt;
-                                Example media caption.
-                                &lt;/figcaption&gt;
-                                &lt;/figure&gt;</code></pre>
+&lt;div class="media-frame aspect-video"&gt;
+&lt;img src="image.jpg" class="media-cover" alt="Description"&gt;
+&lt;/div&gt;
+&lt;figcaption class="figure-caption"&gt;
+Example media caption.
+&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
                         </div>
                     </div>
 

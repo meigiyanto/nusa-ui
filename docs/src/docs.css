@@ -3,24 +3,28 @@
 
 @layer components {
     .docs-layout {
-        @apply min-h-screen;
+        min-height: 100vh;
+        overflow-x: clip;
+        color: rgb(var(--ui-text));
+        background: rgb(var(--ui-muted));
     }
-
-    .docs-header {
-        @apply sticky top-0 z-40 flex h-16 items-center justify-between border-b px-4 backdrop-blur;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        background: rgb(var(--ui-surface) / .95);
-        border-color: rgb(var(--ui-border));
+    
+    .docs-header > * {
+        min-width: 0;
     }
-
+    
     .docs-brand {
         @apply text-xl font-bold tracking-tight;
         color: rgb(var(--ui-heading));
     }
 
-    .docs-workspace {
-        @apply flex min-w-0;
+    .docs-workspace,
+    .docs-main,
+    .docs-content,
+    .docs-section,
+    .docs-example {
+        min-width: 0;
+        max-width: 100%;
     }
 
     .docs-sidebar {
@@ -79,6 +83,41 @@
         color: rgb(var(--ui-subtle));
     }
 
+    .docs-example-preview {
+        width: 100%;
+        min-width: 0;
+        align-items: center;
+    }
+    
+    .docs-example-preview.stacked {
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .docs-example-preview > * {
+        min-width: 0;
+        max-width: 100%;
+    }
+    
+    .docs-example-preview.stacked > .form-group,
+    .docs-example-preview.stacked > .table-wrap,
+    .docs-example-preview.stacked > .feature-grid,
+    .docs-example-preview.stacked > .progress {
+        width: 100%;
+    }
+    
+    .docs-example-preview .table-wrap {
+        max-width: 100%;
+    }
+    
+    .docs-example-preview .table {
+        width: 100%;
+    }
+    
+    .docs-example-preview .form-group {
+        max-width: 36rem;
+    }
+
     .docs-example {
         @apply mb-7 overflow-hidden rounded-xl border;
         background: rgb(var(--ui-surface));
@@ -106,21 +145,23 @@
     .docs-example-actions {
         @apply flex items-center gap-2;
     }
-
+    
     .docs-code {
-        @apply relative min-w-0 max-w-full border-t bg-slate-950;
-        border-color: rgb(var(--ui-border));
+        width: 100%;
+        min-width: 0;
     }
-
+    
     .docs-code pre {
-        @apply max-w-full overflow-x-auto p-5 text-xs leading-6 text-slate-100;
-        margin: 0;
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
         white-space: pre;
         tab-size: 4;
-        overscroll-behavior-x: contain;
         -webkit-overflow-scrolling: touch;
     }
-
+    
     .docs-code pre code {
         display: block;
         width: max-content;
@@ -135,10 +176,30 @@
         @apply rounded-md border px-3 py-1.5 text-xs font-medium transition;
         border-color: rgb(var(--ui-border));
         color: rgb(var(--ui-subtle));
+        flex-shrink: 0;
     }
 
     .docs-copy-button:hover {
         @apply bg-slate-100 text-slate-900;
+    }
+    
+    .docs-section-header > * {
+        max-width: 100%;
+    }
+    
+    .docs-section-description {
+        max-width: 48rem;
+    }
+    
+    .docs-nav-link {
+        text-decoration: none;
+    }
+    
+    .docs-nav-link:focus-visible,
+    .docs-menu-button:focus-visible,
+    .docs-copy-button:focus-visible {
+        outline: 2px solid rgb(59 130 246);
+        outline-offset: 2px;
     }
 
     .docs-search {
@@ -213,11 +274,6 @@
     .docs-code pre {
         font-size: .875rem;
     }
-    
-    .docs-code pre {
-        font-size: 0.875rem;
-    }
-
 }
 
 @media (min-width: 1024px) {
