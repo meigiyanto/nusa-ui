@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/docs.css">
     <script src="./assets/nusa-ui.js" defer></script>
 </head>
-<body class="docs-layout">
+<body id="docs-root" class="docs-layout">
 
     <header class="docs-header">
         <div class="flex items-center gap-3">
@@ -632,8 +632,8 @@
         &lt;thead&gt;
             &lt;tr&gt;
                 &lt;th&gt;Product&lt;/th&gt;
-                &lt;th&gt;Status&lt;/th&gt;&lt;
-                th&gt;Price&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th&gt;Price&lt;/th&gt;
             &lt;/tr&gt;
         &lt;/thead&gt;
         &lt;tbody&gt;
@@ -662,11 +662,11 @@
                         </div>
                         <div class="docs-example-preview">
                             <nav class="pagination" aria-label="Pagination">
-                                <a class="page-link" href="#pagination" aria-label="Previous page">‹</a>
-                                <a class="page-link" href="#pagination">1</a>
-                                <a class="page-link active" href="#pagination" aria-current="page">2</a>
-                                <a class="page-link" href="#pagination">3</a>
-                                <a class="page-link" href="#pagination" aria-label="Next page">›</a>
+                                <a class="page-link" href="?page=1" aria-label="Previous page">‹</a>
+                                <a class="page-link" href="?page=1">1</a>
+                                <a class="page-link active" href="?page=2" aria-current="page">2</a>
+                                <a class="page-link" href="?page=3">3</a>
+                                <a class="page-link" href="?page=3" aria-label="Next page">›</a>
                             </nav>
                         </div>
                         <div class="docs-code">
@@ -694,9 +694,9 @@
                         <div class="docs-example-preview">
                             <nav aria-label="Breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li><a href="#introduction">Home</a></li>
+                                    <li><a href="/">Home</a></li>
                                     <li class="breadcrumb-separator" aria-hidden="true">/</li>
-                                    <li><a href="#cards">Products</a></li>
+                                    <li><a href="/products">Products</a></li>
                                     <li class="breadcrumb-separator" aria-hidden="true">/</li>
                                     <li class="breadcrumb-current" aria-current="page">Detail</li>
                                 </ol>
@@ -729,11 +729,11 @@
                         <div class="docs-example-preview stacked">
                             <header class="site-header relative w-full rounded-lg border">
                                 <div class="navbar px-3">
-                                    <a href="#introduction" class="navbar-brand">Brand</a>
+                                    <a href="#" class="navbar-brand">Brand</a>
                                     <nav class="navbar-menu">
-                                        <a href="#introduction" class="nav-link active">Home</a><a href="#features" class="nav-link">About</a>
+                                        <a href="#" class="nav-link active">Home</a><a href="#" class="nav-link">About</a>
                                     </nav>
-                                    <a href="#form-inputs" class="btn btn-primary btn-sm">Sign In</a>
+                                    <a href="#" class="btn btn-primary btn-sm">Sign In</a>
                                 </div>
                             </header>
                         </div>
@@ -771,12 +771,12 @@
                                         </p>
                                     </div>
                                     <div>
-                                        <h4 class="footer-title">Resources</h4><a href="#introduction" class="footer-link">Documentation</a><a href="https://github.com/meigiyanto/nusa-ui/issues" class="footer-link" target="_blank" rel="noopener noreferrer">Support</a>
+                                        <h4 class="footer-title">Resources</h4><a href="#" class="footer-link">Documentation</a><a href="#" class="footer-link">Support</a>
                                     </div>
                                 </div>
                                 <div class="footer-bottom">
                                     <span>© 2026 Nusa UI</span><div class="social-links">
-                                        <a href="https://github.com/meigiyanto/nusa-ui" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
+                                        <a href="#" class="social-link" aria-label="GitHub">GH</a>
                                     </div>
                                 </div>
                             </footer>
@@ -816,7 +816,7 @@
                                         A responsive hero section for your website.
                                     </p>
                                     <div class="hero-actions">
-                                        <a href="#installation" class="btn btn-primary">Get Started</a><a href="#usage" class="btn btn-outline">Learn More</a>
+                                        <a href="#" class="btn btn-primary">Get Started</a><a href="#" class="btn btn-outline">Learn More</a>
                                     </div>
                                 </div>
                             </div>
@@ -980,7 +980,7 @@
                                 <h2 class="cta-title">Ready to get started?</h2><p class="cta-description">
                                     Build your next project with Nusa UI.
                                 </p>
-                                <a href="#installation" class="btn btn-secondary mt-7">Get Started</a>
+                                <a href="#" class="btn btn-secondary mt-7">Get Started</a>
                             </section>
                         </div>
                         <div class="docs-code">
@@ -1093,16 +1093,16 @@
                                     Actions
                                 </button>
                                 <div class="dropdown-menu" data-dropdown-menu role="menu" hidden>
-                                    <a class="dropdown-item" href="#cards" role="menuitem" tabindex="-1">Edit</a>
+                                    <a class="dropdown-item" href="/edit" role="menuitem" tabindex="-1">Edit</a>
                                     <button class="dropdown-item" type="button" role="menuitem" tabindex="-1">Duplicate</button>
                                     <button class="dropdown-item" type="button" role="menuitem" tabindex="-1">Delete</button>
                                 </div>
                             </div>
                             <div class="dropdown-menu">
-                                <a href="#avatars" class="dropdown-item">View Profile</a>
-                                <a href="#utilities" class="dropdown-item">Settings</a>
+                                <a href="#" class="dropdown-item">View Profile</a>
+                                <a href="#" class="dropdown-item">Settings</a>
                                 <div class="divider my-1"></div>
-                                <a href="#introduction" class="dropdown-item text-red-600">Sign Out</a>
+                                <a href="#" class="dropdown-item text-red-600">Sign Out</a>
                             </div>
                         </div>
                         <div class="docs-code">

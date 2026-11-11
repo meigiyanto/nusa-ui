@@ -51,6 +51,37 @@ function validateAnchors(html, file) {
     }
 }
 
+function normalizeCodeSamples(html) {
+    return html.replace(
+        /(<pre\b[^>]*>\s*<code\b[^>]*>)([\s\S]*?)(<\/code>\s*<\/pre>)/g,
+        (match, opening, source, closing) => {
+            const lines = source.replace(/\r\n/g, "\n").split("\n");
+
+            while (lines.length && !lines[0].trim()) lines.shift();
+            while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+
+            if (!lines.length) return opening + closing;
+
+            const start = /^\s/.test(lines[0]) ? 0 : 1;
+            const indentation = lines.slice(start)
+                .filter(line => line.trim())
+                .map(line => line.match(/^[ \t]*/)[0].length);
+
+            const commonIndent = indentation.length
+                ? Math.min(...indentation)
+                : 0;
+
+            const normalized = lines.map((line, index) => {
+                if (!line.trim()) return "";
+                if (index < start) return line;
+                return line.slice(commonIndent);
+            });
+
+            return opening + normalized.join("\n") + closing;
+        }
+    );
+}
+
 function prepareDocumentation() {
     const file = "docs/index.html";
     let html = readFile(file);
@@ -93,9 +124,13 @@ function prepareDocumentation() {
         ['<a class="page-link active" href="?page=2"',
             '<a class="page-link active" href="#pagination"', "pagination page 2"],
         ['<a class="page-link" href="?page=3"',
-            '<a class="page-link" href="#pagination"', "pagination page 3"]
+            '<a class="page-link" href="#pagination"', "pagination page 3"],
+        ['<a class="footer-link" href="#">Documentation</a>',
+            '<a class="footer-link" href="../index.html">Documentation</a>',
+            "demo documentation"],
     ], file);
 
+    html = normalizeCodeSamples(html);
     validateAnchors(html, file);
     writeFile(file, html);
 }
@@ -122,7 +157,10 @@ function prepareDemo() {
         ['<a class="footer-link" href="#">Privacy</a>',
             '<a class="footer-link" href="#contact">Privacy</a>', "demo privacy"],
         ['<a class="social-link" href="#" aria-label="GitHub">GH</a>',
-            '<a class="social-link" href="https://github.com/meigiyanto/nusa-ui" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>', "demo GitHub"]
+            '<a class="social-link" href="https://github.com/meigiyanto/nusa-ui" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>', "demo GitHub"],
+        ['<a class="footer-link" href="#">Documentation</a>',
+            '<a class="footer-link" href="../index.html">Documentation</a>',
+            "demo documentation"],
     ], file);
 
     html = html
