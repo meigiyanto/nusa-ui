@@ -62,19 +62,9 @@ function normalizeCodeSamples(html) {
 
             if (!lines.length) return opening + closing;
 
-            const start = /^\s/.test(lines[0]) ? 0 : 1;
-            const indentation = lines.slice(start)
-                .filter(line => line.trim())
-                .map(line => line.match(/^[ \t]*/)[0].length);
-
-            const commonIndent = indentation.length
-                ? Math.min(...indentation)
-                : 0;
-
             const normalized = lines.map((line, index) => {
                 if (!line.trim()) return "";
-                if (index < start) return line;
-                return line.slice(commonIndent);
+                return index === 0 ? line.trimStart() : line;
             });
 
             return opening + normalized.join("\n") + closing;
