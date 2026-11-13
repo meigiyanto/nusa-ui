@@ -1,9 +1,0 @@
-@import "./nusa-ui.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body[data-modal-open="true"] {
-    overflow: hidden;
-}

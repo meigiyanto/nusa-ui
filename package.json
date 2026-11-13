@@ -1,21 +1,30 @@
 {
-    "name": "nusa-ui",
-    "version": "1.1.0",
-    "private": true,
-    "description": "Reusable responsive UI component framework built with Tailwind CSS 3",
-    "scripts": {
-        "dev": "tailwindcss -i ./src/css/app.css -o ./dist/nusa-ui.css --watch",
-        "dev:docs": "tailwindcss -c ./tailwind.docs.config.js -i ./docs/src/docs.css -o ./docs/assets/docs.css --watch",
-        "build:library": "tailwindcss -i ./src/css/app.css -o ./dist/nusa-ui.css --minify",
-        "build:docs": "tailwindcss -c ./tailwind.docs.config.js -i ./docs/src/docs.css -o ./docs/assets/docs.css --minify",
-        "prepare:pages": "node scripts/prepare-pages.js",
-        "build": "npm run build:library && npm run prepare:pages && npm run build:docs"
-    },
-    "devDependencies": {
-        "autoprefixer": "^10.4.20",
-        "caniuse-lite": "^1.0.30001823",
-        "postcss": "^8.4.49",
-        "postcss-import": "^16.1.0",
-        "tailwindcss": "^3.4.17"
-    }
+  "name": "ui-framework",
+  "version": "1.0.0",
+  "description": "A complete, modern, responsive UI Framework based on Tailwind CSS v3",
+  "main": "src/js/index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/framework.css --watch",
+    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./dist/css/framework.css --minify",
+    "build:js": "node scripts/build-js.js",
+    "build:all": "npm run build && npm run build:js",
+    "docs": "npx serve docs",
+    "examples": "npx serve examples",
+    "test": "echo \"No automated tests yet\" && exit 0"
+  },
+  "keywords": [
+    "ui-framework",
+    "tailwindcss",
+    "components",
+    "design-system",
+    "responsive"
+  ],
+  "author": "UI Framework Team",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  },
+  "type": "module"
 }

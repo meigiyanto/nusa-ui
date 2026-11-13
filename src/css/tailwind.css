@@ -1,0 +1,20 @@
+/* ============================================================
+   UI Framework — Main Entry
+   Tailwind CSS v3 + Design System
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens */
+@import "./themes.css";
+
+/* Base styles */
+@import "./base.css";
+
+/* Component layer (will grow in later phases) */
+@import "./components.css";
+
+/* Extra utilities */
+@import "./utilities.css";

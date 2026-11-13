@@ -1,0 +1,143 @@
+<!--
+  UI Framework — Form Inputs
+  Types: text, email, password, number, search, tel, url
+  States: default, focus, error, success, disabled
+  Variants: with icon, with prefix/suffix, floating label
+-->
+
+<!-- ==================== BASIC TEXT INPUT ==================== -->
+<div class="space-y-1.5">
+  <label for="input-basic" class="block text-sm font-medium text-default">Full Name</label>
+  <input type="text" id="input-basic" name="name" placeholder="John Doe"
+    class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 disabled:cursor-not-allowed disabled:bg-surface-muted disabled:opacity-60">
+</div>
+
+<!-- ==================== EMAIL ==================== -->
+<div class="space-y-1.5">
+  <label for="input-email" class="block text-sm font-medium text-default">Email address</label>
+  <input type="email" id="input-email" name="email" placeholder="you@example.com" autocomplete="email"
+    class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+</div>
+
+<!-- ==================== PASSWORD WITH TOGGLE ==================== -->
+<div class="space-y-1.5">
+  <label for="input-password" class="block text-sm font-medium text-default">Password</label>
+  <div class="relative">
+    <input type="password" id="input-password" name="password" placeholder="••••••••"
+      class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 pr-11 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+      data-password-input>
+    <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-3 text-subtle hover:text-muted" data-password-toggle aria-label="Toggle password visibility">
+      <svg class="h-5 w-5" data-icon-show fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+      <svg class="hidden h-5 w-5" data-icon-hide fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ==================== WITH LEADING ICON ==================== -->
+<div class="space-y-1.5">
+  <label for="input-search" class="block text-sm font-medium text-default">Search</label>
+  <div class="relative">
+    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-subtle">
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
+    </div>
+    <input type="search" id="input-search" name="search" placeholder="Search..."
+      class="block w-full rounded-lg border border-default bg-surface py-2.5 pl-11 pr-3.5 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+  </div>
+</div>
+
+<!-- ==================== WITH PREFIX ==================== -->
+<div class="space-y-1.5">
+  <label for="input-website" class="block text-sm font-medium text-default">Website</label>
+  <div class="flex rounded-lg shadow-sm">
+    <span class="inline-flex items-center rounded-l-lg border border-r-0 border-default bg-surface-muted px-3.5 text-sm text-muted">https://</span>
+    <input type="text" id="input-website" name="website" placeholder="example.com"
+      class="block w-full min-w-0 flex-1 rounded-none rounded-r-lg border border-default bg-surface px-3.5 py-2.5 text-sm text-default placeholder:text-subtle transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+  </div>
+</div>
+
+<!-- ==================== ERROR STATE ==================== -->
+<div class="space-y-1.5">
+  <label for="input-error" class="block text-sm font-medium text-default">Email</label>
+  <input type="email" id="input-error" name="email-error" value="invalid-email" aria-invalid="true" aria-describedby="email-error"
+    class="block w-full rounded-lg border border-danger-500 bg-surface px-3.5 py-2.5 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-danger-500 focus:outline-none focus:ring-2 focus:ring-danger-500/20">
+  <p id="email-error" class="text-sm text-danger-600 dark:text-danger-400">Please enter a valid email address.</p>
+</div>
+
+<!-- ==================== SUCCESS STATE ==================== -->
+<div class="space-y-1.5">
+  <label for="input-success" class="block text-sm font-medium text-default">Username</label>
+  <input type="text" id="input-success" name="username" value="johndoe" aria-describedby="username-success"
+    class="block w-full rounded-lg border border-success-500 bg-surface px-3.5 py-2.5 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-success-500 focus:outline-none focus:ring-2 focus:ring-success-500/20">
+  <p id="username-success" class="text-sm text-success-600 dark:text-success-400">Username is available.</p>
+</div>
+
+<!-- ==================== DISABLED ==================== -->
+<div class="space-y-1.5">
+  <label for="input-disabled" class="block text-sm font-medium text-muted">Disabled field</label>
+  <input type="text" id="input-disabled" name="disabled" value="Cannot edit" disabled
+    class="block w-full rounded-lg border border-default bg-surface-muted px-3.5 py-2.5 text-sm text-muted shadow-sm disabled:cursor-not-allowed disabled:opacity-60">
+</div>
+
+<!-- ==================== TEXTAREA ==================== -->
+<div class="space-y-1.5">
+  <label for="textarea" class="block text-sm font-medium text-default">Message</label>
+  <textarea id="textarea" name="message" rows="4" placeholder="Write your message..."
+    class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm text-default shadow-sm placeholder:text-subtle transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20 resize-y"></textarea>
+  <p class="text-xs text-subtle">Max 500 characters.</p>
+</div>
+
+<!-- ==================== SELECT ==================== -->
+<div class="space-y-1.5">
+  <label for="select" class="block text-sm font-medium text-default">Country</label>
+  <select id="select" name="country"
+    class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm text-default shadow-sm transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+    <option value="">Select a country</option>
+    <option value="id">Indonesia</option>
+    <option value="sg">Singapore</option>
+    <option value="my">Malaysia</option>
+    <option value="us">United States</option>
+  </select>
+</div>
+
+<!-- ==================== CHECKBOX ==================== -->
+<div class="space-y-3">
+  <label class="flex items-start gap-3 cursor-pointer">
+    <input type="checkbox" name="terms" class="mt-0.5 h-4 w-4 rounded border-default text-primary-600 focus:ring-primary-500/30 focus:ring-offset-0">
+    <span class="text-sm text-default">I agree to the <a href="#" class="font-medium text-primary-600 hover:text-primary-500">Terms of Service</a> and <a href="#" class="font-medium text-primary-600 hover:text-primary-500">Privacy Policy</a>.</span>
+  </label>
+  <label class="flex items-center gap-3 cursor-pointer">
+    <input type="checkbox" name="newsletter" checked class="h-4 w-4 rounded border-default text-primary-600 focus:ring-primary-500/30 focus:ring-offset-0">
+    <span class="text-sm text-default">Send me product updates</span>
+  </label>
+</div>
+
+<!-- ==================== RADIO ==================== -->
+<div class="space-y-3">
+  <p class="text-sm font-medium text-default">Notification preference</p>
+  <label class="flex items-center gap-3 cursor-pointer">
+    <input type="radio" name="notify" value="all" checked class="h-4 w-4 border-default text-primary-600 focus:ring-primary-500/30 focus:ring-offset-0">
+    <span class="text-sm text-default">All notifications</span>
+  </label>
+  <label class="flex items-center gap-3 cursor-pointer">
+    <input type="radio" name="notify" value="important" class="h-4 w-4 border-default text-primary-600 focus:ring-primary-500/30 focus:ring-offset-0">
+    <span class="text-sm text-default">Important only</span>
+  </label>
+  <label class="flex items-center gap-3 cursor-pointer">
+    <input type="radio" name="notify" value="none" class="h-4 w-4 border-default text-primary-600 focus:ring-primary-500/30 focus:ring-offset-0">
+    <span class="text-sm text-default">None</span>
+  </label>
+</div>
+
+<!-- ==================== TOGGLE SWITCH ==================== -->
+<label class="relative inline-flex cursor-pointer items-center gap-3">
+  <input type="checkbox" class="peer sr-only" role="switch" aria-checked="false">
+  <div class="h-6 w-11 rounded-full bg-secondary-300 transition peer-checked:bg-primary-600 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary-500 dark:bg-secondary-600 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:shadow after:transition-all peer-checked:after:translate-x-5"></div>
+  <span class="text-sm font-medium text-default">Enable notifications</span>
+</label>

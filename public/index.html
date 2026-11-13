@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Framework — Foundation Test</title>
+  <!-- Temporary CDN for foundation verification. Replace with built CSS in production. -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+              400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+              800: '#3730a3', 900: '#312e81', 950: '#1e1b4b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../src/css/themes.css">
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-default min-h-screen">
+  <div class="container mx-auto px-4 py-12 max-w-5xl">
+    <header class="mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">UI Framework</h1>
+        <p class="text-muted mt-1">Phase 1 — Foundation Test</p>
+      </div>
+      <button id="themeToggle" type="button"
+        class="inline-flex items-center gap-2 rounded-lg border border-default bg-surface px-4 py-2 text-sm font-medium shadow-sm hover:bg-surface-muted transition">
+        Toggle Theme
+      </button>
+    </header>
+
+    <!-- Color System -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold mb-6">Color System</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        <div class="space-y-1">
+          <div class="h-12 rounded-lg bg-primary-500"></div>
+          <p class="text-xs text-muted">Primary</p>
+        </div>
+        <div class="space-y-1">
+          <div class="h-12 rounded-lg bg-secondary-500"></div>
+          <p class="text-xs text-muted">Secondary</p>
+        </div>
+        <div class="space-y-1">
+          <div class="h-12 rounded-lg bg-success-500"></div>
+          <p class="text-xs text-muted">Success</p>
+        </div>
+        <div class="space-y-1">
+          <div class="h-12 rounded-lg bg-danger-500"></div>
+          <p class="text-xs text-muted">Danger</p>
+        </div>
+        <div class="space-y-1">
+          <div class="h-12 rounded-lg bg-warning-500"></div>
+          <p class="text-xs text-muted">Warning</p>
+        </div>
+        <div class="space-y-1">
+          <div class="h-12 rounded-lg bg-info-500"></div>
+          <p class="text-xs text-muted">Info</p>
+        </div>
+      </div>
+
+      <h3 class="text-lg font-medium mt-8 mb-3">Primary Scale</h3>
+      <div class="flex flex-wrap gap-1">
+        <div class="w-10 h-10 rounded bg-primary-50" title="50"></div>
+        <div class="w-10 h-10 rounded bg-primary-100" title="100"></div>
+        <div class="w-10 h-10 rounded bg-primary-200" title="200"></div>
+        <div class="w-10 h-10 rounded bg-primary-300" title="300"></div>
+        <div class="w-10 h-10 rounded bg-primary-400" title="400"></div>
+        <div class="w-10 h-10 rounded bg-primary-500" title="500"></div>
+        <div class="w-10 h-10 rounded bg-primary-600" title="600"></div>
+        <div class="w-10 h-10 rounded bg-primary-700" title="700"></div>
+        <div class="w-10 h-10 rounded bg-primary-800" title="800"></div>
+        <div class="w-10 h-10 rounded bg-primary-900" title="900"></div>
+        <div class="w-10 h-10 rounded bg-primary-950" title="950"></div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold mb-6">Typography</h2>
+      <div class="space-y-4">
+        <h1 class="text-4xl md:text-5xl font-bold">Heading 1</h1>
+        <h2 class="text-3xl md:text-4xl font-bold">Heading 2</h2>
+        <h3 class="text-2xl md:text-3xl font-semibold">Heading 3</h3>
+        <h4 class="text-xl font-semibold">Heading 4</h4>
+        <p class="text-base text-default max-w-prose">
+          Body text. The quick brown fox jumps over the lazy dog. Design systems help maintain consistency across large applications and websites.
+        </p>
+        <p class="text-sm text-muted">Caption / helper text style.</p>
+        <p class="text-xs uppercase tracking-wider text-subtle">Overline</p>
+      </div>
+    </section>
+
+    <!-- Spacing & Surface -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold mb-6">Surface & Border</h2>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="rounded-xl border border-default bg-surface p-6 shadow-sm">
+          <h3 class="font-medium mb-1">Surface Card</h3>
+          <p class="text-sm text-muted">Uses surface background and default border.</p>
+        </div>
+        <div class="rounded-xl border border-default bg-surface-muted p-6">
+          <h3 class="font-medium mb-1">Muted Surface</h3>
+          <p class="text-sm text-muted">Subtle background for secondary content.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive Check -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold mb-6">Responsive Breakpoints</h2>
+      <div class="rounded-lg border border-default bg-surface p-4 font-mono text-sm">
+        <p class="sm:hidden">Current: <strong>Mobile</strong> (&lt; 640px)</p>
+        <p class="hidden sm:block md:hidden">Current: <strong>sm</strong> (≥ 640px)</p>
+        <p class="hidden md:block lg:hidden">Current: <strong>md</strong> (≥ 768px)</p>
+        <p class="hidden lg:block xl:hidden">Current: <strong>lg</strong> (≥ 1024px)</p>
+        <p class="hidden xl:block 2xl:hidden">Current: <strong>xl</strong> (≥ 1280px)</p>
+        <p class="hidden 2xl:block">Current: <strong>2xl</strong> (≥ 1536px)</p>
+      </div>
+    </section>
+
+    <footer class="pt-8 border-t border-default text-sm text-muted">
+      Phase 1 Foundation — Design tokens, theme system, CSS architecture, JS core.
+    </footer>
+  </div>
+
+  <script type="module">
+    // Minimal theme toggle for foundation test
+    const btn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      localStorage.setItem('ui-framework-theme', theme);
+    }
+
+    // Init
+    const stored = localStorage.getItem('ui-framework-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(stored || (prefersDark ? 'dark' : 'light'));
+
+    btn.addEventListener('click', () => {
+      const next = root.classList.contains('dark') ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  </script>
+</body>
+</html>

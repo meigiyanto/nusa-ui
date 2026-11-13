@@ -1,0 +1,83 @@
+<!--
+  UI Framework — Alert / Feedback Components
+  Variants: info, success, warning, danger
+  Styles: solid, soft, outline
+-->
+
+<!-- ==================== INFO ==================== -->
+<div class="rounded-lg border border-info-200 bg-info-50 p-4 dark:border-info-800 dark:bg-info-950" role="alert">
+  <div class="flex gap-3">
+    <svg class="h-5 w-5 shrink-0 text-info-600 dark:text-info-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+    </svg>
+    <div class="flex-1">
+      <h3 class="text-sm font-medium text-info-800 dark:text-info-200">Information</h3>
+      <p class="mt-1 text-sm text-info-700 dark:text-info-300">A new software update is available. See what’s new in version 2.0.</p>
+    </div>
+    <button type="button" class="shrink-0 text-info-500 hover:text-info-700 dark:text-info-400 dark:hover:text-info-200" aria-label="Dismiss" data-alert-dismiss>
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ==================== SUCCESS ==================== -->
+<div class="rounded-lg border border-success-200 bg-success-50 p-4 dark:border-success-800 dark:bg-success-950" role="alert">
+  <div class="flex gap-3">
+    <svg class="h-5 w-5 shrink-0 text-success-600 dark:text-success-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <div class="flex-1">
+      <h3 class="text-sm font-medium text-success-800 dark:text-success-200">Success</h3>
+      <p class="mt-1 text-sm text-success-700 dark:text-success-300">Your changes have been saved successfully.</p>
+    </div>
+    <button type="button" class="shrink-0 text-success-500 hover:text-success-700" aria-label="Dismiss" data-alert-dismiss>
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ==================== WARNING ==================== -->
+<div class="rounded-lg border border-warning-200 bg-warning-50 p-4 dark:border-warning-800 dark:bg-warning-950" role="alert">
+  <div class="flex gap-3">
+    <svg class="h-5 w-5 shrink-0 text-warning-600 dark:text-warning-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+    </svg>
+    <div class="flex-1">
+      <h3 class="text-sm font-medium text-warning-800 dark:text-warning-200">Warning</h3>
+      <p class="mt-1 text-sm text-warning-700 dark:text-warning-300">Your subscription will expire in 3 days. Please renew to avoid interruption.</p>
+    </div>
+    <button type="button" class="shrink-0 text-warning-500 hover:text-warning-700" aria-label="Dismiss" data-alert-dismiss>
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ==================== DANGER ==================== -->
+<div class="rounded-lg border border-danger-200 bg-danger-50 p-4 dark:border-danger-800 dark:bg-danger-950" role="alert">
+  <div class="flex gap-3">
+    <svg class="h-5 w-5 shrink-0 text-danger-600 dark:text-danger-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+    </svg>
+    <div class="flex-1">
+      <h3 class="text-sm font-medium text-danger-800 dark:text-danger-200">Error</h3>
+      <p class="mt-1 text-sm text-danger-700 dark:text-danger-300">There was a problem processing your request. Please try again.</p>
+      <div class="mt-3 flex gap-3">
+        <button type="button" class="text-sm font-medium text-danger-700 underline hover:text-danger-600 dark:text-danger-300">Try again</button>
+        <button type="button" class="text-sm font-medium text-danger-700 hover:text-danger-600 dark:text-danger-300">Contact support</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SOLID STYLE ==================== -->
+<div class="rounded-lg bg-primary-600 p-4 text-white" role="alert">
+  <div class="flex gap-3">
+    <svg class="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+    </svg>
+    <div>
+      <h3 class="text-sm font-medium">Solid Alert</h3>
+      <p class="mt-1 text-sm opacity-90">This is a solid style alert with high contrast.</p>
+    </div>
+  </div>
+</div>

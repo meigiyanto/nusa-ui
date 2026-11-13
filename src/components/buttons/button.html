@@ -1,0 +1,120 @@
+<!--
+  UI Framework — Button Component
+  Variants: solid | outline | ghost | soft
+  Colors: primary | secondary | success | danger | warning | info
+  Sizes: xs | sm | md | lg | xl
+  States: default | hover | focus | active | disabled | loading
+-->
+
+<!-- ==================== PRIMARY SOLID ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 disabled:pointer-events-none disabled:opacity-50">
+  Primary
+</button>
+
+<!-- ==================== SECONDARY SOLID ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-secondary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-500 disabled:pointer-events-none disabled:opacity-50">
+  Secondary
+</button>
+
+<!-- ==================== OUTLINE ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg border border-primary-600 bg-transparent px-4 py-2 text-sm font-medium text-primary-600 transition hover:bg-primary-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 disabled:pointer-events-none disabled:opacity-50 dark:hover:bg-primary-950">
+  Outline
+</button>
+
+<!-- ==================== GHOST ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-transparent px-4 py-2 text-sm font-medium text-primary-600 transition hover:bg-primary-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 disabled:pointer-events-none disabled:opacity-50 dark:hover:bg-primary-950">
+  Ghost
+</button>
+
+<!-- ==================== SOFT ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-50 px-4 py-2 text-sm font-medium text-primary-700 transition hover:bg-primary-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 disabled:pointer-events-none disabled:opacity-50 dark:bg-primary-950 dark:text-primary-300 dark:hover:bg-primary-900">
+  Soft
+</button>
+
+<!-- ==================== SIZES ==================== -->
+<!-- xs -->
+<button type="button" class="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary-600 px-2.5 py-1 text-xs font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  Extra Small
+</button>
+
+<!-- sm -->
+<button type="button" class="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  Small
+</button>
+
+<!-- md (default) -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  Medium
+</button>
+
+<!-- lg -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-5 py-2.5 text-base font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  Large
+</button>
+
+<!-- xl -->
+<button type="button" class="inline-flex items-center justify-center gap-2.5 rounded-xl bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  Extra Large
+</button>
+
+<!-- ==================== WITH ICON ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+  </svg>
+  Add Item
+</button>
+
+<!-- Icon only -->
+<button type="button" aria-label="Settings" class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+</button>
+
+<!-- ==================== LOADING ==================== -->
+<button type="button" disabled class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm disabled:pointer-events-none disabled:opacity-70">
+  <svg class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+  </svg>
+  Loading...
+</button>
+
+<!-- ==================== DISABLED ==================== -->
+<button type="button" disabled class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm disabled:pointer-events-none disabled:opacity-50">
+  Disabled
+</button>
+
+<!-- ==================== FULL WIDTH ==================== -->
+<button type="button" class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+  Full Width Button
+</button>
+
+<!-- ==================== BUTTON GROUP ==================== -->
+<div class="inline-flex rounded-lg shadow-sm" role="group">
+  <button type="button" class="rounded-l-lg border border-primary-600 bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+    Left
+  </button>
+  <button type="button" class="-ml-px border border-primary-600 bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+    Center
+  </button>
+  <button type="button" class="-ml-px rounded-r-lg border border-primary-600 bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500">
+    Right
+  </button>
+</div>
+
+<!-- ==================== SUCCESS / DANGER / WARNING / INFO ==================== -->
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-success-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-success-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success-500">
+  Success
+</button>
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-danger-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-danger-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger-500">
+  Danger
+</button>
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-warning-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-warning-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warning-500">
+  Warning
+</button>
+<button type="button" class="inline-flex items-center justify-center gap-2 rounded-lg bg-info-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-info-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-info-500">
+  Info
+</button>

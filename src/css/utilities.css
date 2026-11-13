@@ -1,0 +1,64 @@
+/* ============================================================
+   UI Framework — Extra Utilities
+   ============================================================ */
+
+@layer utilities {
+  /* Text colors using CSS variables */
+  .text-default {
+    color: var(--color-text);
+  }
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+  .text-subtle {
+    color: var(--color-text-subtle);
+  }
+  .text-inverted {
+    color: var(--color-text-inverted);
+  }
+
+  /* Background helpers */
+  .bg-background {
+    background-color: var(--color-background);
+  }
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  .bg-surface-elevated {
+    background-color: var(--color-surface-elevated);
+  }
+  .bg-surface-muted {
+    background-color: var(--color-surface-muted);
+  }
+
+  /* Border helpers */
+  .border-default {
+    border-color: var(--color-border);
+  }
+  .border-muted {
+    border-color: var(--color-border-muted);
+  }
+  .border-strong {
+    border-color: var(--color-border-strong);
+  }
+
+  /* Scrollbar styling (optional) */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Aspect ratios helper if needed beyond Tailwind */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+}
