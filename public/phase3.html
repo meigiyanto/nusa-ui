@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Framework — Phase 3 Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81',950:'#1e1b4b'},
+            secondary: {50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a',950:'#020617'},
+            success: {50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16'},
+            danger: {50:'#fef2f2',100:'#fee2e2',200:'#fecaca',300:'#fca5a5',400:'#f87171',500:'#ef4444',600:'#dc2626',700:'#b91c1c',800:'#991b1b',900:'#7f1d1d',950:'#450a0a'},
+            warning: {50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f',950:'#451a03'},
+            info: {50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a',950:'#172554'},
+          },
+          zIndex: { dropdown:1000, sticky:1020, fixed:1030, 'modal-backdrop':1040, modal:1050, popover:1060, tooltip:1070 }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../src/css/themes.css">
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; }
+    .text-default { color: var(--color-text); }
+    .text-muted { color: var(--color-text-muted); }
+    .text-subtle { color: var(--color-text-subtle); }
+    .bg-background { background-color: var(--color-background); }
+    .bg-surface { background-color: var(--color-surface); }
+    .bg-surface-muted { background-color: var(--color-surface-muted); }
+    .border-default { border-color: var(--color-border); }
+    .divide-default > :not([hidden]) ~ :not([hidden]) { border-color: var(--color-border); }
+  </style>
+</head>
+<body class="bg-background text-default min-h-screen antialiased">
+
+  <header class="sticky top-0 z-sticky border-b border-default bg-surface/95 backdrop-blur">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 flex h-14 items-center justify-between">
+      <a href="phase2.html" class="flex items-center gap-2 font-semibold text-sm">
+        <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary-600 text-xs font-bold text-white">UI</span>
+        Phase 3 — Advanced
+      </a>
+      <button id="themeToggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Toggle theme">
+        <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+        <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 py-10 space-y-16">
+
+    <section>
+      <h1 class="text-3xl font-bold tracking-tight">Phase 3 — Advanced Components</h1>
+      <p class="mt-2 text-muted">Modal, Drawer, Tabs, Accordion, Dropdown, Toast, Tooltip, Table. All interactive and accessible.</p>
+    </section>
+
+    <!-- Modal & Drawer -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Modal & Drawer</h2>
+      <div class="flex flex-wrap gap-3">
+        <button type="button" data-modal-open="demo-modal" class="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">Open Modal</button>
+        <button type="button" data-drawer-open="demo-drawer" class="inline-flex items-center rounded-lg border border-default bg-surface px-4 py-2 text-sm font-medium text-default hover:bg-surface-muted">Open Drawer</button>
+      </div>
+    </section>
+
+    <!-- Dropdown -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Dropdown</h2>
+      <div data-dropdown class="relative inline-block text-left">
+        <button type="button" data-dropdown-toggle aria-expanded="false" aria-haspopup="menu"
+          class="inline-flex items-center gap-2 rounded-lg border border-default bg-surface px-4 py-2 text-sm font-medium text-default shadow-sm hover:bg-surface-muted">
+          Options
+          <svg class="h-4 w-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </button>
+        <div data-dropdown-menu role="menu" aria-hidden="true" class="absolute left-0 z-dropdown mt-2 w-56 origin-top-left rounded-lg border border-default bg-surface py-1 shadow-lg hidden">
+          <a href="#" role="menuitem" class="block px-4 py-2 text-sm text-default hover:bg-surface-muted focus:bg-surface-muted focus:outline-none">Edit</a>
+          <a href="#" role="menuitem" class="block px-4 py-2 text-sm text-default hover:bg-surface-muted focus:bg-surface-muted focus:outline-none">Duplicate</a>
+          <div class="my-1 border-t border-default"></div>
+          <a href="#" role="menuitem" class="block px-4 py-2 text-sm text-danger-600 hover:bg-danger-50 dark:hover:bg-danger-950 focus:outline-none">Delete</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Tabs</h2>
+      <div data-tabs-root class="max-w-lg">
+        <div data-tabs role="tablist" aria-label="Settings" class="flex border-b border-default">
+          <button type="button" role="tab" id="t1" aria-controls="p1" aria-selected="true" tabindex="0" class="border-b-2 border-primary-600 px-4 py-2.5 text-sm font-medium text-primary-600">Account</button>
+          <button type="button" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1" class="border-b-2 border-transparent px-4 py-2.5 text-sm font-medium text-muted hover:text-default">Password</button>
+          <button type="button" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1" class="border-b-2 border-transparent px-4 py-2.5 text-sm font-medium text-muted hover:text-default">Billing</button>
+        </div>
+        <div class="pt-5">
+          <div role="tabpanel" id="p1" aria-labelledby="t1"><p class="text-sm text-muted">Manage your public profile and personal details.</p></div>
+          <div role="tabpanel" id="p2" aria-labelledby="t2" hidden class="hidden"><p class="text-sm text-muted">Change your password and enable two-factor authentication.</p></div>
+          <div role="tabpanel" id="p3" aria-labelledby="t3" hidden class="hidden"><p class="text-sm text-muted">Update payment methods and view invoices.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accordion -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Accordion</h2>
+      <div data-accordion class="max-w-lg divide-y divide-default rounded-xl border border-default">
+        <div>
+          <h3>
+            <button type="button" data-accordion-trigger aria-expanded="true" aria-controls="ap1" class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium hover:bg-surface-muted">
+              What is included?
+              <svg data-accordion-icon class="h-5 w-5 text-muted transition-transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            </button>
+          </h3>
+          <div id="ap1" role="region" class="overflow-hidden transition-all duration-200">
+            <div class="px-5 pb-4 text-sm text-muted">A full set of accessible, responsive UI components built with Tailwind CSS v3.</div>
+          </div>
+        </div>
+        <div>
+          <h3>
+            <button type="button" data-accordion-trigger aria-expanded="false" aria-controls="ap2" class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium hover:bg-surface-muted">
+              Can I customize the colors?
+              <svg data-accordion-icon class="h-5 w-5 text-muted transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            </button>
+          </h3>
+          <div id="ap2" role="region" hidden class="overflow-hidden transition-all duration-200" style="max-height:0">
+            <div class="px-5 pb-4 text-sm text-muted">Yes. All colors are driven by CSS variables. Change them in themes.css or via a custom theme.</div>
+          </div>
+        </div>
+        <div>
+          <h3>
+            <button type="button" data-accordion-trigger aria-expanded="false" aria-controls="ap3" class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium hover:bg-surface-muted">
+              Is JavaScript required?
+              <svg data-accordion-icon class="h-5 w-5 text-muted transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            </button>
+          </h3>
+          <div id="ap3" role="region" hidden class="overflow-hidden transition-all duration-200" style="max-height:0">
+            <div class="px-5 pb-4 text-sm text-muted">Only for interactive components (modals, tabs, etc.). Static components work with HTML + Tailwind alone.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Toast</h2>
+      <div class="flex flex-wrap gap-3">
+        <button type="button" id="toast-info" class="rounded-lg bg-info-600 px-4 py-2 text-sm font-medium text-white hover:bg-info-700">Info Toast</button>
+        <button type="button" id="toast-success" class="rounded-lg bg-success-600 px-4 py-2 text-sm font-medium text-white hover:bg-success-700">Success Toast</button>
+        <button type="button" id="toast-warning" class="rounded-lg bg-warning-500 px-4 py-2 text-sm font-medium text-white hover:bg-warning-600">Warning Toast</button>
+        <button type="button" id="toast-danger" class="rounded-lg bg-danger-600 px-4 py-2 text-sm font-medium text-white hover:bg-danger-700">Danger Toast</button>
+      </div>
+    </section>
+
+    <!-- Tooltip -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Tooltip</h2>
+      <div class="flex flex-wrap gap-4">
+        <button type="button" data-tooltip="This is a tooltip" data-tooltip-placement="top" class="rounded-lg border border-default bg-surface px-4 py-2 text-sm font-medium hover:bg-surface-muted">Hover me (top)</button>
+        <button type="button" data-tooltip="Bottom placement" data-tooltip-placement="bottom" class="rounded-lg border border-default bg-surface px-4 py-2 text-sm font-medium hover:bg-surface-muted">Hover me (bottom)</button>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Table</h2>
+      <div class="overflow-x-auto rounded-xl border border-default">
+        <table class="min-w-full divide-y divide-default text-sm">
+          <thead class="bg-surface-muted">
+            <tr>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">Name</th>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">Status</th>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">Role</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-default bg-surface">
+            <tr class="hover:bg-surface-muted/50">
+              <td class="px-4 py-3 font-medium">Alex Rivera</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center gap-1 rounded-full bg-success-50 px-2 py-0.5 text-xs font-medium text-success-700 dark:bg-success-950 dark:text-success-300"><span class="h-1.5 w-1.5 rounded-full bg-success-500"></span>Active</span></td>
+              <td class="px-4 py-3 text-muted">Admin</td>
+            </tr>
+            <tr class="hover:bg-surface-muted/50">
+              <td class="px-4 py-3 font-medium">Sarah Chen</td>
+              <td class="px-4 py-3"><span class="inline-flex items-center gap-1 rounded-full bg-warning-50 px-2 py-0.5 text-xs font-medium text-warning-700 dark:bg-warning-950 dark:text-warning-300"><span class="h-1.5 w-1.5 rounded-full bg-warning-500"></span>Away</span></td>
+              <td class="px-4 py-3 text-muted">Editor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal markup -->
+  <div id="demo-modal" class="fixed inset-0 z-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div data-modal-backdrop class="absolute inset-0 bg-secondary-900/60 opacity-0 transition-opacity duration-200"></div>
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+      <div data-modal-panel class="relative w-full max-w-md rounded-xl border border-default bg-surface shadow-xl opacity-0 scale-95 transition-all duration-200">
+        <div class="flex items-center justify-between border-b border-default px-5 py-4">
+          <h2 id="modal-title" class="text-lg font-semibold">Confirm action</h2>
+          <button type="button" data-modal-close class="rounded-lg p-1.5 text-muted hover:bg-surface-muted" aria-label="Close">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div class="px-5 py-4">
+          <p class="text-sm text-muted">Are you sure you want to continue? This action cannot be undone.</p>
+        </div>
+        <div class="flex justify-end gap-3 border-t border-default px-5 py-4">
+          <button type="button" data-modal-close class="rounded-lg border border-default px-4 py-2 text-sm font-medium hover:bg-surface-muted">Cancel</button>
+          <button type="button" data-modal-close class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer markup -->
+  <div id="demo-drawer" data-drawer data-drawer-side="right" class="fixed inset-0 z-modal hidden" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+    <div data-drawer-backdrop class="absolute inset-0 bg-secondary-900/60 opacity-0 transition-opacity duration-300"></div>
+    <div data-drawer-panel class="absolute inset-y-0 right-0 flex w-full max-w-sm flex-col border-l border-default bg-surface shadow-xl transition-transform duration-300 translate-x-full">
+      <div class="flex items-center justify-between border-b border-default px-5 py-4">
+        <h2 id="drawer-title" class="text-lg font-semibold">Filters</h2>
+        <button type="button" data-drawer-close class="rounded-lg p-1.5 text-muted hover:bg-surface-muted" aria-label="Close">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+        <p class="text-sm text-muted">Adjust filters and preferences here.</p>
+        <label class="flex items-center gap-3 text-sm"><input type="checkbox" class="rounded border-default text-primary-600"> Active only</label>
+        <label class="flex items-center gap-3 text-sm"><input type="checkbox" class="rounded border-default text-primary-600"> Include archived</label>
+      </div>
+      <div class="border-t border-default px-5 py-4">
+        <button type="button" data-drawer-close class="w-full rounded-lg bg-primary-600 py-2.5 text-sm font-medium text-white hover:bg-primary-700">Apply</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // Theme
+    const root = document.documentElement;
+    const stored = localStorage.getItem('ui-framework-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((stored || (prefersDark ? 'dark' : 'light')) === 'dark') root.classList.add('dark');
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('ui-framework-theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // ---- Minimal inline implementations for showcase (mirrors the JS modules) ----
+
+    // Modal
+    const openModals = new Set();
+    function openModal(modal) {
+      if (!modal || openModals.has(modal)) return;
+      modal._prev = document.activeElement;
+      modal.classList.remove('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      openModals.add(modal);
+      requestAnimationFrame(() => {
+        modal.querySelector('[data-modal-backdrop]')?.classList.add('opacity-100');
+        modal.querySelector('[data-modal-backdrop]')?.classList.remove('opacity-0');
+        const panel = modal.querySelector('[data-modal-panel]');
+        panel?.classList.add('opacity-100', 'scale-100');
+        panel?.classList.remove('opacity-0', 'scale-95');
+      });
+      modal.querySelector('button')?.focus();
+    }
+    function closeModal(modal) {
+      if (!modal || !openModals.has(modal)) return;
+      modal.querySelector('[data-modal-backdrop]')?.classList.add('opacity-0');
+      const panel = modal.querySelector('[data-modal-panel]');
+      panel?.classList.add('opacity-0', 'scale-95');
+      panel?.classList.remove('opacity-100', 'scale-100');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        openModals.delete(modal);
+        if (openModals.size === 0) document.body.style.overflow = '';
+        modal._prev?.focus?.();
+      }, 200);
+    }
+    document.querySelectorAll('[data-modal-open]').forEach(btn => {
+      btn.addEventListener('click', () => openModal(document.getElementById(btn.getAttribute('data-modal-open'))));
+    });
+    document.querySelectorAll('[data-modal-close]').forEach(btn => {
+      btn.addEventListener('click', () => closeModal(btn.closest('[role="dialog"]')));
+    });
+    document.querySelectorAll('[data-modal-backdrop]').forEach(bd => {
+      bd.addEventListener('click', () => closeModal(bd.closest('[role="dialog"]')));
+    });
+
+    // Drawer
+    const openDrawers = new Set();
+    function openDrawer(drawer) {
+      if (!drawer || openDrawers.has(drawer)) return;
+      drawer._prev = document.activeElement;
+      drawer.classList.remove('hidden');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      openDrawers.add(drawer);
+      requestAnimationFrame(() => {
+        drawer.querySelector('[data-drawer-backdrop]')?.classList.add('opacity-100');
+        drawer.querySelector('[data-drawer-backdrop]')?.classList.remove('opacity-0');
+        const panel = drawer.querySelector('[data-drawer-panel]');
+        panel?.classList.remove('translate-x-full');
+        panel?.classList.add('translate-x-0');
+      });
+    }
+    function closeDrawer(drawer) {
+      if (!drawer || !openDrawers.has(drawer)) return;
+      drawer.querySelector('[data-drawer-backdrop]')?.classList.add('opacity-0');
+      const panel = drawer.querySelector('[data-drawer-panel]');
+      panel?.classList.remove('translate-x-0');
+      panel?.classList.add('translate-x-full');
+      setTimeout(() => {
+        drawer.classList.add('hidden');
+        drawer.setAttribute('aria-hidden', 'true');
+        openDrawers.delete(drawer);
+        if (openDrawers.size === 0) document.body.style.overflow = '';
+        drawer._prev?.focus?.();
+      }, 300);
+    }
+    document.querySelectorAll('[data-drawer-open]').forEach(btn => {
+      btn.addEventListener('click', () => openDrawer(document.getElementById(btn.getAttribute('data-drawer-open'))));
+    });
+    document.querySelectorAll('[data-drawer-close]').forEach(btn => {
+      btn.addEventListener('click', () => closeDrawer(btn.closest('[data-drawer]')));
+    });
+    document.querySelectorAll('[data-drawer-backdrop]').forEach(bd => {
+      bd.addEventListener('click', () => closeDrawer(bd.closest('[data-drawer]')));
+    });
+
+    // Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        if (openModals.size) closeModal([...openModals].pop());
+        if (openDrawers.size) closeDrawer([...openDrawers].pop());
+      }
+    });
+
+    // Tabs
+    document.querySelectorAll('[data-tabs]').forEach(tablist => {
+      const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+      const root = tablist.closest('[data-tabs-root]');
+      const panels = root ? [...root.querySelectorAll('[role="tabpanel"]')] : [];
+      function activate(tab) {
+        tabs.forEach(t => {
+          const sel = t === tab;
+          t.setAttribute('aria-selected', sel);
+          t.tabIndex = sel ? 0 : -1;
+          t.classList.toggle('border-primary-600', sel);
+          t.classList.toggle('text-primary-600', sel);
+          t.classList.toggle('border-transparent', !sel);
+          t.classList.toggle('text-muted', !sel);
+        });
+        const id = tab.getAttribute('aria-controls');
+        panels.forEach(p => {
+          const active = p.id === id;
+          p.classList.toggle('hidden', !active);
+          p.hidden = !active;
+        });
+      }
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => activate(tab));
+        tab.addEventListener('keydown', e => {
+          const i = tabs.indexOf(tab);
+          let next;
+          if (e.key === 'ArrowRight') { e.preventDefault(); next = tabs[(i+1)%tabs.length]; }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); next = tabs[(i-1+tabs.length)%tabs.length]; }
+          if (next) { next.focus(); activate(next); }
+        });
+      });
+    });
+
+    // Accordion
+    document.querySelectorAll('[data-accordion]').forEach(acc => {
+      acc.querySelectorAll('[data-accordion-trigger]').forEach(trigger => {
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (!panel) return;
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
+        trigger.addEventListener('click', () => {
+          const open = trigger.getAttribute('aria-expanded') === 'true';
+          // close others
+          acc.querySelectorAll('[data-accordion-trigger]').forEach(other => {
+            if (other === trigger) return;
+            other.setAttribute('aria-expanded', 'false');
+            const op = document.getElementById(other.getAttribute('aria-controls'));
+            if (op) { op.hidden = true; op.style.maxHeight = '0px'; }
+            other.querySelector('[data-accordion-icon]')?.classList.remove('rotate-180');
+          });
+          trigger.setAttribute('aria-expanded', !open);
+          panel.hidden = open;
+          panel.style.maxHeight = open ? '0px' : panel.scrollHeight + 'px';
+          trigger.querySelector('[data-accordion-icon]')?.classList.toggle('rotate-180', !open);
+        });
+      });
+    });
+
+    // Dropdown
+    let openDd = null;
+    document.querySelectorAll('[data-dropdown]').forEach(dd => {
+      const toggle = dd.querySelector('[data-dropdown-toggle]');
+      const menu = dd.querySelector('[data-dropdown-menu]');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        if (openDd && openDd !== dd) {
+          openDd.querySelector('[data-dropdown-menu]')?.classList.add('hidden');
+          openDd.querySelector('[data-dropdown-toggle]')?.setAttribute('aria-expanded', 'false');
+        }
+        if (isOpen) {
+          menu.classList.add('hidden');
+          toggle.setAttribute('aria-expanded', 'false');
+          openDd = null;
+        } else {
+          menu.classList.remove('hidden');
+          toggle.setAttribute('aria-expanded', 'true');
+          openDd = dd;
+        }
+      });
+    });
+    document.addEventListener('click', () => {
+      if (openDd) {
+        openDd.querySelector('[data-dropdown-menu]')?.classList.add('hidden');
+        openDd.querySelector('[data-dropdown-toggle]')?.setAttribute('aria-expanded', 'false');
+        openDd = null;
+      }
+    });
+
+    // Toast (simple)
+    function showToast(msg, variant = 'info') {
+      let c = document.getElementById('toast-c');
+      if (!c) {
+        c = document.createElement('div');
+        c.id = 'toast-c';
+        c.className = 'fixed bottom-4 right-4 z-[1080] flex flex-col gap-2 w-full max-w-sm pointer-events-none';
+        document.body.appendChild(c);
+      }
+      const colors = {
+        info: 'bg-info-50 border-info-200 text-info-800 dark:bg-info-950 dark:border-info-800 dark:text-info-200',
+        success: 'bg-success-50 border-success-200 text-success-800 dark:bg-success-950 dark:border-success-800 dark:text-success-200',
+        warning: 'bg-warning-50 border-warning-200 text-warning-800 dark:bg-warning-950 dark:border-warning-800 dark:text-warning-200',
+        danger: 'bg-danger-50 border-danger-200 text-danger-800 dark:bg-danger-950 dark:border-danger-800 dark:text-danger-200',
+      };
+      const el = document.createElement('div');
+      el.className = `pointer-events-auto rounded-lg border p-4 shadow-lg text-sm font-medium ${colors[variant] || colors.info}`;
+      el.textContent = msg;
+      c.appendChild(el);
+      setTimeout(() => {
+        el.style.transition = 'opacity .2s';
+        el.style.opacity = '0';
+        setTimeout(() => el.remove(), 200);
+      }, 3500);
+    }
+    document.getElementById('toast-info')?.addEventListener('click', () => showToast('This is an info message.', 'info'));
+    document.getElementById('toast-success')?.addEventListener('click', () => showToast('Changes saved successfully!', 'success'));
+    document.getElementById('toast-warning')?.addEventListener('click', () => showToast('Please check your input.', 'warning'));
+    document.getElementById('toast-danger')?.addEventListener('click', () => showToast('Something went wrong.', 'danger'));
+
+    // Tooltip
+    document.querySelectorAll('[data-tooltip]').forEach(el => {
+      let tip;
+      el.addEventListener('mouseenter', () => {
+        tip = document.createElement('div');
+        tip.className = 'fixed z-[1070] px-2.5 py-1.5 text-xs font-medium text-white bg-secondary-900 dark:bg-secondary-700 rounded-md shadow-lg pointer-events-none whitespace-nowrap';
+        tip.textContent = el.getAttribute('data-tooltip');
+        document.body.appendChild(tip);
+        const r = el.getBoundingClientRect();
+        const tr = tip.getBoundingClientRect();
+        const place = el.getAttribute('data-tooltip-placement') || 'top';
+        if (place === 'bottom') {
+          tip.style.top = (r.bottom + 8) + 'px';
+          tip.style.left = (r.left + r.width/2 - tr.width/2) + 'px';
+        } else {
+          tip.style.top = (r.top - tr.height - 8) + 'px';
+          tip.style.left = (r.left + r.width/2 - tr.width/2) + 'px';
+        }
+      });
+      el.addEventListener('mouseleave', () => { tip?.remove(); tip = null; });
+    });
+  </script>
+</body>
+</html>

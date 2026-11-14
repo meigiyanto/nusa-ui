@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theming — UI Framework Docs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81',950:'#1e1b4b'},
+            secondary: {50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a',950:'#020617'},
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../src/css/themes.css">
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; }
+    .text-default { color: var(--color-text); }
+    .text-muted { color: var(--color-text-muted); }
+    .text-subtle { color: var(--color-text-subtle); }
+    .bg-background { background-color: var(--color-background); }
+    .bg-surface { background-color: var(--color-surface); }
+    .bg-surface-muted { background-color: var(--color-surface-muted); }
+    .border-default { border-color: var(--color-border); }
+    .code-block { position: relative; }
+    .copy-btn { opacity: 0; transition: opacity .15s; }
+    .code-block:hover .copy-btn { opacity: 1; }
+  </style>
+</head>
+<body class="bg-background text-default antialiased">
+  <div class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-40 border-b border-default bg-surface/95 backdrop-blur">
+      <div class="flex h-14 items-center gap-4 px-4 sm:px-6">
+        <button type="button" id="sidebarToggle" class="lg:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Menu">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        </button>
+        <a href="index.html" class="flex items-center gap-2 font-semibold text-sm">
+          <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary-600 text-xs font-bold text-white">UI</span>
+          <span class="hidden sm:inline">Framework Docs</span>
+        </a>
+        <div class="flex-1"></div>
+        <button id="themeToggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Toggle theme">
+          <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+          <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="flex flex-1">
+      <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 border-r border-default bg-surface pt-14 transform -translate-x-full lg:translate-x-0 lg:static lg:pt-0 transition-transform duration-200">
+        <nav class="h-full overflow-y-auto px-4 py-6 space-y-6 text-sm">
+          <div>
+            <p class="px-2 text-xs font-semibold uppercase tracking-wider text-subtle mb-2">Getting Started</p>
+            <ul class="space-y-0.5">
+              <li><a href="index.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Introduction</a></li>
+              <li><a href="installation.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Installation</a></li>
+              <li><a href="theming.html" class="block rounded-lg px-2 py-1.5 font-medium bg-primary-50 text-primary-700 dark:bg-primary-950 dark:text-primary-300">Theming</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="px-2 text-xs font-semibold uppercase tracking-wider text-subtle mb-2">Components</p>
+            <ul class="space-y-0.5">
+              <li><a href="components/buttons.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Buttons</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+      <div id="sidebarOverlay" class="fixed inset-0 z-20 bg-secondary-900/50 hidden lg:hidden"></div>
+
+      <main class="flex-1 min-w-0 px-4 py-8 sm:px-6 lg:px-10 max-w-3xl">
+        <h1 class="text-3xl font-bold tracking-tight">Theming</h1>
+        <p class="mt-3 text-muted">Customize colors, fonts, radii, and shadows without rewriting components.</p>
+
+        <h2 class="mt-10 text-xl font-semibold">How it works</h2>
+        <p class="mt-3 text-sm text-muted">
+          Design tokens live as <strong class="text-default">CSS custom properties</strong> in <code class="text-xs bg-surface-muted px-1 rounded">src/css/themes.css</code>. Tailwind is configured to read those variables, so utility classes like <code class="text-xs bg-surface-muted px-1 rounded">bg-primary-600</code> stay in sync with your theme.
+        </p>
+
+        <h2 class="mt-10 text-xl font-semibold">Light & Dark</h2>
+        <p class="mt-3 text-sm text-muted">Dark mode uses the <code class="text-xs bg-surface-muted px-1 rounded">.dark</code> class on <code class="text-xs bg-surface-muted px-1 rounded">&lt;html&gt;</code>.</p>
+        <div class="mt-4 code-block rounded-xl border border-default bg-secondary-900 text-secondary-100 overflow-hidden">
+          <div class="flex items-center justify-between border-b border-secondary-700 px-4 py-2">
+            <span class="text-xs text-secondary-400">JavaScript</span>
+            <button type="button" class="copy-btn text-xs text-secondary-400 hover:text-white" data-copy>Copy</button>
+          </div>
+          <pre class="p-4 text-xs overflow-x-auto"><code>import { setTheme, toggleTheme, initTheme } from './src/js/core.js';
+
+initTheme();          // respects localStorage + system preference
+setTheme('dark');     // force dark
+toggleTheme();        // flip light ↔ dark</code></pre>
+        </div>
+
+        <h2 class="mt-10 text-xl font-semibold">Changing primary color</h2>
+        <p class="mt-3 text-sm text-muted">Override the primary scale in <code class="text-xs bg-surface-muted px-1 rounded">:root</code> (and optionally in <code class="text-xs bg-surface-muted px-1 rounded">.dark</code>):</p>
+        <div class="mt-4 code-block rounded-xl border border-default bg-secondary-900 text-secondary-100 overflow-hidden">
+          <div class="flex items-center justify-between border-b border-secondary-700 px-4 py-2">
+            <span class="text-xs text-secondary-400">CSS</span>
+            <button type="button" class="copy-btn text-xs text-secondary-400 hover:text-white" data-copy>Copy</button>
+          </div>
+          <pre class="p-4 text-xs overflow-x-auto"><code>:root {
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  /* …other steps as needed */
+}</code></pre>
+        </div>
+
+        <h2 class="mt-10 text-xl font-semibold">Custom theme</h2>
+        <p class="mt-3 text-sm text-muted">You can also scope tokens under a data attribute:</p>
+        <div class="mt-4 code-block rounded-xl border border-default bg-secondary-900 text-secondary-100 overflow-hidden">
+          <div class="flex items-center justify-between border-b border-secondary-700 px-4 py-2">
+            <span class="text-xs text-secondary-400">HTML + CSS</span>
+            <button type="button" class="copy-btn text-xs text-secondary-400 hover:text-white" data-copy>Copy</button>
+          </div>
+          <pre class="p-4 text-xs overflow-x-auto"><code>&lt;html data-theme="ocean"&gt;…&lt;/html&gt;
+
+[data-theme="ocean"] {
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+}</code></pre>
+        </div>
+
+        <h2 class="mt-10 text-xl font-semibold">Other tokens</h2>
+        <ul class="mt-3 space-y-2 text-sm text-muted">
+          <li><code class="text-xs bg-surface-muted px-1 rounded">--font-sans</code>, <code class="text-xs bg-surface-muted px-1 rounded">--font-display</code> — font families</li>
+          <li><code class="text-xs bg-surface-muted px-1 rounded">--radius-sm</code> … <code class="text-xs bg-surface-muted px-1 rounded">--radius-3xl</code> — border radius</li>
+          <li><code class="text-xs bg-surface-muted px-1 rounded">--shadow-sm</code> … <code class="text-xs bg-surface-muted px-1 rounded">--shadow-2xl</code> — elevation</li>
+          <li><code class="text-xs bg-surface-muted px-1 rounded">--color-surface</code>, <code class="text-xs bg-surface-muted px-1 rounded">--color-border</code>, <code class="text-xs bg-surface-muted px-1 rounded">--color-text</code> — surfaces & text</li>
+        </ul>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const stored = localStorage.getItem('ui-framework-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((stored || (prefersDark ? 'dark' : 'light')) === 'dark') root.classList.add('dark');
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('ui-framework-theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    });
+    overlay?.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.closest('.code-block')?.querySelector('code')?.textContent || '';
+        navigator.clipboard.writeText(code).then(() => {
+          const prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = prev, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

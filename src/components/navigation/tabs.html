@@ -1,0 +1,35 @@
+<!--
+  UI Framework — Tabs
+-->
+
+<div data-tabs-root>
+  <div data-tabs role="tablist" aria-label="Example tabs" class="flex border-b border-default">
+    <button type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0"
+      class="border-b-2 border-primary-600 px-4 py-2.5 text-sm font-medium text-primary-600">
+      Account
+    </button>
+    <button type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"
+      class="border-b-2 border-transparent px-4 py-2.5 text-sm font-medium text-muted hover:text-default">
+      Password
+    </button>
+    <button type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"
+      class="border-b-2 border-transparent px-4 py-2.5 text-sm font-medium text-muted hover:text-default">
+      Notifications
+    </button>
+  </div>
+
+  <div class="pt-6">
+    <div role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+      <h3 class="text-base font-semibold text-default">Account settings</h3>
+      <p class="mt-2 text-sm text-muted">Manage your account information and preferences here.</p>
+    </div>
+    <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden class="hidden">
+      <h3 class="text-base font-semibold text-default">Password</h3>
+      <p class="mt-2 text-sm text-muted">Update your password and security settings.</p>
+    </div>
+    <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden class="hidden">
+      <h3 class="text-base font-semibold text-default">Notifications</h3>
+      <p class="mt-2 text-sm text-muted">Choose how you receive notifications.</p>
+    </div>
+  </div>
+</div>

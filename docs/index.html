@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Framework — Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b'
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617'
+                        },
+                        success: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16'
+                        },
+                        danger: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d',
+                            950: '#450a0a'
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../src/css/themes.css">
+    <style>
+        body {
+            font-family: Inter, system-ui, sans-serif;
+        }
+        .text-default {
+            color: var(--color-text);
+        }
+        .text-muted {
+            color: var(--color-text-muted);
+        }
+        .text-subtle {
+            color: var(--color-text-subtle);
+        }
+        .bg-background {
+            background-color: var(--color-background);
+        }
+        .bg-surface {
+            background-color: var(--color-surface);
+        }
+        .bg-surface-muted {
+            background-color: var(--color-surface-muted);
+        }
+        .border-default {
+            border-color: var(--color-border);
+        }
+        .prose-docs h2 {
+            scroll-margin-top: 5rem;
+        }
+        pre {
+            tab-size: 2;
+        }
+        .code-block {
+            position: relative;
+        }
+        .copy-btn {
+            opacity: 0;
+            transition: opacity .15s;
+        }
+        .code-block:hover .copy-btn {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-default antialiased">
+
+    <div class="min-h-screen flex flex-col">
+        <!-- Top bar -->
+        <header class="sticky top-0 z-40 border-b border-default bg-surface/95 backdrop-blur">
+            <div class="flex h-14 items-center gap-4 px-4 sm:px-6">
+                <button type="button" id="sidebarToggle" class="lg:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Toggle sidebar">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                </button>
+                <a href="index.html" class="flex items-center gap-2 font-semibold text-sm">
+                    <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary-600 text-xs font-bold text-white">UI</span>
+                    <span class="hidden sm:inline">Framework Docs</span>
+                </a>
+                <div class="flex-1"></div>
+                <div class="relative hidden md:block w-64">
+                    <svg class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-subtle" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    <input type="search" id="docSearch" placeholder="Search docs..." class="w-full rounded-lg border border-default bg-surface py-1.5 pl-9 pr-3 text-sm placeholder:text-subtle focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+                </div>
+                <button id="themeToggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Toggle theme">
+                    <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>
+                    <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
+                </button>
+            </div>
+        </header>
+
+        <div class="flex flex-1">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 border-r border-default bg-surface pt-14 transform -translate-x-full lg:translate-x-0 lg:static lg:pt-0 transition-transform duration-200">
+                <nav class="h-full overflow-y-auto px-4 py-6 space-y-6 text-sm">
+                    <div>
+                        <p class="px-2 text-xs font-semibold uppercase tracking-wider text-subtle mb-2">
+                            Getting Started
+                        </p>
+                        <ul class="space-y-0.5">
+                            <li><a href="index.html" class="block rounded-lg px-2 py-1.5 font-medium bg-primary-50 text-primary-700 dark:bg-primary-950 dark:text-primary-300">Introduction</a></li>
+                            <li><a href="installation.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Installation</a></li>
+                            <li><a href="theming.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Theming</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="px-2 text-xs font-semibold uppercase tracking-wider text-subtle mb-2">
+                            Components
+                        </p>
+                        <ul class="space-y-0.5">
+                            <li><a href="components/buttons.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Buttons</a></li>
+                            <li><a href="components/forms.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Forms</a></li>
+                            <li><a href="components/cards.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Cards</a></li>
+                            <li><a href="components/alerts.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Alerts</a></li>
+                            <li><a href="components/modal.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Modal</a></li>
+                            <li><a href="components/tabs.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Tabs</a></li>
+                            <li><a href="components/accordion.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Accordion</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="px-2 text-xs font-semibold uppercase tracking-wider text-subtle mb-2">
+                            Examples
+                        </p>
+                        <ul class="space-y-0.5">
+                            <li><a href="../public/landing.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Landing Page</a></li>
+                            <li><a href="../public/phase2.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Phase 2 Showcase</a></li>
+                            <li><a href="../public/phase3.html" class="block rounded-lg px-2 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Phase 3 Showcase</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Overlay for mobile sidebar -->
+            <div id="sidebarOverlay" class="fixed inset-0 z-20 bg-secondary-900/50 hidden lg:hidden"></div>
+
+            <!-- Main content -->
+            <main class="flex-1 min-w-0 px-4 py-8 sm:px-6 lg:px-10 max-w-3xl mx-auto lg:mx-0">
+                <article class="prose-docs">
+                    <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Introduction</h1>
+                    <p class="mt-4 text-lg text-muted">
+                        A complete, modern, responsive UI framework built on <strong class="text-default">Tailwind CSS v3</strong>. Copy-paste friendly components, accessible interactions, and a consistent design system.
+                    </p>
+
+                    <div class="mt-8 rounded-xl border border-default bg-surface p-6">
+                        <h2 class="text-base font-semibold">What you get</h2>
+                        <ul class="mt-3 space-y-2 text-sm text-muted">
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Design tokens (colors, radii, shadows, typography)</li>
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Core components: Buttons, Forms, Cards, Badges, Alerts</li>
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Advanced: Modal, Drawer, Tabs, Accordion, Dropdown, Toast, Tooltip</li>
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Marketing sections: Hero, Features, Pricing, Testimonials, CTA</li>
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Auth & Error pages</li>
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Light / Dark theme system</li>
+                            <li class="flex gap-2"><span class="text-success-500">✓</span> Vanilla JS interactions (no heavy dependencies)</li>
+                        </ul>
+                    </div>
+
+                    <h2 id="philosophy" class="mt-12 text-xl font-semibold">Philosophy</h2>
+                    <ul class="mt-4 space-y-3 text-sm text-muted">
+                        <li><strong class="text-default">Component-first</strong> — each component can be used independently.</li>
+                        <li><strong class="text-default">Copy-paste friendly</strong> — take the HTML + Tailwind classes and drop them into any project.</li>
+                        <li><strong class="text-default">Mobile-first</strong> — every component is designed for small screens first.</li>
+                        <li><strong class="text-default">Accessible</strong> — semantic HTML, ARIA, keyboard support, focus management.</li>
+                        <li><strong class="text-default">Themeable</strong> — change colors, radii, and fonts via CSS variables without rewriting components.</li>
+                    </ul>
+
+                    <h2 id="quick-start" class="mt-12 text-xl font-semibold">Quick start</h2>
+                    <p class="mt-3 text-sm text-muted">
+                        The fastest way to try components is to open the showcase pages:
+                    </p>
+                    <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                        <a href="../public/landing.html" class="rounded-lg border border-default bg-surface p-4 hover:border-primary-300 transition">
+                            <p class="font-medium text-sm">
+                                Landing Page
+                            </p>
+                            <p class="mt-1 text-xs text-muted">
+                                Full marketing page example
+                            </p>
+                        </a>
+                        <a href="../public/phase3.html" class="rounded-lg border border-default bg-surface p-4 hover:border-primary-300 transition">
+                            <p class="font-medium text-sm">
+                                Interactive Components
+                            </p>
+                            <p class="mt-1 text-xs text-muted">
+                                Modal, Tabs, Accordion, Toast…
+                            </p>
+                        </a>
+                    </div>
+
+                    <h2 id="structure" class="mt-12 text-xl font-semibold">Project structure</h2>
+                    <div class="mt-4 code-block rounded-xl border border-default bg-secondary-900 text-secondary-100 overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-secondary-700 px-4 py-2">
+                            <span class="text-xs text-secondary-400">project</span>
+                            <button type="button" class="copy-btn text-xs text-secondary-400 hover:text-white" data-copy>Copy</button>
+                        </div>
+                        <pre class="p-4 text-xs overflow-x-auto leading-relaxed"><code>ui-framework/
+                            ├── src/
+                            │   ├── css/           # themes, base, components, utilities
+                            │   ├── js/            # core + component modules
+                            │   └── components/    # HTML snippets by category
+                            ├── docs/              # This documentation
+                            ├── public/            # Showcase & example pages
+                            ├── tailwind.config.js
+                            ├── postcss.config.js
+                            └── package.json</code></pre>
+                    </div>
+
+                    <h2 id="next" class="mt-12 text-xl font-semibold">Next steps</h2>
+                    <ol class="mt-4 list-decimal list-inside space-y-2 text-sm text-muted">
+                        <li><a href="installation.html" class="text-primary-600 hover:underline">Install</a> the framework in your project</li>
+                        <li>Configure <a href="theming.html" class="text-primary-600 hover:underline">theming</a> to match your brand</li>
+                        <li>Browse <a href="components/buttons.html" class="text-primary-600 hover:underline">components</a> and copy the ones you need</li>
+                    </ol>
+                </article>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Theme
+        const root = document.documentElement;
+        const stored = localStorage.getItem('ui-framework-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if ((stored || (prefersDark ? 'dark': 'light')) === 'dark') root.classList.add('dark');
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            root.classList.toggle('dark');
+            localStorage.setItem('ui-framework-theme', root.classList.contains('dark') ? 'dark': 'light');
+        });
+
+        // Sidebar mobile
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        });
+        overlay?.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+        });
+
+        // Copy code
+        document.querySelectorAll('[data-copy]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.closest('.code-block')?.querySelector('code')?.textContent || '';
+                navigator.clipboard.writeText(code).then(() => {
+                    const prev = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => btn.textContent = prev, 1500);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

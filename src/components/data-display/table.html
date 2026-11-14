@@ -1,0 +1,78 @@
+<!--
+  UI Framework — Responsive Table
+-->
+
+<div class="overflow-x-auto rounded-xl border border-default">
+  <table class="min-w-full divide-y divide-default text-sm">
+    <thead class="bg-surface-muted">
+      <tr>
+        <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">Name</th>
+        <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">Status</th>
+        <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted">Role</th>
+        <th scope="col" class="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-muted">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-default bg-surface">
+      <tr class="hover:bg-surface-muted/50 transition">
+        <td class="whitespace-nowrap px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="" class="h-8 w-8 rounded-full object-cover">
+            <div>
+              <p class="font-medium text-default">Alex Rivera</p>
+              <p class="text-xs text-muted">alex@example.com</p>
+            </div>
+          </div>
+        </td>
+        <td class="whitespace-nowrap px-4 py-3">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-success-50 px-2 py-0.5 text-xs font-medium text-success-700 dark:bg-success-950 dark:text-success-300">
+            <span class="h-1.5 w-1.5 rounded-full bg-success-500"></span> Active
+          </span>
+        </td>
+        <td class="whitespace-nowrap px-4 py-3 text-muted">Admin</td>
+        <td class="whitespace-nowrap px-4 py-3 text-right">
+          <button type="button" class="text-sm font-medium text-primary-600 hover:text-primary-500">Edit</button>
+        </td>
+      </tr>
+      <tr class="hover:bg-surface-muted/50 transition">
+        <td class="whitespace-nowrap px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="" class="h-8 w-8 rounded-full object-cover">
+            <div>
+              <p class="font-medium text-default">Sarah Chen</p>
+              <p class="text-xs text-muted">sarah@example.com</p>
+            </div>
+          </div>
+        </td>
+        <td class="whitespace-nowrap px-4 py-3">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-warning-50 px-2 py-0.5 text-xs font-medium text-warning-700 dark:bg-warning-950 dark:text-warning-300">
+            <span class="h-1.5 w-1.5 rounded-full bg-warning-500"></span> Away
+          </span>
+        </td>
+        <td class="whitespace-nowrap px-4 py-3 text-muted">Editor</td>
+        <td class="whitespace-nowrap px-4 py-3 text-right">
+          <button type="button" class="text-sm font-medium text-primary-600 hover:text-primary-500">Edit</button>
+        </td>
+      </tr>
+      <tr class="hover:bg-surface-muted/50 transition">
+        <td class="whitespace-nowrap px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="" class="h-8 w-8 rounded-full object-cover">
+            <div>
+              <p class="font-medium text-default">Marcus Lee</p>
+              <p class="text-xs text-muted">marcus@example.com</p>
+            </div>
+          </div>
+        </td>
+        <td class="whitespace-nowrap px-4 py-3">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary-100 px-2 py-0.5 text-xs font-medium text-secondary-700 dark:bg-secondary-800 dark:text-secondary-300">
+            <span class="h-1.5 w-1.5 rounded-full bg-secondary-400"></span> Offline
+          </span>
+        </td>
+        <td class="whitespace-nowrap px-4 py-3 text-muted">Viewer</td>
+        <td class="whitespace-nowrap px-4 py-3 text-right">
+          <button type="button" class="text-sm font-medium text-primary-600 hover:text-primary-500">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

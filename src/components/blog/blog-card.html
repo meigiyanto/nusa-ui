@@ -1,0 +1,83 @@
+<!--
+  UI Framework — Blog Card + Grid Section
+-->
+
+<section class="bg-background py-16 sm:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-default">Latest articles</h2>
+        <p class="mt-2 text-muted">Insights, tutorials, and updates from the team.</p>
+      </div>
+      <a href="#" class="text-sm font-semibold text-primary-600 hover:text-primary-500">View all →</a>
+    </div>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <article class="group flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm transition hover:shadow-md">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="" class="h-full w-full object-cover transition group-hover:scale-105 duration-300">
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <div class="flex items-center gap-2 text-xs text-muted">
+            <span class="font-medium text-primary-600">Engineering</span>
+            <span aria-hidden="true">·</span>
+            <time datetime="2026-11-01">Nov 1, 2026</time>
+          </div>
+          <h3 class="mt-3 text-lg font-semibold text-default group-hover:text-primary-600 transition">
+            <a href="#">Building a design system that scales</a>
+          </h3>
+          <p class="mt-2 flex-1 text-sm text-muted line-clamp-2">Lessons learned from creating a consistent component library used by multiple teams.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-sm font-medium text-default">Alex Rivera</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="group flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm transition hover:shadow-md">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop" alt="" class="h-full w-full object-cover transition group-hover:scale-105 duration-300">
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <div class="flex items-center gap-2 text-xs text-muted">
+            <span class="font-medium text-primary-600">Design</span>
+            <span aria-hidden="true">·</span>
+            <time datetime="2026-10-22">Oct 22, 2026</time>
+          </div>
+          <h3 class="mt-3 text-lg font-semibold text-default group-hover:text-primary-600 transition">
+            <a href="#">Accessible forms that users love</a>
+          </h3>
+          <p class="mt-2 flex-1 text-sm text-muted line-clamp-2">Practical patterns for labels, errors, and focus states that pass accessibility audits.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-sm font-medium text-default">Sarah Chen</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="group flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm transition hover:shadow-md">
+        <div class="aspect-[16/10] overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="" class="h-full w-full object-cover transition group-hover:scale-105 duration-300">
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <div class="flex items-center gap-2 text-xs text-muted">
+            <span class="font-medium text-primary-600">Product</span>
+            <span aria-hidden="true">·</span>
+            <time datetime="2026-10-10">Oct 10, 2026</time>
+          </div>
+          <h3 class="mt-3 text-lg font-semibold text-default group-hover:text-primary-600 transition">
+            <a href="#">Why we chose Tailwind CSS v3</a>
+          </h3>
+          <p class="mt-2 flex-1 text-sm text-muted line-clamp-2">A deep dive into the decision process and the benefits we saw after migration.</p>
+          <div class="mt-4 flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" alt="" class="h-8 w-8 rounded-full object-cover">
+            <span class="text-sm font-medium text-default">Marcus Lee</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

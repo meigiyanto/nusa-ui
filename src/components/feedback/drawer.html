@@ -1,0 +1,45 @@
+<!--
+  UI Framework — Drawer (Right side)
+-->
+
+<button type="button" data-drawer-open="demo-drawer"
+  class="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700">
+  Open Drawer
+</button>
+
+<div id="demo-drawer" data-drawer data-drawer-side="right" class="fixed inset-0 z-modal hidden" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+  <!-- Backdrop -->
+  <div data-drawer-backdrop class="absolute inset-0 bg-secondary-900/60 opacity-0 transition-opacity duration-300"></div>
+
+  <!-- Panel -->
+  <div data-drawer-panel
+    class="absolute inset-y-0 right-0 flex w-full max-w-md flex-col border-l border-default bg-surface shadow-xl transition-transform duration-300 translate-x-full">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-default px-6 py-4">
+      <h2 id="drawer-title" class="text-lg font-semibold text-default">Drawer Title</h2>
+      <button type="button" data-drawer-close class="rounded-lg p-1.5 text-muted hover:bg-surface-muted" aria-label="Close">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="flex-1 overflow-y-auto px-6 py-5">
+      <p class="text-sm text-muted">
+        Drawers are perfect for navigation, filters, or secondary content that shouldn’t take over the whole screen.
+      </p>
+      <div class="mt-6 space-y-3">
+        <a href="#" class="block rounded-lg px-3 py-2 text-sm font-medium text-default hover:bg-surface-muted">Menu item 1</a>
+        <a href="#" class="block rounded-lg px-3 py-2 text-sm font-medium text-default hover:bg-surface-muted">Menu item 2</a>
+        <a href="#" class="block rounded-lg px-3 py-2 text-sm font-medium text-default hover:bg-surface-muted">Menu item 3</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="border-t border-default px-6 py-4">
+      <button type="button" data-drawer-close
+        class="w-full rounded-lg bg-primary-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-primary-700">
+        Done
+      </button>
+    </div>
+  </div>
+</div>
