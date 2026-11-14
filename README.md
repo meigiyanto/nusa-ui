@@ -1,74 +1,117 @@
 # UI Framework
 
-A complete, modern, responsive UI Framework built on **Tailwind CSS v3**.
+**v1.0.0** · Complete responsive UI framework on **Tailwind CSS v3**
 
-## Features
+Copy-paste components · Accessible interactions · Light / dark themes · Vanilla JS
 
-- Design System with CSS variables (Light / Dark / Custom themes)
-- Mobile-first responsive components
-- Accessible (WCAG 2.2 AA oriented)
-- Copy-paste friendly markup
-- Vanilla JavaScript interactions
-- Component-first architecture
+---
 
-## Requirements
-
-- Node.js 18+
-- npm 9+
-
-## Installation
+## Quick start
 
 ```bash
 npm install
+npm run build          # → dist/css/framework.css
+npm run examples       # serve public/ (hub + showcases)
+npm run docs           # serve documentation
 ```
 
-## Development
+Open **`public/index.html`** for the hub linking all showcases and docs.
 
-```bash
-# Watch & rebuild CSS
-npm run dev
-
-# Production CSS build
-npm run build
-```
-
-## Project Structure
+## Architecture
 
 ```
 ui-framework/
 ├── src/
-│   ├── css/           # Tailwind entry + design tokens + components
-│   ├── js/            # Core + component scripts
-│   ├── components/    # HTML component snippets (organized by category)
-│   └── assets/
-├── docs/              # Documentation site
-├── examples/          # Live examples & showcases
-├── dist/              # Built CSS/JS
-├── public/
-├── scripts/
-├── tests/
+│   ├── css/                 # Design system + Tailwind entry
+│   │   ├── themes.css       # Tokens (colors, radii, shadows, fonts)
+│   │   ├── base.css
+│   │   ├── components.css
+│   │   ├── utilities.css
+│   │   └── tailwind.css
+│   ├── js/
+│   │   ├── core.js          # Theme, DOM, focus trap
+│   │   ├── index.js         # Boot all interactions
+│   │   └── components/      # modal, drawer, tabs, …
+│   └── components/          # HTML snippets (copy-paste)
+│       ├── INDEX.md         # Full catalog
+│       ├── buttons/ forms/ cards/ …
+│       ├── ecommerce/ dashboard/
+│       └── marketing/ blog/ heroes/
+├── public/                  # Live demos
+│   ├── index.html           # Hub
+│   ├── phase2.html          # Core
+│   ├── phase3.html          # Advanced
+│   ├── phase4.html          # Sections
+│   └── landing.html
+├── docs/                    # Documentation site
 ├── tailwind.config.js
 ├── postcss.config.js
 └── package.json
 ```
 
-## Design Tokens
+## What’s included
 
-Colors, radii, shadows, fonts are defined as CSS custom properties in `src/css/themes.css` and wired into Tailwind via `tailwind.config.js`.
+| Area | Contents |
+|------|----------|
+| **Design system** | Colors 50–950, surfaces, radii, shadows, fonts; light + dark + custom theme |
+| **Core** | Buttons, forms, cards, badges, alerts |
+| **Advanced** | Modal, drawer, tabs, accordion, dropdown, toast, tooltip, tables |
+| **Sections** | Heroes, features, pricing, testimonials, CTA, FAQ, team, logo cloud, blog |
+| **E-commerce** | Product card, product grid, cart summary |
+| **Dashboard** | Sidebar layout, stats, activity |
+| **Auth & errors** | Login, register, forgot password, 404, 500 |
+| **Docs** | Install, theming, usage, buttons, QA |
 
-Switch theme:
+## Usage
+
+**Built CSS + modules**
+
+```html
+<link rel="stylesheet" href="/dist/css/framework.css" />
+<script type="module" src="/src/js/index.js"></script>
+```
+
+**Copy-paste** — HTML from `src/components/**` (see `src/components/INDEX.md`).
+
+**Theme API**
 
 ```js
-import { setTheme, toggleTheme } from './src/js/core.js';
-setTheme('dark');
-// or
+import { initTheme, setTheme, toggleTheme } from './src/js/core.js';
+initTheme();
 toggleTheme();
 ```
 
-## Browser Support
+## Showcases
 
-Modern browsers (last 2 versions of Chrome, Firefox, Safari, Edge).
+| Page | Description |
+|------|-------------|
+| `public/index.html` | Hub |
+| `public/phase2.html` | Buttons, forms, cards, alerts |
+| `public/phase3.html` | Modal, tabs, accordion, toast |
+| `public/phase4.html` | Shop, dashboard, auth, marketing |
+| `public/landing.html` | Full landing page |
+
+## Documentation
+
+| Page | Path |
+|------|------|
+| Introduction | `docs/index.html` |
+| Installation | `docs/installation.html` |
+| Theming | `docs/theming.html` |
+| Usage | `docs/usage.md` |
+| Buttons | `docs/components/buttons.html` |
+| Component index | `src/components/INDEX.md` |
+| QA checklist | `docs/qa-checklist.md` |
+
+## Requirements
+
+- Node.js 18+
+- Tailwind CSS **v3.x** (not v4)
 
 ## License
 
-MIT
+MIT — see [LICENSE](./LICENSE).
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md).

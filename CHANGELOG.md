@@ -36,10 +36,18 @@ All notable changes to this project are documented in this file.
 
 #### Marketing & Content
 - Hero (centered, split)
-- Features, CTA, Testimonials, Pricing sections
+- Features, CTA, Testimonials, Pricing, FAQ, Logo cloud, Team sections
 - Blog card grid
-- Login page
-- 404 page
+- Login, Register, Forgot password pages
+- 404 and 500 error pages
+
+#### E-Commerce
+- Product card (badge, wishlist, rating, price, CTA)
+- Product grid section with sort
+- Cart / order summary (qty, coupon, checkout)
+
+#### Dashboard
+- Full dashboard layout (sidebar, top bar, stats cards, activity feed)
 
 #### Documentation
 - Docs site with sidebar navigation
@@ -53,6 +61,13 @@ All notable changes to this project are documented in this file.
 - PostCSS + Autoprefixer
 - Vanilla JS component modules
 - Theme persistence (localStorage + system preference)
+
+#### Project refactor (post Phase 1–7)
+- Unified hub at `public/index.html` linking all showcases and docs
+- Component catalog at `src/components/INDEX.md`
+- README restructured as single source of truth for architecture
+- Docs sidebar updated with Phase 4 and hub links
+- Consistent naming across public demos and documentation
 
 ### Notes
 - Framework targets Tailwind CSS **v3** (not v4).

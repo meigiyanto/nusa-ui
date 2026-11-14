@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Framework — Phase 4 Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: {50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81',950:'#1e1b4b'},
+            secondary: {50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a',950:'#020617'},
+            success: {50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16'},
+            danger: {50:'#fef2f2',100:'#fee2e2',200:'#fecaca',300:'#fca5a5',400:'#f87171',500:'#ef4444',600:'#dc2626',700:'#b91c1c',800:'#991b1b',900:'#7f1d1d',950:'#450a0a'},
+            warning: {50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f',950:'#451a03'},
+            info: {50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a',950:'#172554'},
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../src/css/themes.css">
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; }
+    .text-default { color: var(--color-text); }
+    .text-muted { color: var(--color-text-muted); }
+    .text-subtle { color: var(--color-text-subtle); }
+    .bg-background { background-color: var(--color-background); }
+    .bg-surface { background-color: var(--color-surface); }
+    .bg-surface-muted { background-color: var(--color-surface-muted); }
+    .border-default { border-color: var(--color-border); }
+    .divide-default > :not([hidden]) ~ :not([hidden]) { border-color: var(--color-border); }
+  </style>
+</head>
+<body class="bg-background text-default min-h-screen antialiased">
+
+  <!-- Top nav -->
+  <header class="sticky top-0 z-50 border-b border-default bg-surface/95 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 flex h-14 items-center justify-between gap-4">
+      <a href="phase3.html" class="flex items-center gap-2 font-semibold text-sm">
+        <span class="flex h-7 w-7 items-center justify-center rounded-md bg-primary-600 text-xs font-bold text-white">UI</span>
+        Phase 4 — Sections
+      </a>
+      <nav class="hidden md:flex items-center gap-1 text-sm">
+        <a href="#ecommerce" class="rounded-lg px-3 py-1.5 text-muted hover:bg-surface-muted hover:text-default">E-Commerce</a>
+        <a href="#dashboard" class="rounded-lg px-3 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Dashboard</a>
+        <a href="#auth" class="rounded-lg px-3 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Auth</a>
+        <a href="#marketing" class="rounded-lg px-3 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Marketing</a>
+        <a href="#errors" class="rounded-lg px-3 py-1.5 text-muted hover:bg-surface-muted hover:text-default">Errors</a>
+      </nav>
+      <button id="themeToggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Toggle theme">
+        <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+        <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 py-10 space-y-20">
+
+    <!-- Intro -->
+    <section>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Phase 4 — Complete UI Sections</h1>
+      <p class="mt-3 text-muted max-w-2xl">E-Commerce, Dashboard, Authentication, marketing sections (FAQ, team, logo cloud), and error pages.</p>
+    </section>
+
+    <!-- ========== E-COMMERCE ========== -->
+    <section id="ecommerce">
+      <h2 class="text-2xl font-semibold mb-2">E-Commerce</h2>
+      <p class="text-sm text-muted mb-8">Product cards, grid, and cart summary.</p>
+
+      <!-- Product grid -->
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-12">
+        <div class="group relative flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm hover:shadow-md transition">
+          <span class="absolute left-3 top-3 z-10 rounded-full bg-danger-600 px-2 py-0.5 text-xs font-semibold text-white">Sale</span>
+          <div class="aspect-square overflow-hidden bg-surface-muted">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop" alt="Watch" class="h-full w-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex flex-1 flex-col p-4">
+            <p class="text-xs text-muted">Accessories</p>
+            <h3 class="mt-1 text-sm font-semibold">Classic Watch</h3>
+            <div class="mt-2 flex items-baseline gap-2">
+              <span class="font-bold">$129</span>
+              <span class="text-sm text-muted line-through">$159</span>
+            </div>
+            <button type="button" class="mt-3 w-full rounded-lg bg-primary-600 py-2 text-sm font-medium text-white hover:bg-primary-700">Add to cart</button>
+          </div>
+        </div>
+        <div class="group relative flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm hover:shadow-md transition">
+          <div class="aspect-square overflow-hidden bg-surface-muted">
+            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop" alt="Sunglasses" class="h-full w-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex flex-1 flex-col p-4">
+            <p class="text-xs text-muted">Eyewear</p>
+            <h3 class="mt-1 text-sm font-semibold">Sunglasses Pro</h3>
+            <div class="mt-2"><span class="font-bold">$89</span></div>
+            <button type="button" class="mt-3 w-full rounded-lg bg-primary-600 py-2 text-sm font-medium text-white hover:bg-primary-700">Add to cart</button>
+          </div>
+        </div>
+        <div class="group relative flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm hover:shadow-md transition">
+          <span class="absolute left-3 top-3 z-10 rounded-full bg-success-600 px-2 py-0.5 text-xs font-semibold text-white">New</span>
+          <div class="aspect-square overflow-hidden bg-surface-muted">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Headphones" class="h-full w-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex flex-1 flex-col p-4">
+            <p class="text-xs text-muted">Audio</p>
+            <h3 class="mt-1 text-sm font-semibold">Wireless Headphones</h3>
+            <div class="mt-2"><span class="font-bold">$199</span></div>
+            <button type="button" class="mt-3 w-full rounded-lg bg-primary-600 py-2 text-sm font-medium text-white hover:bg-primary-700">Add to cart</button>
+          </div>
+        </div>
+        <div class="group relative flex flex-col overflow-hidden rounded-2xl border border-default bg-surface shadow-sm hover:shadow-md transition">
+          <div class="aspect-square overflow-hidden bg-surface-muted">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Sneakers" class="h-full w-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+          <div class="flex flex-1 flex-col p-4">
+            <p class="text-xs text-muted">Footwear</p>
+            <h3 class="mt-1 text-sm font-semibold">Running Sneakers</h3>
+            <div class="mt-2"><span class="font-bold">$149</span></div>
+            <button type="button" class="mt-3 w-full rounded-lg bg-primary-600 py-2 text-sm font-medium text-white hover:bg-primary-700">Add to cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart summary -->
+      <h3 class="text-lg font-semibold mb-4">Cart summary</h3>
+      <div class="rounded-2xl border border-default bg-surface shadow-sm overflow-hidden max-w-md">
+        <div class="border-b border-default px-5 py-4">
+          <h4 class="font-semibold">Shopping cart</h4>
+          <p class="text-sm text-muted">2 items</p>
+        </div>
+        <ul class="divide-y divide-default">
+          <li class="flex gap-4 px-5 py-4">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop" alt="" class="h-16 w-16 rounded-lg object-cover bg-surface-muted shrink-0">
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium truncate">Classic Watch</p>
+              <p class="text-xs text-muted">Black / 42mm</p>
+              <div class="mt-2 flex items-center justify-between">
+                <div class="inline-flex items-center rounded-lg border border-default">
+                  <button type="button" class="px-2 py-1 text-muted hover:text-default" data-qty-minus>−</button>
+                  <span class="px-2 text-sm font-medium" data-qty>1</span>
+                  <button type="button" class="px-2 py-1 text-muted hover:text-default" data-qty-plus>+</button>
+                </div>
+                <span class="text-sm font-semibold">$129</span>
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-4 px-5 py-4">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&h=80&fit=crop" alt="" class="h-16 w-16 rounded-lg object-cover bg-surface-muted shrink-0">
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium truncate">Wireless Headphones</p>
+              <p class="text-xs text-muted">White</p>
+              <div class="mt-2 flex items-center justify-between">
+                <div class="inline-flex items-center rounded-lg border border-default">
+                  <button type="button" class="px-2 py-1 text-muted hover:text-default">−</button>
+                  <span class="px-2 text-sm font-medium">1</span>
+                  <button type="button" class="px-2 py-1 text-muted hover:text-default">+</button>
+                </div>
+                <span class="text-sm font-semibold">$199</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="border-t border-default px-5 py-4 space-y-3">
+          <div class="flex justify-between text-sm"><span class="text-muted">Subtotal</span><span class="font-medium">$328</span></div>
+          <div class="flex gap-2">
+            <input type="text" placeholder="Coupon code" class="flex-1 rounded-lg border border-default bg-surface px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+            <button type="button" class="rounded-lg border border-default px-3 py-2 text-sm font-medium hover:bg-surface-muted">Apply</button>
+          </div>
+          <button type="button" class="w-full rounded-lg bg-primary-600 py-2.5 text-sm font-semibold text-white hover:bg-primary-700">Checkout</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DASHBOARD ========== -->
+    <section id="dashboard">
+      <h2 class="text-2xl font-semibold mb-2">Dashboard</h2>
+      <p class="text-sm text-muted mb-8">Stats cards and activity overview (full layout available in component file).</p>
+
+      <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-6">
+        <div class="rounded-xl border border-default bg-surface p-5 shadow-sm">
+          <p class="text-sm font-medium text-muted">Revenue</p>
+          <p class="mt-2 text-2xl font-bold">$48,352</p>
+          <p class="mt-1 text-xs text-success-600">+12.5% from last month</p>
+        </div>
+        <div class="rounded-xl border border-default bg-surface p-5 shadow-sm">
+          <p class="text-sm font-medium text-muted">Orders</p>
+          <p class="mt-2 text-2xl font-bold">1,284</p>
+          <p class="mt-1 text-xs text-success-600">+8.2% from last month</p>
+        </div>
+        <div class="rounded-xl border border-default bg-surface p-5 shadow-sm">
+          <p class="text-sm font-medium text-muted">Customers</p>
+          <p class="mt-2 text-2xl font-bold">3,902</p>
+          <p class="mt-1 text-xs text-success-600">+3.1% from last month</p>
+        </div>
+        <div class="rounded-xl border border-default bg-surface p-5 shadow-sm">
+          <p class="text-sm font-medium text-muted">Conversion</p>
+          <p class="mt-2 text-2xl font-bold">3.24%</p>
+          <p class="mt-1 text-xs text-danger-600">-0.4% from last month</p>
+        </div>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-3">
+        <div class="lg:col-span-2 rounded-xl border border-default bg-surface p-5 shadow-sm">
+          <h3 class="text-sm font-semibold">Revenue overview</h3>
+          <div class="mt-4 flex h-40 items-center justify-center rounded-lg bg-surface-muted text-sm text-muted">Chart container</div>
+        </div>
+        <div class="rounded-xl border border-default bg-surface p-5 shadow-sm">
+          <h3 class="text-sm font-semibold">Recent activity</h3>
+          <ul class="mt-4 space-y-3 text-sm">
+            <li class="flex gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-success-500 shrink-0"></span><span class="text-muted">New order <strong class="text-default">#1284</strong></span></li>
+            <li class="flex gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-info-500 shrink-0"></span><span class="text-muted">Customer <strong class="text-default">Sarah C.</strong> signed up</span></li>
+            <li class="flex gap-3"><span class="mt-1.5 h-2 w-2 rounded-full bg-warning-500 shrink-0"></span><span class="text-muted">Payment pending <strong class="text-default">#1280</strong></span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-muted">Full sidebar + header layout: <code class="bg-surface-muted px-1 rounded">src/components/dashboard/dashboard-layout.html</code></p>
+    </section>
+
+    <!-- ========== AUTH ========== -->
+    <section id="auth">
+      <h2 class="text-2xl font-semibold mb-2">Authentication</h2>
+      <p class="text-sm text-muted mb-8">Login, Register, and Forgot password forms.</p>
+
+      <div class="grid gap-8 lg:grid-cols-2">
+        <!-- Login preview -->
+        <div class="rounded-2xl border border-default bg-surface p-6 shadow-sm">
+          <h3 class="text-lg font-semibold mb-4">Sign in</h3>
+          <form class="space-y-4" onsubmit="return false">
+            <div>
+              <label class="block text-sm font-medium mb-1.5">Email</label>
+              <input type="email" placeholder="you@example.com" class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">Password</label>
+              <input type="password" placeholder="••••••••" class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <label class="flex items-center gap-2"><input type="checkbox" class="rounded border-default text-primary-600"> Remember me</label>
+              <a href="#auth" class="font-medium text-primary-600 hover:text-primary-500">Forgot?</a>
+            </div>
+            <button type="submit" class="w-full rounded-lg bg-primary-600 py-2.5 text-sm font-semibold text-white hover:bg-primary-700">Sign in</button>
+          </form>
+        </div>
+
+        <!-- Register preview -->
+        <div class="rounded-2xl border border-default bg-surface p-6 shadow-sm">
+          <h3 class="text-lg font-semibold mb-4">Create account</h3>
+          <form class="space-y-4" onsubmit="return false">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-sm font-medium mb-1.5">First name</label>
+                <input type="text" class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-1.5">Last name</label>
+                <input type="text" class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">Email</label>
+              <input type="email" class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1.5">Password</label>
+              <input type="password" class="block w-full rounded-lg border border-default bg-surface px-3.5 py-2.5 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+            </div>
+            <label class="flex items-start gap-2 text-sm">
+              <input type="checkbox" class="mt-0.5 rounded border-default text-primary-600">
+              <span>I agree to the Terms and Privacy Policy.</span>
+            </label>
+            <button type="submit" class="w-full rounded-lg bg-primary-600 py-2.5 text-sm font-semibold text-white hover:bg-primary-700">Create account</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MARKETING ========== -->
+    <section id="marketing">
+      <h2 class="text-2xl font-semibold mb-2">Marketing sections</h2>
+      <p class="text-sm text-muted mb-8">Logo cloud, team, and FAQ.</p>
+
+      <!-- Logo cloud -->
+      <div class="rounded-2xl border border-default bg-surface p-8 mb-10">
+        <p class="text-center text-sm font-semibold text-muted mb-6">Trusted by innovative teams</p>
+        <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6 items-center opacity-70">
+          <span class="text-center text-sm font-bold text-secondary-400">Acme Corp</span>
+          <span class="text-center text-sm font-bold text-secondary-400">Globex</span>
+          <span class="text-center text-sm font-bold text-secondary-400">Initech</span>
+          <span class="text-center text-sm font-bold text-secondary-400">Umbrella</span>
+          <span class="text-center text-sm font-bold text-secondary-400">Stark Ind</span>
+          <span class="text-center text-sm font-bold text-secondary-400">Hooli</span>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <h3 class="text-lg font-semibold mb-4">Team</h3>
+      <div class="grid gap-6 sm:grid-cols-3 mb-12">
+        <div class="rounded-2xl border border-default bg-surface p-6 text-center shadow-sm">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face" alt="" class="mx-auto h-20 w-20 rounded-full object-cover ring-4 ring-primary-100 dark:ring-primary-900">
+          <h4 class="mt-4 font-semibold">Sarah Chen</h4>
+          <p class="text-sm text-primary-600">Head of Design</p>
+          <p class="mt-2 text-sm text-muted">Clarity, consistency, and inclusive interfaces.</p>
+        </div>
+        <div class="rounded-2xl border border-default bg-surface p-6 text-center shadow-sm">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&crop=face" alt="" class="mx-auto h-20 w-20 rounded-full object-cover ring-4 ring-primary-100 dark:ring-primary-900">
+          <h4 class="mt-4 font-semibold">Alex Rivera</h4>
+          <p class="text-sm text-primary-600">Engineering Lead</p>
+          <p class="mt-2 text-sm text-muted">Fast, accessible systems that scale.</p>
+        </div>
+        <div class="rounded-2xl border border-default bg-surface p-6 text-center shadow-sm">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="" class="mx-auto h-20 w-20 rounded-full object-cover ring-4 ring-primary-100 dark:ring-primary-900">
+          <h4 class="mt-4 font-semibold">Marcus Lee</h4>
+          <p class="text-sm text-primary-600">Product</p>
+          <p class="mt-2 text-sm text-muted">Customer feedback into a clear roadmap.</p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h3 class="text-lg font-semibold mb-4">FAQ</h3>
+      <div data-accordion class="max-w-2xl divide-y divide-default rounded-2xl border border-default">
+        <div>
+          <button type="button" data-accordion-trigger aria-expanded="true" aria-controls="f1" class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium hover:bg-surface-muted">
+            What is included in the free plan?
+            <svg data-accordion-icon class="h-5 w-5 text-muted transition-transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div id="f1" role="region" class="overflow-hidden transition-all duration-200">
+            <div class="px-5 pb-4 text-sm text-muted">All core components, light and dark themes, and community support.</div>
+          </div>
+        </div>
+        <div>
+          <button type="button" data-accordion-trigger aria-expanded="false" aria-controls="f2" class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium hover:bg-surface-muted">
+            Can I use this commercially?
+            <svg data-accordion-icon class="h-5 w-5 text-muted transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div id="f2" role="region" hidden class="overflow-hidden transition-all duration-200" style="max-height:0">
+            <div class="px-5 pb-4 text-sm text-muted">Yes. MIT licensed for personal and commercial use.</div>
+          </div>
+        </div>
+        <div>
+          <button type="button" data-accordion-trigger aria-expanded="false" aria-controls="f3" class="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-medium hover:bg-surface-muted">
+            How do I customize colors?
+            <svg data-accordion-icon class="h-5 w-5 text-muted transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          </button>
+          <div id="f3" role="region" hidden class="overflow-hidden transition-all duration-200" style="max-height:0">
+            <div class="px-5 pb-4 text-sm text-muted">Override CSS variables in themes.css (e.g. --color-primary-600).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ERRORS ========== -->
+    <section id="errors">
+      <h2 class="text-2xl font-semibold mb-2">Error pages</h2>
+      <p class="text-sm text-muted mb-8">404 and 500 states.</p>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="rounded-2xl border border-default bg-surface p-8 text-center shadow-sm">
+          <p class="text-sm font-semibold text-primary-600">404</p>
+          <h3 class="mt-2 text-xl font-bold">Page not found</h3>
+          <p class="mt-2 text-sm text-muted">The page you’re looking for doesn’t exist or was moved.</p>
+          <a href="#" class="mt-6 inline-flex rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">Go home</a>
+        </div>
+        <div class="rounded-2xl border border-default bg-surface p-8 text-center shadow-sm">
+          <p class="text-sm font-semibold text-danger-600">500</p>
+          <h3 class="mt-2 text-xl font-bold">Server error</h3>
+          <p class="mt-2 text-sm text-muted">Something went wrong on our end. Please try again later.</p>
+          <a href="#" class="mt-6 inline-flex rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">Go home</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-default mt-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-muted">
+      <span>Phase 4 Showcase — UI Framework</span>
+      <div class="flex gap-4">
+        <a href="phase2.html" class="hover:text-default">Phase 2</a>
+        <a href="phase3.html" class="hover:text-default">Phase 3</a>
+        <a href="landing.html" class="hover:text-default">Landing</a>
+        <a href="../docs/index.html" class="hover:text-default">Docs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme
+    const root = document.documentElement;
+    const stored = localStorage.getItem('ui-framework-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if ((stored || (prefersDark ? 'dark' : 'light')) === 'dark') root.classList.add('dark');
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('ui-framework-theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Accordion
+    document.querySelectorAll('[data-accordion]').forEach(acc => {
+      acc.querySelectorAll('[data-accordion-trigger]').forEach(trigger => {
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        if (!panel) return;
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
+        trigger.addEventListener('click', () => {
+          const open = trigger.getAttribute('aria-expanded') === 'true';
+          acc.querySelectorAll('[data-accordion-trigger]').forEach(other => {
+            if (other === trigger) return;
+            other.setAttribute('aria-expanded', 'false');
+            const op = document.getElementById(other.getAttribute('aria-controls'));
+            if (op) { op.hidden = true; op.style.maxHeight = '0px'; }
+            other.querySelector('[data-accordion-icon]')?.classList.remove('rotate-180');
+          });
+          trigger.setAttribute('aria-expanded', !open);
+          panel.hidden = open;
+          panel.style.maxHeight = open ? '0px' : panel.scrollHeight + 'px';
+          trigger.querySelector('[data-accordion-icon]')?.classList.toggle('rotate-180', !open);
+        });
+      });
+    });
+
+    // Simple qty demo
+    document.querySelectorAll('[data-qty-plus]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const span = btn.parentElement.querySelector('[data-qty]');
+        if (span) span.textContent = String(Number(span.textContent || 1) + 1);
+      });
+    });
+    document.querySelectorAll('[data-qty-minus]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const span = btn.parentElement.querySelector('[data-qty]');
+        if (span) span.textContent = String(Math.max(1, Number(span.textContent || 1) - 1));
+      });
+    });
+  </script>
+</body>
+</html>

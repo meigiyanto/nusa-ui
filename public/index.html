@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UI Framework — Foundation Test</title>
-  <!-- Temporary CDN for foundation verification. Replace with built CSS in production. -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <title>UI Framework — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            primary: {
-              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
-              400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
-              800: '#3730a3', 900: '#312e81', 950: '#1e1b4b'
-            }
+            primary: {50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81',950:'#1e1b4b'},
+            secondary: {50:'#f8fafc',100:'#f1f5f9',200:'#e2e8f0',300:'#cbd5e1',400:'#94a3b8',500:'#64748b',600:'#475569',700:'#334155',800:'#1e293b',900:'#0f172a',950:'#020617'},
           }
         }
       }
@@ -25,138 +21,91 @@
   <link rel="stylesheet" href="../src/css/themes.css">
   <style>
     body { font-family: Inter, system-ui, sans-serif; }
+    .text-default { color: var(--color-text); }
+    .text-muted { color: var(--color-text-muted); }
+    .bg-background { background-color: var(--color-background); }
+    .bg-surface { background-color: var(--color-surface); }
+    .bg-surface-muted { background-color: var(--color-surface-muted); }
+    .border-default { border-color: var(--color-border); }
   </style>
 </head>
-<body class="bg-background text-default min-h-screen">
-  <div class="container mx-auto px-4 py-12 max-w-5xl">
-    <header class="mb-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div>
-        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">UI Framework</h1>
-        <p class="text-muted mt-1">Phase 1 — Foundation Test</p>
+<body class="bg-background text-default min-h-screen antialiased">
+  <header class="border-b border-default bg-surface/95 backdrop-blur sticky top-0 z-40">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 flex h-14 items-center justify-between">
+      <div class="flex items-center gap-2 font-semibold">
+        <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600 text-sm font-bold text-white">UI</span>
+        Framework
       </div>
-      <button id="themeToggle" type="button"
-        class="inline-flex items-center gap-2 rounded-lg border border-default bg-surface px-4 py-2 text-sm font-medium shadow-sm hover:bg-surface-muted transition">
-        Toggle Theme
-      </button>
-    </header>
-
-    <!-- Color System -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold mb-6">Color System</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
-        <div class="space-y-1">
-          <div class="h-12 rounded-lg bg-primary-500"></div>
-          <p class="text-xs text-muted">Primary</p>
-        </div>
-        <div class="space-y-1">
-          <div class="h-12 rounded-lg bg-secondary-500"></div>
-          <p class="text-xs text-muted">Secondary</p>
-        </div>
-        <div class="space-y-1">
-          <div class="h-12 rounded-lg bg-success-500"></div>
-          <p class="text-xs text-muted">Success</p>
-        </div>
-        <div class="space-y-1">
-          <div class="h-12 rounded-lg bg-danger-500"></div>
-          <p class="text-xs text-muted">Danger</p>
-        </div>
-        <div class="space-y-1">
-          <div class="h-12 rounded-lg bg-warning-500"></div>
-          <p class="text-xs text-muted">Warning</p>
-        </div>
-        <div class="space-y-1">
-          <div class="h-12 rounded-lg bg-info-500"></div>
-          <p class="text-xs text-muted">Info</p>
-        </div>
+      <div class="flex items-center gap-3">
+        <a href="../docs/index.html" class="text-sm font-medium text-muted hover:text-default">Docs</a>
+        <button id="themeToggle" type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted hover:bg-surface-muted" aria-label="Toggle theme">
+          <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>
+          <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+        </button>
       </div>
+    </div>
+  </header>
 
-      <h3 class="text-lg font-medium mt-8 mb-3">Primary Scale</h3>
-      <div class="flex flex-wrap gap-1">
-        <div class="w-10 h-10 rounded bg-primary-50" title="50"></div>
-        <div class="w-10 h-10 rounded bg-primary-100" title="100"></div>
-        <div class="w-10 h-10 rounded bg-primary-200" title="200"></div>
-        <div class="w-10 h-10 rounded bg-primary-300" title="300"></div>
-        <div class="w-10 h-10 rounded bg-primary-400" title="400"></div>
-        <div class="w-10 h-10 rounded bg-primary-500" title="500"></div>
-        <div class="w-10 h-10 rounded bg-primary-600" title="600"></div>
-        <div class="w-10 h-10 rounded bg-primary-700" title="700"></div>
-        <div class="w-10 h-10 rounded bg-primary-800" title="800"></div>
-        <div class="w-10 h-10 rounded bg-primary-900" title="900"></div>
-        <div class="w-10 h-10 rounded bg-primary-950" title="950"></div>
-      </div>
-    </section>
+  <main class="mx-auto max-w-5xl px-4 sm:px-6 py-12">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold text-primary-600">v1.0.0 · Tailwind CSS v3</p>
+      <h1 class="mt-2 text-4xl font-bold tracking-tight">UI Framework</h1>
+      <p class="mt-4 text-lg text-muted">Complete, responsive component library. Copy-paste friendly, accessible, light & dark themes.</p>
+    </div>
 
-    <!-- Typography -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold mb-6">Typography</h2>
-      <div class="space-y-4">
-        <h1 class="text-4xl md:text-5xl font-bold">Heading 1</h1>
-        <h2 class="text-3xl md:text-4xl font-bold">Heading 2</h2>
-        <h3 class="text-2xl md:text-3xl font-semibold">Heading 3</h3>
-        <h4 class="text-xl font-semibold">Heading 4</h4>
-        <p class="text-base text-default max-w-prose">
-          Body text. The quick brown fox jumps over the lazy dog. Design systems help maintain consistency across large applications and websites.
-        </p>
-        <p class="text-sm text-muted">Caption / helper text style.</p>
-        <p class="text-xs uppercase tracking-wider text-subtle">Overline</p>
-      </div>
-    </section>
+    <h2 class="mt-14 text-xl font-semibold">Showcases</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <a href="phase2.html" class="rounded-2xl border border-default bg-surface p-6 shadow-sm hover:border-primary-300 hover:shadow-md transition">
+        <span class="text-xs font-semibold text-primary-600">Phase 2</span>
+        <h3 class="mt-2 font-semibold">Core components</h3>
+        <p class="mt-1 text-sm text-muted">Buttons, forms, cards, alerts, badges</p>
+      </a>
+      <a href="phase3.html" class="rounded-2xl border border-default bg-surface p-6 shadow-sm hover:border-primary-300 hover:shadow-md transition">
+        <span class="text-xs font-semibold text-primary-600">Phase 3</span>
+        <h3 class="mt-2 font-semibold">Advanced</h3>
+        <p class="mt-1 text-sm text-muted">Modal, drawer, tabs, accordion, toast</p>
+      </a>
+      <a href="phase4.html" class="rounded-2xl border border-default bg-surface p-6 shadow-sm hover:border-primary-300 hover:shadow-md transition">
+        <span class="text-xs font-semibold text-primary-600">Phase 4</span>
+        <h3 class="mt-2 font-semibold">Sections</h3>
+        <p class="mt-1 text-sm text-muted">E-commerce, dashboard, auth, marketing</p>
+      </a>
+      <a href="landing.html" class="rounded-2xl border border-default bg-surface p-6 shadow-sm hover:border-primary-300 hover:shadow-md transition">
+        <span class="text-xs font-semibold text-primary-600">Example</span>
+        <h3 class="mt-2 font-semibold">Landing page</h3>
+        <p class="mt-1 text-sm text-muted">Full marketing page assembly</p>
+      </a>
+      <a href="../docs/index.html" class="rounded-2xl border border-default bg-surface p-6 shadow-sm hover:border-primary-300 hover:shadow-md transition">
+        <span class="text-xs font-semibold text-primary-600">Docs</span>
+        <h3 class="mt-2 font-semibold">Documentation</h3>
+        <p class="mt-1 text-sm text-muted">Install, theming, components</p>
+      </a>
+    </div>
 
-    <!-- Spacing & Surface -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold mb-6">Surface & Border</h2>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div class="rounded-xl border border-default bg-surface p-6 shadow-sm">
-          <h3 class="font-medium mb-1">Surface Card</h3>
-          <p class="text-sm text-muted">Uses surface background and default border.</p>
-        </div>
-        <div class="rounded-xl border border-default bg-surface-muted p-6">
-          <h3 class="font-medium mb-1">Muted Surface</h3>
-          <p class="text-sm text-muted">Subtle background for secondary content.</p>
-        </div>
-      </div>
-    </section>
+    <h2 class="mt-14 text-xl font-semibold">Quick links</h2>
+    <ul class="mt-4 space-y-2 text-sm text-muted">
+      <li><a href="../docs/installation.html" class="text-primary-600 hover:underline">Installation</a></li>
+      <li><a href="../docs/theming.html" class="text-primary-600 hover:underline">Theming</a></li>
+      <li><a href="../docs/usage.md" class="text-primary-600 hover:underline">Usage guide</a></li>
+      <li><a href="../docs/components/buttons.html" class="text-primary-600 hover:underline">Buttons docs</a></li>
+      <li><a href="../src/components/INDEX.md" class="text-primary-600 hover:underline">Component index</a></li>
+    </ul>
+  </main>
 
-    <!-- Responsive Check -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-semibold mb-6">Responsive Breakpoints</h2>
-      <div class="rounded-lg border border-default bg-surface p-4 font-mono text-sm">
-        <p class="sm:hidden">Current: <strong>Mobile</strong> (&lt; 640px)</p>
-        <p class="hidden sm:block md:hidden">Current: <strong>sm</strong> (≥ 640px)</p>
-        <p class="hidden md:block lg:hidden">Current: <strong>md</strong> (≥ 768px)</p>
-        <p class="hidden lg:block xl:hidden">Current: <strong>lg</strong> (≥ 1024px)</p>
-        <p class="hidden xl:block 2xl:hidden">Current: <strong>xl</strong> (≥ 1280px)</p>
-        <p class="hidden 2xl:block">Current: <strong>2xl</strong> (≥ 1536px)</p>
-      </div>
-    </section>
+  <footer class="border-t border-default mt-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 py-8 text-sm text-muted">
+      UI Framework v1.0.0 · MIT License · Tailwind CSS v3
+    </div>
+  </footer>
 
-    <footer class="pt-8 border-t border-default text-sm text-muted">
-      Phase 1 Foundation — Design tokens, theme system, CSS architecture, JS core.
-    </footer>
-  </div>
-
-  <script type="module">
-    // Minimal theme toggle for foundation test
-    const btn = document.getElementById('themeToggle');
+  <script>
     const root = document.documentElement;
-
-    function applyTheme(theme) {
-      if (theme === 'dark') {
-        root.classList.add('dark');
-      } else {
-        root.classList.remove('dark');
-      }
-      localStorage.setItem('ui-framework-theme', theme);
-    }
-
-    // Init
     const stored = localStorage.getItem('ui-framework-theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(stored || (prefersDark ? 'dark' : 'light'));
-
-    btn.addEventListener('click', () => {
-      const next = root.classList.contains('dark') ? 'light' : 'dark';
-      applyTheme(next);
+    if ((stored || (prefersDark ? 'dark' : 'light')) === 'dark') root.classList.add('dark');
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('ui-framework-theme', root.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
 </body>

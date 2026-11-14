@@ -25,8 +25,10 @@
     .text-muted { color: var(--color-text-muted); }
     .text-subtle { color: var(--color-text-subtle); }
     .bg-background { background-color: var(--color-background); }
-    .bg-surface { background-color: var(--color-surface); }
-    .bg-surface-muted { background-color: var(--color-surface-muted); }
+    .bg-surface { background-color: var(--color-surface, #ffffff); }
+    .bg-surface-muted { background-color: var(--color-surface-muted, #f8fafc); }
+    .dark .bg-surface { background-color: var(--color-surface, #1e293b); }
+    .dark .bg-surface-muted { background-color: var(--color-surface-muted, #1e293b); }
     .border-default { border-color: var(--color-border); }
     .code-block { position: relative; }
     .copy-btn { opacity: 0; transition: opacity .15s; }
@@ -53,7 +55,7 @@
     </header>
 
     <div class="flex flex-1">
-      <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 border-r border-default bg-surface pt-14 transform -translate-x-full lg:translate-x-0 lg:static lg:pt-0 transition-transform duration-200">
+      <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 border-r border-default bg-white dark:bg-secondary-900 pt-14 transform -translate-x-full lg:translate-x-0 lg:static lg:pt-0 transition-transform duration-200" style="background-color: var(--color-surface, #ffffff);">
         <nav class="h-full overflow-y-auto px-4 py-6 space-y-6 text-sm">
           <div>
             <p class="px-2 text-xs font-semibold uppercase tracking-wider text-subtle mb-2">Getting Started</p>

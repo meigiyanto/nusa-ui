@@ -1,0 +1,74 @@
+<!--
+  UI Framework — Mini Cart / Order Summary
+-->
+
+<div class="rounded-2xl border border-default bg-surface shadow-sm overflow-hidden max-w-md w-full">
+  <div class="border-b border-default px-5 py-4">
+    <h2 class="text-lg font-semibold text-default">Shopping cart</h2>
+    <p class="text-sm text-muted">3 items</p>
+  </div>
+
+  <ul class="divide-y divide-default">
+    <!-- Item 1 -->
+    <li class="flex gap-4 px-5 py-4">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=80&h=80&fit=crop" alt="" class="h-16 w-16 rounded-lg object-cover bg-surface-muted shrink-0">
+      <div class="flex-1 min-w-0">
+        <h3 class="text-sm font-medium text-default truncate">Classic Watch</h3>
+        <p class="text-xs text-muted mt-0.5">Black / 42mm</p>
+        <div class="mt-2 flex items-center justify-between">
+          <div class="inline-flex items-center rounded-lg border border-default">
+            <button type="button" class="px-2 py-1 text-muted hover:text-default" aria-label="Decrease">−</button>
+            <span class="px-2 text-sm font-medium">1</span>
+            <button type="button" class="px-2 py-1 text-muted hover:text-default" aria-label="Increase">+</button>
+          </div>
+          <span class="text-sm font-semibold text-default">$129</span>
+        </div>
+      </div>
+      <button type="button" class="text-muted hover:text-danger-600 shrink-0" aria-label="Remove">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </li>
+    <!-- Item 2 -->
+    <li class="flex gap-4 px-5 py-4">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=80&h=80&fit=crop" alt="" class="h-16 w-16 rounded-lg object-cover bg-surface-muted shrink-0">
+      <div class="flex-1 min-w-0">
+        <h3 class="text-sm font-medium text-default truncate">Wireless Headphones</h3>
+        <p class="text-xs text-muted mt-0.5">White</p>
+        <div class="mt-2 flex items-center justify-between">
+          <div class="inline-flex items-center rounded-lg border border-default">
+            <button type="button" class="px-2 py-1 text-muted hover:text-default" aria-label="Decrease">−</button>
+            <span class="px-2 text-sm font-medium">2</span>
+            <button type="button" class="px-2 py-1 text-muted hover:text-default" aria-label="Increase">+</button>
+          </div>
+          <span class="text-sm font-semibold text-default">$398</span>
+        </div>
+      </div>
+      <button type="button" class="text-muted hover:text-danger-600 shrink-0" aria-label="Remove">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </li>
+  </ul>
+
+  <div class="border-t border-default px-5 py-4 space-y-3">
+    <div class="flex justify-between text-sm">
+      <span class="text-muted">Subtotal</span>
+      <span class="font-medium text-default">$527</span>
+    </div>
+    <div class="flex justify-between text-sm">
+      <span class="text-muted">Shipping</span>
+      <span class="font-medium text-default">Calculated at checkout</span>
+    </div>
+    <div class="flex justify-between text-base font-semibold">
+      <span class="text-default">Total</span>
+      <span class="text-default">$527</span>
+    </div>
+    <!-- Coupon -->
+    <div class="flex gap-2 pt-1">
+      <input type="text" placeholder="Coupon code" class="flex-1 rounded-lg border border-default bg-surface px-3 py-2 text-sm focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20">
+      <button type="button" class="rounded-lg border border-default px-3 py-2 text-sm font-medium text-default hover:bg-surface-muted">Apply</button>
+    </div>
+    <button type="button" class="w-full rounded-lg bg-primary-600 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition">
+      Checkout
+    </button>
+  </div>
+</div>
